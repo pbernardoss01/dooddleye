@@ -1,0 +1,179 @@
+/*!
+ * Estilos comunes
+ * Patricia Bernardos
+ * Proyecto Final Desarrollo de Aplicaciones Web
+ */
+
+
+/******************************Clases generales***********************************/
+.no-padding{
+    padding: 0%;
+}
+.no-margin{
+    margin: 0px;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #fff;
+    padding-top: 56px;
+}
+
+/*******************************Cabecera***********************************/
+/**Barra redes sociales**/
+.container-bar{
+    height: 1em;
+}
+#barra{ 
+    transform: translateY(-100%);
+}
+
+.container-bar:hover #barra{
+    transform: translateY(0); 
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#barraTop{
+    padding: 0.1em;
+    font-size: 1.5em;
+}
+
+header{
+    background: #fff;
+}
+
+
+#redesSocialesTop a {
+    padding: 0.1rem;
+    font-size: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #999;
+    color: #fff;
+    box-shadow: 0px 0.2em 0.4em rgba(0,0,0,0.4);
+    transition: .3s;
+    margin-left: 2em;
+}
+#redesSocialesTop a:hover {
+    box-shadow: 0px 0.2em 0.4em rgba(0,0,0,0.4);
+    transform: scale(1.05,1.05);
+    background-color: #CF8CC1;
+    color: #fff;
+}
+#redesSocialesTop a i{
+    width: 1.5em;
+
+}
+
+
+#logoTituloCabecera img{
+    max-width: 35%;
+}
+
+
+#barraMenu{
+
+    justify-content: center;
+    columns:#000;
+}
+#barraMenu ul li a{
+    justify-content: center;
+}
+.nav-link{
+    text-transform: uppercase;
+}
+#sliderCarrusel{
+    height: 30em;
+}
+
+.carousel-inner{
+    height: inherit;
+}
+
+
+
+
+
+
+
+/*******************************Footer***********************************/
+footer{
+    background-color: #333;
+}
+#barraMenuFooter ul{
+    display: flex;
+    place-content: center;
+    margin: 1em 0em 3em 0em;
+    color: #CF8CC1;
+}
+#barraMenuFooter ul li a{
+    color: #fff;
+
+}
+
+#redesSocialesFooter{
+    font-size: 1.5em;
+    align-content: center;
+    margin: 0em 0em 3em 0em;
+}
+
+#redesSocialesFooter a {
+    padding: 0.5rem;
+    font-size: 0.8em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+}
+#redesSocialesFooter a i{
+    width: 1.5em;
+}
+
+
+
+
+
+/******************************Modales***********************************/
+#usuarioModal{
+    width: 22em;
+}
+
+#contraseñaModal{
+    width: 22em;
+}
+
+#login{
+    background-color: #A1B1E3; 
+}
+
+.modal-dialog{
+    border: none;
+}
+
+
+.preloader {
+    background-color: #CF8CC1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin:-30px 0 0 -30px;
+    -webkit-animation:spin .7s linear infinite;
+    -moz-animation:spin .7s linear infinite;
+    animation:spin .7s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.preloader img {
+    width: 100%;
+    filter: hue-rotate(90deg);
+}
