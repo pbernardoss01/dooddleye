@@ -2,5 +2,5 @@ RewriteEngine on
 
 RewriteBase /
 
-RewriteCond $1 !^(css|img|js|cache|LayerSlider)
+RewriteCond $1 !^(vendor|css|img|js)
 RewriteRule ^(.*)$ index.php/$1 [L]
