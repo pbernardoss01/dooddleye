@@ -2,5 +2,5 @@ RewriteEngine on
 
 RewriteBase /
 
-RewriteCond $1 !^(vendor|css|img|js|min)
+RewriteCond $1 !^(vendor|css|img|js|min|lightbox-2.6|bootstrap|bundle)
 RewriteRule ^(.*)$ index.php/$1 [L]
