@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteBase /
+
+RewriteCond $1 !^(css|img|js|cache|LayerSlider)
+RewriteRule ^(.*)$ index.php/$1 [L]
