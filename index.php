@@ -1,58 +1,46 @@
-<?php
+<?php 
+/* index.php
+	Fichero principal llamado reiteradamente para cada seccion solicitada
+	El parametro option indica la sección a cargar
+*/
 
-require_once ("config/config.php");
-$url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
-$arrUrl = explode("/", $url);
-$controller = $arrUrl[0];
-$method = $arrUrl[0];
-$params = "";
-
-
-
-if (!empty($arrUrl[1])) {
-    if ($arrUrl[1] != "") {
-        $method = $arrUrl[1];
-    }
-}
-
-if (!empty($arrUrl[2])) {
-    if ($arrUrl[2] != "") {
-        for ($i = 2; $i < count($arrUrl); $i++) {
-            $params .= $arrUrl[$i] . ',';
-        }
-        $params = trim($params, ', ');
-    }
-}
-
-spl_autoload_register(function($class) {
-    //libraries/core/home.php
-    if (file_exists(LIBS . 'core/' . $class . ".php")) {
-        require_once(LIBS . 'core/' . $class . ".php");
-    }
-});
-
-//LOAD
-$controllerFile = "controllers/" . $controller . ".php";
-if (file_exists($controllerFile)) {
-    require_once($controllerFile);
-    $controller = new $controller();
-    if (method_exists($controller, $method)) {
-        $controller->{$method}($params);
-    } else {
-        echo "No existe el metodo";
-    }
-} else {
-    echo "No existe controlador";
-}
+  /* Definir las variables globales de rutas */
+  define('COMPONENT_PATH', './componentes');
 
 
-echo '<br>';
-echo 'Controlador: ' . $controller;
-echo '<br>';
-echo 'Metodo: ' . $method;
-echo '<br>';
-echo "Parametros: " . $params;
+	// framework para construir MVC
+	include 'librerias/framework.php'; 
+?>
 
+<html>
+    <head>      
+      <title>Dooddleye</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="Patricia Bernardos Sobrino">
 
+      <!-- Fontawesome -->
+      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+      <!-- Custom styles for this template -->
+      <link href="css/style.css" rel="stylesheet">
+     
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="js/lightbox/lightbox-2.6.min.js"></script>
+    </head>
+    <body>
+
+      <?php 
+          include COMPONENT_PATH . '/spinner/view.php';
+          // Cuerpo
+          echo loader($componente); 				
+          echo var_dump($_SESSION);
+      ?>
+    </body>
+    
+</html>
