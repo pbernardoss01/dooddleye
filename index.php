@@ -29,11 +29,15 @@
 
       <!-- Custom styles for this template -->
       <link href="css/style.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.2/css/lightbox.min.css" integrity="sha512-Ti0dXGSC2wSEQMf71dgbpgGALde3neZBpp8nOBmDrrSo70xlCoA1cMhtthh0R6fTHtp/bAMMGZ2tIBvxPO6RQg==" crossorigin="anonymous" />
+      
      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-      <script src="js/lightbox/lightbox-2.6.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.2/js/lightbox.min.js" integrity="sha512-Bu8wyKs2hRLHe2vO+uoLNiSwjtniG4qMXXDDm7wlf1UQo+T/iAfLatodyHxX5HE/ErVYxSGu651qGCzRIoYuYg==" crossorigin="anonymous"></script>
+
+
     </head>
     <body>
 
