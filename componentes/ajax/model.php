@@ -71,11 +71,4 @@ class AjaxModel {
     return $result;
   }
 
-  public static function showProducts() {
-    $productos=getProducts();
-   
-    $("#contenido1").append('<h1>'.$productos[0].'</h1>');
-    return $result;
-  }
-
 }

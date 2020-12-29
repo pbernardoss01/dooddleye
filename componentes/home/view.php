@@ -1,19 +1,16 @@
-<div class="row">
-    <div display="none" id="productCard">
+<div  id="rowSeries" class="row" >
+    <div id="productCard" style="display:none">
         <img src=""/>
-        <span>Hover</span>
+        
     </div>
     
 </div>
 
 <script type="text/javascript">
-      const $titulo = $('h1');
-
-    window.addEventListener('load', event_load => {
-       
     
+    window.addEventListener('load', event_load => {
         $.ajax({
-        url: '/dooddleye/',
+        url: '/',
         type: 'POST',
         dataType: "json",
         data: {
@@ -22,18 +19,21 @@
         },
             success: function(data) {
                 console.log(data)
-                const $originalCard = document.querySelector('#productCard')
+                const $productCard = document.querySelector('#productCard')
+                const $rowSeries = document.querySelector('#rowSeries')
 
                 data.forEach(product => {
-                    const clone = $originalCard.cloneNode(true)
+                    const clone = $productCard.cloneNode(true)
                     clone.style.display = 'block'
-                    const $productImg = clone.querySelector('.procut_img')
-                    $productImg.setAttribute('src', ``)
+                    const $productImg = clone.querySelector('img')
+                    $productImg.setAttribute('src', `/img/productos/animals/${product.nombreProducto}.jpg`)
+                    $rowSeries.append(clone)
+
                 })
             },
             error: function(error) {
                 
-                alert(error+"lol");
+                console.log(error,"lol");
             }
         })
         
