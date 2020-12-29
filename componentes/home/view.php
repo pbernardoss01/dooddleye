@@ -6,6 +6,9 @@
     
 </div>
 
+
+
+
 <script type="text/javascript">
     
     window.addEventListener('load', event_load => {
@@ -26,7 +29,7 @@
                     const clone = $productCard.cloneNode(true)
                     clone.style.display = 'block'
                     const $productImg = clone.querySelector('img')
-                    $productImg.setAttribute('src', `/img/productos/animals/${product.nombreProducto}.jpg`)
+                    $productImg.setAttribute('src', `/img/productos/${product.idSerieProducto}/${product.nombreProducto}.jpg`)
                     $rowSeries.append(clone)
 
                 })
