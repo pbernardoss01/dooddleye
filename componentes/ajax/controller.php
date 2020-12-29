@@ -26,8 +26,11 @@ switch ($_POST['action']) {
     case 'mostrarProductos': 
       $_SESSION['productos']="lol";      
       $data = AjaxModel::getProducts();
-      AjaxModel::showProducts();
-      $_SESSION['productos']=$data;      
+
+      echo json_encode($data);
+      exit;
+      // AjaxModel::showProducts();
+      // $_SESSION['productos']=$data;      
     break;
   default:
     echo 'null';

@@ -90,7 +90,7 @@
       {
         console.log("entra")
         $.ajax({
-          url: '/dooddleye/',
+          url: '/',
           type: 'POST',
           data: {
             page: 'ajax',

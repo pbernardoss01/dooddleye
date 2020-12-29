@@ -65,7 +65,7 @@
         alert('Se ha de completar el formulario')
       } else {
         $.ajax({
-          url: '/dooddleye/',
+          url: '/',
           type: 'POST',
           data: {
             page: 'ajax',
@@ -74,7 +74,7 @@
             clave: $inputClave.value,
           },
           success: function(data) {
-           window.location.href="/dooddleye/";
+           window.location.href="/";
           },
           error: function(error) {
             alert(error)
