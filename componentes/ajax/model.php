@@ -70,5 +70,16 @@ class AjaxModel {
 
     return $result;
   }
+  public static function getEntradas() {
+    $db = new database();
+
+    $query = "SELECT * FROM entrada";
+    
+    $db->query($query);
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
+  }
 
 }

@@ -3,7 +3,7 @@
   <div class="container">
     <div class="justify-content-center ">
       <div class=" align-items-center">
-        <a href="index.php"><img src="./img/Logo/logoDooddleye.png" class="img-fluid mx-auto d-block"> </a>
+        <a href="index.php"><img src="./img/logo/logo1.png" class="img-fluid mx-auto d-block"> </a>
       </div>
       <div class="text-center titulo">
         Registro

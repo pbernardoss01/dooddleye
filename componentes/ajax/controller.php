@@ -25,10 +25,15 @@ switch ($_POST['action']) {
     break;
     case 'mostrarProductos': 
       $data = AjaxModel::getProducts();
-      $_SESSION
       echo json_encode($data);
       exit;     
     break;
+    case 'mostrarEntradas': 
+      $data = AjaxModel::getEntradas();
+      echo json_encode($data);
+      exit;     
+    break;
+    
   default:
     echo 'null';
     break;
