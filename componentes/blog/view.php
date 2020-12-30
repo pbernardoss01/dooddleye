@@ -16,7 +16,7 @@
     |
     | 
         
-    <a href="#"><span class="label label-info">Bootstrap</span></a> 
+    <a href="#"><span class="label label-info"></span></a> 
           <a href="#"><span class="label label-info">UI</span></a> 
           <a href="#"><span class="label label-info">growth</span></a>
         </p>

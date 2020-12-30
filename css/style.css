@@ -91,18 +91,25 @@ body {
 
 
 /*******************************Footer***********************************/
+
 footer{
   background-color: var(--gris1);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color:#FFF;
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
 }
+
 #barraMenuFooter ul{
   display: flex;
   place-content: center;
   margin: 1em 0em 3em 0em;
-  color: var(--rosa);
+
 }
 #barraMenuFooter ul li a{
-  color: var(--blanco);
-
+  color: #fff;
 }
 
 #redesSocialesFooter{
