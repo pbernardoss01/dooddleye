@@ -1,5 +1,5 @@
 <div  id="rowSeries" class="row">
-    <div id="productCard" style="display:none" class="col-lg-4 col-md-6 col-sm-12 tarjetaSerie">
+    <div id="productCard" style="display:none" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
         <img class="col-12 imagenSerie" src=""/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Hello World</div>
