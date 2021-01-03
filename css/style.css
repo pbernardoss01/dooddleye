@@ -30,7 +30,7 @@
 
 body {
   overflow-x: hidden;
-
+background-color: #fff;
 }
 
 /*******************************Cabecera***********************************/
@@ -90,53 +90,49 @@ body {
 
 
 
-/*******************************Footer***********************************/
+/*******************************Hover Series***********************************/
 
-footer{
-  background-color: var(--gris1);
-  position: absolute;
-  bottom: 0;
+.tarjetaSerie {
+  position: relative;
+  width: 50%;
+}
+
+.imagenSerie {
+  display: block;
   width: 100%;
-  color:#FFF;
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  height: auto;
 }
 
-#barraMenuFooter ul{
-  display: flex;
-  place-content: center;
-  margin: 1em 0em 3em 0em;
-
-}
-#barraMenuFooter ul li a{
-  color: #fff;
-}
-
-#redesSocialesFooter{
-  font-size: 1.5em;
-  align-content: center;
-  margin: 0em 0em 3em 0em;
+.overlaySerie {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color:hsla(0, 0%, 100%, 0.658)  ;
 }
 
-#redesSocialesFooter a {
-  padding: 0.5rem;
-  font-size: 0.8em;
+.tarjetaSerie:hover .overlaySerie {
+  opacity: 1;
+}
+
+.textHoverSerie {
+  color: #AD4897;
+  font-size: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   text-align: center;
-  text-decoration: none;
-  border-radius: 50%;
-  background-color: var(--negro);
-  color: var(--blanco);
-}
-#redesSocialesFooter a i{
-  width: 1.5em;
 }
 
-
-
-
-
-
-/* Spinner */
+/*******************************Spinner***********************************/
 
 .overlay {
   position: absolute;
@@ -231,6 +227,9 @@ footer{
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
 }
+
+
+
 /*!
  * Página Home
  * Patricia Bernardos
@@ -328,6 +327,9 @@ footer{
 .filtroHeader{
   color:var(--blanco);
 }
+
+
+
 /*******************************Filtro Productos***********************************/
 #tiendaTop a {
   padding: 0.5rem;
@@ -425,4 +427,23 @@ margin-top: 2%;
 
 #btnRegistro:hover{
   background-color: #627DD0;
+}
+
+
+/*!
+ * Página Blog
+ */
+
+#entrada{
+  margin: 2em;
+}
+
+#entradasBlog{
+
+  padding: 0.5em;
+}
+
+#tituloEntrada{
+  margin: 2em;
+
 }

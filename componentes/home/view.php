@@ -1,9 +1,10 @@
-<div  id="rowSeries" class="row" >
-    <div id="productCard" style="display:none">
-        <img src=""/>
-        
+<div  id="rowSeries" class="row">
+    <div id="productCard" style="display:none" class="col-lg-4 col-md-6 col-sm-12 tarjetaSerie">
+        <img class="col-12 imagenSerie" src=""/>
+        <div class="overlaySerie">
+            <div class="textHoverSerie">Hello World</div>
+        </div>
     </div>
-    
 </div>
 
 
@@ -21,11 +22,13 @@
             action: 'mostrarProductos'
         },
             success: function(data) {
+      
                 console.log(data)
                 const $productCard = document.querySelector('#productCard')
                 const $rowSeries = document.querySelector('#rowSeries')
 
                 data.forEach(product => {
+
                     const clone = $productCard.cloneNode(true)
                     clone.style.display = 'block'
                     const $productImg = clone.querySelector('img')

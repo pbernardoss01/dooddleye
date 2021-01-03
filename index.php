@@ -34,7 +34,7 @@
       <script src="/public/js/lightbox/lightbox-2.6.min.js"></script>
     </head>
     <body>
-
+   
       <?php 
           include COMPONENT_PATH . '/spinner/view.php';
           // Cuerpo
