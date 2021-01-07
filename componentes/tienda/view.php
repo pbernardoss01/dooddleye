@@ -9,13 +9,13 @@
                 <div class="card-body">
                     <h5 id="precioProducto"></h5>
                     <p id="descripcionProducto" class="card-text"></p>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
+                    <button id=""  onclick="addCarrito(event)" type="button" data-id="" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
                 </div>
                 
             </div>
           </div>
      
-   
+
     </div>
 <script type="text/javascript">
     
@@ -29,24 +29,40 @@
             action: 'mostrarProductos'
         },
             success: function(data) {
-                console.log(data)
                 const $catalogoProductos = document.querySelector('#catalogoProductos')
                 const $tarjetaProducto = document.querySelector('#tarjetaProducto')
                 
-
                 data.forEach(producto => {
+                    //clona la tarjeta modelo
                     const clone = $tarjetaProducto.cloneNode(true)
-                    console.log(clone.querySelector('#descripcionProducto'))
+       
+                    //asigna id y display a la tarjeta clon
+                    
                     clone.style.display = 'flex'
+
+                    //recoge tag img, descripcion, precio y boton 
                     const $productImg = clone.querySelector('img')
-                    $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
-
+                    const $btnProducto = clone.querySelector('button')
+                    
+                    //asigna atributos
+                    $btnProducto.setAttribute('id', `${producto.idProducto}`)
+                
+                    $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                    
+                
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
                     $catalogoProductos.append(clone)
+
+
+
                 })
+            
+            
+            
+            
             },
             error: function(error) {
                 
@@ -56,4 +72,27 @@
         
     })
 
+    function addCarrito(event){
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                page: 'ajax',
+                action: 'addACesta',
+                id: event.target.id
+            },
+            success: function(data) {
+                console.log(event," xd") 
+            },
+            error: function(error) {
+                
+                console.log(error,"lol");
+            }
+        })  
+          
+    }
+
+
 </script>
+

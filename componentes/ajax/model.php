@@ -70,6 +70,7 @@ class AjaxModel {
 
     return $result;
   }
+
   public static function getEntradas() {
     $db = new database();
 
@@ -82,4 +83,17 @@ class AjaxModel {
     return $result;
   }
 
+
+
+  public static function addProductToCard($id) {
+    $db = new database();
+
+    $query = "SELECT * FROM producto where idProducto=$id";
+    
+    $db->query($query);
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
+  }
 }

@@ -21,7 +21,7 @@
                   } 
                 ?>  
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.php?page=carrito">Carrito</a>
+                <a class="dropdown-item" href="index.php?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito</a>
               </div>
         </li>
             

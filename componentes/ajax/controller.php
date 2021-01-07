@@ -28,6 +28,27 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
+
+
+    case 'addACesta': 
+      $data = AjaxModel::addProductToCard($_POST['id']);
+      if(!isset($_SESSION['cesta'])){
+        $_SESSION['cesta']= $data;
+      }else{
+        $copiaSesion= $_SESSION['cesta'];
+        $cesta =array_merge($copiaSesion, $data);
+        $_SESSION['cesta']=$cesta;
+      }
+          
+    exit;     
+    break;
+
+    case 'mostrarCesta':
+      $data = $_SESSION['cesta'];
+      echo json_encode($data);
+      
+      exit;     
+    break;
     case 'mostrarEntradas': 
       $data = AjaxModel::getEntradas();
       echo json_encode($data);
