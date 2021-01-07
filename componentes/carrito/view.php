@@ -12,7 +12,7 @@
                         
                       echo "<h3>No hay productos en la cesta</h3>";
                     }else{
-                        echo "lol";
+                   
                         echo '<div id="producto" class="row" style="display:none">
                         <div class="col-12 col-sm-12 col-md-2 text-center">
                                 <img class="img-responsive" src="" alt="prewiew" width="120" height="80">
@@ -123,6 +123,8 @@
         })
         
     })
+
+
 
     </script>
 <?php var_dump($_SESSION)?>
