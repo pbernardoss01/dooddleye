@@ -47,18 +47,39 @@ background-color: #fff;
 #barraTop .row{
   justify-content: center;
 }
-#barraTop a{
-  font-size: 0.8em;
+#barraTop li{
   text-align: center;
   text-decoration: none;
   color: #CCC;
   margin-left: 2em;
 }
+#barraTop a{
+  font-size: 0.8em;
+  text-align: center;
+  color: #CCC;
+}
 #barraTop a:hover {
   color:#fff;
-  width: 1.5em;
+}
+.dropdown-menu {
+  font-size: 1em;
+  background-color: #333;
+  color: #ccc
 }
 
+.dropdown-item:hover{
+  color:#333;
+  background-color: #333;
+}
+
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
 
 #logoTituloCabecera img{
   margin-top: 1.5em;
@@ -446,4 +467,37 @@ margin-top: 2%;
 #tituloEntrada{
   margin: 2em;
 
+}
+
+
+
+
+
+#contacto{
+  margin: 0 auto;
+  padding: 5%;
+}
+
+#contacto h3{
+  padding: 1em;
+  margin: 0 auto;
+}
+
+#formContacto{
+  margin: 2em;
+}
+
+
+
+#curriculum{
+  padding: 3em 0em 4em 0em;
+}
+
+#curriculum h3{
+  margin-top: 2em;
+}
+
+
+#curriculum p, #curriculum ul{
+  margin: 2em;
 }

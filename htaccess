@@ -4,3 +4,4 @@
 # 
 # RewriteCond $1 !^(vendor|css|img|js|lightbox-2.6|jquery|bootstrap|bundle)
 # RewriteRule ^(.*)$ index.php/$1 [L]
+# RewriteRule administrador [L]

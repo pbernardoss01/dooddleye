@@ -1,27 +1,38 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Bottom navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropup">
-            <a class="nav-link dropdown-toggle" href="https://getbootstrap.com/" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropup</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown10">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
+  <!-- Site footer -->
+<div id="pieDePagina" class="jumbotron bg-dark text-center" style="margin-bottom:0">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar  navbar-expand-lg">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?page=blog">Leeme en mi blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?page=tienda">Visita mi tienda</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?page=curriculum">conoce mis proyectos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?page=contacto">Contacta conmigo</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+      </div> 
+    </div>  
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+        <a href="#">Scanfcode</a>.
+          </p>
+        </div>
       </div>
-    </nav>
+    </div>
+  </footer>
+</div>

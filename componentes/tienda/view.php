@@ -1,19 +1,20 @@
 <div class="col-12" id="catalogoProductos">
-	<figure class="col-md-4 col-lg-3 card card-product" id="tarjetaProducto" style="display:none">
-		<div class="img-wrap">
-      <img id="imagenProduto" src="" class="col-12">
+    <div class="col-md-4" style="display:none">
+        <div id="tarjetaProducto" class="card mb-4 shadow-sm">
+            <a href=""><img id="imagenProduto" src="" class="bd-placeholder-img card-img-top" ></a> 
+            <div class="card-body">
+                <p id="descripcionProducto" class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
+                    </div>
+                    <span id="precioProducto"></span>
+                </div>
+            </div>
+        </div>
     </div>
-		<figcaption class="info-wrap">
-				<p id="descripcionProducto"></p>
-		</figcaption>
-		<div class="bottom-wrap">
-			<a href="" class="btn btn-sm btn-primary float-right">Añadir a carrito</a>	
-			<div class="price-wrap h5">
-				<span id="precioProducto"></span>
-			</div>
-		</div>
-	</figure>
 </div> 
+
 
 
 <script type="text/javascript">
