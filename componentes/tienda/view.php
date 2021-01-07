@@ -1,22 +1,22 @@
-<div class="col-12" id="catalogoProductos">
-    <div class="col-md-4" style="display:none">
-        <div id="tarjetaProducto" class="card mb-4 shadow-sm">
-            <a href=""><img id="imagenProduto" src="" class="bd-placeholder-img card-img-top" ></a> 
-            <div class="card-body">
-                <p id="descripcionProducto" class="card-text"></p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+
+    <div class="col-12 row" id="catalogoProductos">
+        
+          <div class="col-lg-4 col-md-6 mb-4" style="display:none">
+            <div id="tarjetaProducto" class="card col-lg-4 col-md-6 mb-4">
+                <a href="">
+                    <img  id="imagenProduto"  class="card-img-top" src="" alt="">
+                </a>
+                <div class="card-body">
+                    <h5 id="precioProducto"></h5>
+                    <p id="descripcionProducto" class="card-text"></p>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
-                    </div>
-                    <span id="precioProducto"></span>
                 </div>
+                
             </div>
-        </div>
+          </div>
+     
+   
     </div>
-</div> 
-
-
-
 <script type="text/javascript">
     
     window.addEventListener('load', event_load => {
@@ -37,7 +37,7 @@
                 data.forEach(producto => {
                     const clone = $tarjetaProducto.cloneNode(true)
                     console.log(clone.querySelector('#descripcionProducto'))
-                    clone.style.display = 'block'
+                    clone.style.display = 'flex'
                     const $productImg = clone.querySelector('img')
                     $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')

@@ -1,9 +1,7 @@
 <!-- Menu Cabecera -->
-<div id="barraTop">
-  <div class="container" >
-    <div class="row">
-      <nav class="navbar navbar-light navbar-expand col-12">
 
+      <nav id="barraTop" class="navbar navbar-expand navbar-fixed-top ">
+        <div class="container">
           <ul class="navbar-nav mr-auto col-12 ">
             <li class="col-2" ><a  href="#"><i class="fab fa-facebook-f"></i></a></li>
             <li class="col-2"><a class="col-2" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -31,11 +29,9 @@
             <!-- Boton de usuario -->
             
           </ul>
-       
+       </div>
       </nav>
-    </div>
-  </div>
-</div>
+    
 
 
 
