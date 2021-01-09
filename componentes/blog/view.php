@@ -1,4 +1,12 @@
+<?php 
+$productid = 'no hay producto id';
+  if (isset($data['productid'])) $productid = $data['productid']
+?>
+
 <div class="container" id="entradasBlog">
+<?php 
+  echo $productid;
+?>
 <div class="row">
   <div id="entrada" style="display:none">
     <div class="row">

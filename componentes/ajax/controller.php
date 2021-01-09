@@ -54,7 +54,17 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
-    
+
+    case 'recogerCategorias': 
+      $data = AjaxModel::recogerCategorias();
+      echo json_encode($data);
+      exit;     
+    break;
+    case 'recogerSeries': 
+      $data = AjaxModel::recogerSeries();
+      echo json_encode($data);
+      exit;     
+    break;
   default:
     echo 'null';
     break;

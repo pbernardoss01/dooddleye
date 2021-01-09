@@ -96,4 +96,31 @@ class AjaxModel {
 
     return $result;
   }
+
+
+public static function recogerCategorias($arrays) {
+  $db = new database();
+
+  $query = "SELECT idCategoriaProducto, nombre FROM categoriaproducto";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
 }
+
+public static function recogerSeries($arrays) {
+  $db = new database();
+
+  $query = "SELECT idSerieProducto, nombre FROM serieproducto";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+}
+
+/*a = new URLSearchParams(window.location.search)*/
