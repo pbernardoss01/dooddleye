@@ -10,7 +10,7 @@
                 <label class="col-md-6 control-label text-right pt-2">Filtrar por categoria:</label>
                 <div class="col-md-6">
                     <select id="filtrarCategoria" class="form-control"  onchange="filtradoCategoria(event)">
-                        <option value="Todas">Todas</option>
+                        <option value="0">Todas</option>
                         <option value="1">Laminas</option>
                         <option value="2">Tazas</option>
                         <option value="3">Camisetas</option>
@@ -28,7 +28,7 @@
                 <label class="col-md-6 control-label text-right pt-2">Filtrar por serie:</label>
                 <div class="col-md-6">
                     <select id="filtrarSerie" class="form-control" onchange="filtradoSerie(event)">
-                        <option  value="Todas">Todas</option>
+                        <option  value="0">Todas</option>
                         <option value="1">Animales</option>
                         <option  value="2">Automoviles</option>
                         <option value="3">Gente</option>
@@ -45,19 +45,18 @@
             <div class="form-group row">
             <label class="col-md-6 control-label text-right pt-2">Ordenar por:</label>
             <div class="col-md-6">
-                <select class="form-control" onchange="window.location.href = this.value">
-                
-                <option value="/techno/name/asc#category-gallery">
-                    Destacados
-                </option>
-                
-                <option value="/techno/price/asc#category-gallery">
-                    Precio: de más bajo a más alto
-                </option>
-                
-                <option value="/techno/price/desc#category-gallery">
-                    Precio: de más bajo a más alto
-                </option>
+                <select id="filtrarPrecio" class="form-control" onchange="filtradoPrecio(event)">
+                    <option value="...">
+                        Selecciona...
+                    </option>
+                    
+                    <option value="bajo">
+                        Precio: de más bajo a más alto
+                    </option>
+                    
+                    <option value="alto">
+                        Precio: de más alto a más bajo
+                    </option>
                 
                 </select>
             </div>
@@ -139,6 +138,7 @@
                     //asigna atributos
                     clone.setAttribute('id', `producto${producto.idProducto}`)
                     clone.setAttribute('class', `card col-lg-4 col-md-6 mb-4 tarjetaProducto `)
+                    clone.setAttribute('data-precio', `${producto.precio}`)
                     clone.setAttribute('data-serie', `${producto.idSerieProducto}`)
                     clone.setAttribute('data-categoria', `${producto.idCategoriaProducto}`)
                     $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
@@ -262,8 +262,14 @@
 
         $('#contador').empty()
         $('#contador').append(contador+" productos")
-
+        $("#filtrarCategoria").val("0")
     }
+
+
+
+
+
+
     function filtradoCategoria(event){
         var contador= 0
         /*parseInt(document.querySelector('#contador').innerHTML.charAt(0))
@@ -291,9 +297,37 @@
                     console.log(contador)
                 }
             })
-            $('#contador').empty()
+        $('#contador').empty()
            $('#contador').append(contador+" productos")
+           $("#filtrarSerie").val("0")
+    }
 
+
+    function filtradoPrecio(event){
+        var arrayProductos=[] 
+        var opcionSeleccionada = document.querySelector("#filtrarPrecio");
+
+
+        $("#catalogoProductos .tarjetaProducto").each(function (){
+            arrayProductos.push({precio:$(this)[0].dataset.precio, div:$(this)[0]})
+                $(this)[0].remove()
+        })
+        console.log(arrayProductos)
+        if("bajo"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){    
+            arrayProductos=arrayProductos.sort((a,b)=>a.precio-b.precio)
+            arrayProductos.forEach(activity => {
+                console.log(activity["div"])
+                $('#catalogoProductos').append(activity["div"])
+            })
+        
+        } else if("alto"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){    
+            arrayProductos=arrayProductos.sort((a,b)=>b.precio-a.precio)
+            arrayProductos.forEach(activity => {
+                $('#catalogoProductos').append(activity["div"])
+            })
+
+        
+        }             
     }
 
 </script>
