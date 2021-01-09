@@ -9,11 +9,11 @@
                 <div class="form-group row">
                 <label class="col-md-6 control-label text-right pt-2">Filtrar por categoria:</label>
                 <div class="col-md-6">
-                    <select id="filtrarCategoria" class="form-control" onchange="window.location.href = this.value">
-                        <option id="opcionCategoria" value="/techno/name/asc#category-gallery">Todas</option>
-                        <option id="opcionCategoria" value="/techno/name/asc#category-gallery">Laminas</option>
-                        <option id="opcionCategoria" value="/techno/name/asc#category-gallery">Tazas</option>
-                        <option id="opcionCategoria" value="/techno/name/asc#category-gallery">Camisetas</option>
+                    <select id="filtrarCategoria" class="form-control"  onchange="filtradoCategoria(event)">
+                        <option value="Todas">Todas</option>
+                        <option value="1">Laminas</option>
+                        <option value="2">Tazas</option>
+                        <option value="3">Camisetas</option>
                        <!-- <option id="opcionCategoria" value="/techno/name/asc#category-gallery"></option>
 --></select>
                 </div>
@@ -140,6 +140,7 @@
                     clone.setAttribute('id', `producto${producto.idProducto}`)
                     clone.setAttribute('class', `card col-lg-4 col-md-6 mb-4 tarjetaProducto `)
                     clone.setAttribute('data-serie', `${producto.idSerieProducto}`)
+                    clone.setAttribute('data-categoria', `${producto.idCategoriaProducto}`)
                     $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
                 
                     $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
@@ -237,24 +238,61 @@
     }
     
     function filtradoSerie(event){
+        var contador= 0
         var opcionSeleccionada = document.querySelector("#filtrarSerie");
         console.log(opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value)
         if("Todas"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 $(this)[0].style.display = 'flex'
             })
+        }else{
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+                if($(this)[0].dataset.serie != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
+                    $(this)[0].style.display = 'none'
+                    
+                }else{
+                    $(this)[0].style.display = 'flex'}
+            })
+        }
+        $("#catalogoProductos .tarjetaProducto").each(function (){
+            if($(this)[0].style.display=="flex"){
+                contador++
+            }
+        })
+
+        $('#contador').empty()
+        $('#contador').append(contador+" productos")
+
+    }
+    function filtradoCategoria(event){
+        var contador= 0
+        /*parseInt(document.querySelector('#contador').innerHTML.charAt(0))
+        */
+        var opcionSeleccionada = document.querySelector("#filtrarCategoria");
+        console.log(opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value)
+        if("Todas"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+                $(this)[0].style.display = 'flex'
+            })
                 } else{
-           $("#catalogoProductos div").each(function (){
+           $("#catalogoProductos .tarjetaProducto").each(function (){
             console.log($(this)[0])
                
-                if($(this)[0].dataset.serie != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
+                if($(this)[0].dataset.categoria != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
                     $(this)[0].style.display = 'none'
                     console.log($(this)[0].dataset.serie)
                
                 }else{
                     $(this)[0].style.display = 'flex'}
             })}
-            
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+                if($(this)[0].style.display=="flex"){
+                    contador++
+                    console.log(contador)
+                }
+            })
+            $('#contador').empty()
+           $('#contador').append(contador+" productos")
 
     }
 
