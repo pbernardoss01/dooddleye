@@ -70,7 +70,17 @@ class AjaxModel {
 
     return $result;
   }
+  public static function getProduct() {
+    $db = new database();
 
+    $query = "SELECT * FROM producto";
+    
+    $db->query($query);
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
+  }
   public static function getEntradas() {
     $db = new database();
 

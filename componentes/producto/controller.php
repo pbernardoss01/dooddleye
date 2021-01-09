@@ -1,7 +1,7 @@
 <?php
 include COMPONENT_PATH . '/front_barra/view.php';
-include COMPONENT_PATH . '/front_header/view.php';
-include COMPONENT_PATH . '/slider/view.php';
+include COMPONENT_PATH . '/front_header/controller.php';
+
 
 
 include COMPONENT_PATH . '/producto/view.php';

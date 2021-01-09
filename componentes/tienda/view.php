@@ -72,7 +72,7 @@
         
     
             <div id="tarjetaProducto" class="card col-lg-4 col-md-6 mb-4 " style="display:none">
-                <a href="index.php/?page=producto&productid=">
+                <a href="page=producto&productid=">
                     <img  id="imagenProduto"  class="card-img-top" src="" alt="">
                 </a>
                 <div class="card-body">
@@ -267,7 +267,7 @@
         $('#contador').empty()
         $('#contador').append(contador+" productos")
         $("#filtrarCategoria").val("0")
-           $("#filtrarPrecio").val("0")
+           $("#filtrarPrecio").val("...")
     }
 
 
@@ -305,7 +305,7 @@
         $('#contador').empty()
            $('#contador').append(contador+" productos")
            $("#filtrarSerie").val("0")
-           $("#filtrarPrecio").val("0")
+           $("#filtrarPrecio").val("...")
     }
 
 

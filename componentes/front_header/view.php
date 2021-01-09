@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div id="logoTituloCabecera" class="w-40 align-items-center">
-          <a href="index.php"><img src="img/logo/logo2.png" class="img-fluid mx-auto d-block"></a>
+          <a href="index.php"><img src="/img/logo/logo2.png" class="img-fluid mx-auto d-block"></a>
         </div>
       </div>
       <div class="row" id="barraMenu">
