@@ -43,8 +43,8 @@
     <div class="col-4">
         <form class="form-horizontal">
             <div class="form-group row">
-            <label class="col-md-6 control-label text-right pt-2">Ordenar por:</label>
-            <div class="col-md-6">
+            <label class="col-md-3 control-label text-left pt-2">Ordenar por:</label>
+            <div class="col-md-9">
                 <select id="filtrarPrecio" class="form-control" onchange="filtradoPrecio(event)">
                     <option value="...">
                         Selecciona...
@@ -153,13 +153,14 @@
                 })
                 categorias = borrarDuplicados(categorias);
                 series = borrarDuplicados(series);
-                console.log(categorias)
-                console.log(series)
+          
+                
                 document.querySelector('#contador').append(contador+" productos")
             },
             error: function(error) {
                 
-                console.log(error,"lol");
+        
+                
             }
         })
 
@@ -227,11 +228,13 @@
                 id: event.target.id
             },
             success: function(data) {
-                console.log(event," xd") 
+   
+                
             },
             error: function(error) {
                 
-                console.log(error,"lol");
+         
+                
             }
         })  
           
@@ -240,8 +243,9 @@
     function filtradoSerie(event){
         var contador= 0
         var opcionSeleccionada = document.querySelector("#filtrarSerie");
-        console.log(opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value)
-        if("Todas"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
+     
+        
+        if("0"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 $(this)[0].style.display = 'flex'
             })
@@ -263,6 +267,7 @@
         $('#contador').empty()
         $('#contador').append(contador+" productos")
         $("#filtrarCategoria").val("0")
+           $("#filtrarPrecio").val("0")
     }
 
 
@@ -275,18 +280,18 @@
         /*parseInt(document.querySelector('#contador').innerHTML.charAt(0))
         */
         var opcionSeleccionada = document.querySelector("#filtrarCategoria");
-        console.log(opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value)
-        if("Todas"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
+        
+        if("0"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 $(this)[0].style.display = 'flex'
             })
-                } else{
+        } else{
            $("#catalogoProductos .tarjetaProducto").each(function (){
-            console.log($(this)[0])
+          
                
                 if($(this)[0].dataset.categoria != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
                     $(this)[0].style.display = 'none'
-                    console.log($(this)[0].dataset.serie)
+                  
                
                 }else{
                     $(this)[0].style.display = 'flex'}
@@ -294,12 +299,13 @@
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 if($(this)[0].style.display=="flex"){
                     contador++
-                    console.log(contador)
+                
                 }
             })
         $('#contador').empty()
            $('#contador').append(contador+" productos")
            $("#filtrarSerie").val("0")
+           $("#filtrarPrecio").val("0")
     }
 
 
@@ -310,24 +316,41 @@
 
         $("#catalogoProductos .tarjetaProducto").each(function (){
             arrayProductos.push({precio:$(this)[0].dataset.precio, div:$(this)[0]})
-                $(this)[0].remove()
         })
-        console.log(arrayProductos)
+      
+        
         if("bajo"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){    
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+            arrayProductos.push({precio:$(this)[0].dataset.precio, div:$(this)[0]})
+                $(this)[0].remove
+            })
             arrayProductos=arrayProductos.sort((a,b)=>a.precio-b.precio)
             arrayProductos.forEach(activity => {
-                console.log(activity["div"])
+            
+                
                 $('#catalogoProductos').append(activity["div"])
             })
         
         } else if("alto"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){    
+            
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+            arrayProductos.push({precio:$(this)[0].dataset.precio, div:$(this)[0]})
+                $(this)[0].remove
+            })
             arrayProductos=arrayProductos.sort((a,b)=>b.precio-a.precio)
             arrayProductos.forEach(activity => {
                 $('#catalogoProductos').append(activity["div"])
             })
 
         
-        }             
+        }if("..."== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){    
+           
+            $("#catalogoProductos .tarjetaProducto").each(function (){
+                $(this)[0].style.display="flex"
+        })        
+    }
+    $("#filtrarCategoria").val("0")
+        $("#filtrarSerie").val("0")
     }
 
 </script>
