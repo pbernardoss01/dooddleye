@@ -12,7 +12,9 @@
       <div class="form">
         <div class="form-group">
           <input id="mail" class="form-control" type="text"  placeholder="Correo electrónico">
+          <div class="invalid-feedback">Complete el campo.</div>   
           <input id="clave" class="form-control" type="password"  placeholder="Contraseña"> 
+          <div class="invalid-feedback">Complete el campo.</div>   
         </div>
 
         <div class="form-group text-center">
@@ -39,8 +41,6 @@
     const $inputClave = document.querySelector('#clave')
     const $btnLogin = document.querySelector('#btnLogin')
   
-    console.log($inputMail,$inputClave,$btnLogin)
-
     function validForm() {
       let ok = true
 
@@ -74,7 +74,9 @@
             clave: $inputClave.value,
           },
           success: function(data) {
-           window.location.href="/";
+           
+             window.location.href="/";
+           
           },
           error: function(error) {
             console.log(error)

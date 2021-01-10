@@ -4,14 +4,15 @@ include COMPONENT_PATH . '/ajax/model.php';
 $data = array();
 $_SESSION['productos']="lol";  
 switch ($_POST['action']) {
-  case 'checkUser': 
-    $data = AjaxModel::userExists($_POST['mail'], $_POST['clave']);
-    if ($data == 'true') {
-      $userData = AjaxModel::getUser($_POST['mail'], $_POST['clave']);
-      
-      $_SESSION['validUser'] = true;
-      $_SESSION['userData'] = $userData;
-    }
+    case 'checkUser': 
+      $data = AjaxModel::userExists($_POST['mail'], $_POST['clave']);
+      if ($data == 'true') {
+        $userData = AjaxModel::getUser($_POST['mail'], $_POST['clave']);
+        
+        $_SESSION['validUser'] = true;
+        $_SESSION['userData'] = $userData;
+        $_SESSION['userRol'] = end($userData);
+      }
     break;
     case 'createUser': 
       $_SESSION['registro'] = "entra";
@@ -69,6 +70,15 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
+
+    case 'recogerDatosUsuario': 
+      
+      $data =$_SESSION['userData'];
+      echo json_encode($data);
+      exit;     
+    break;
+
+
   default:
     echo 'null';
     break;

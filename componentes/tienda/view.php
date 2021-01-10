@@ -78,7 +78,7 @@
                 <div class="card-body">
                     <h5 id="precioProducto"></h5>
                     <p id="descripcionProducto" class="card-text"></p>
-                    <button id=""  onclick="addCarrito(event)" type="button" data-id="" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
+                    <button id=""  onclick="addCarrito(event)" type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
                 </div>
                 
             </div>
@@ -142,6 +142,7 @@
                     clone.setAttribute('data-serie', `${producto.idSerieProducto}`)
                     clone.setAttribute('data-categoria', `${producto.idCategoriaProducto}`)
                     $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                    $btnProducto.setAttribute('data-id', `${producto.idProducto}`)
                 
                     $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     
@@ -218,6 +219,7 @@
 
 
     function addCarrito(event){
+        console.log(event.target.dataset.id)
         $.ajax({
             url: '/',
             type: 'POST',
@@ -225,10 +227,10 @@
             data: {
                 page: 'ajax',
                 action: 'addACesta',
-                id: event.target.id
+                id:event.target.dataset.id
             },
             success: function(data) {
-   
+                windows.location.href="/"
                 
             },
             error: function(error) {

@@ -509,3 +509,44 @@ margin-top: 2%;
   display: flex;
   align-items: center;
 }
+
+
+.link-carta-usuario{
+  margin:3em;
+  text-decoration: none;
+  color:#000;
+}
+
+
+.link-carta-usuario:hover{
+
+  text-decoration: none;
+  color:#000;
+}
+
+.carta-usuario{
+  border: 1px #ddd solid;
+  
+}
+.carta-usuario:hover{
+  background-color: #ddd;
+  
+}
+
+
+#tarjetaVenta{
+  border: 1px #ddd solid;
+  padding: 3em;
+  margin: 3em;
+
+}
+
+#datosTarjetaCredito div{
+  margin:0.5em;
+}
+#botonesVenta .btn{
+  margin:0.5em;
+}
+#datosUsuarioVenta div{
+  margin-top:1em;
+}

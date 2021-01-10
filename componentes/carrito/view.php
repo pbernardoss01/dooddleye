@@ -52,7 +52,7 @@
             <div class="card-footer">
                 
                 <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Tramitar pedido</a>
+                    <a href="index.php?page=venta" class="btn btn-success pull-right">Tramitar pedido</a>
                     <div class="pull-right" style="margin: 5px">
                         Total: <b id="totalCarrito"></b>
                     </div>

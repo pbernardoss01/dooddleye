@@ -15,6 +15,7 @@
               
                 <?php 
                   if(isset($_SESSION['validUser']) && $_SESSION['validUser'] == true) {  
+                    echo '<a class="dropdown-item" href="index.php?page=usuario">Mi cuenta</a>';
                     echo '<a class="dropdown-item" href="index.php?page=closeSesion">Cerra sesion</a>';
                   } else { 
                     echo '<a class="dropdown-item" href="index.php?page=login">Identificate</a>';
@@ -32,7 +33,3 @@
        </div>
       </nav>
     
-
-
-
-<!-- /Header -->
