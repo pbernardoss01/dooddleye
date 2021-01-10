@@ -77,11 +77,17 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
-
+    case 'borrarProductoCesta': 
+      $producto=$_POST['producto'];
+      
+      unset($_SESSION['cesta'][$producto]);
+      echo json_encode($_POST);
+      exit;     
+    break; 
 
   default:
     echo 'null';
-    break;
+  break;
 }
 
 

@@ -230,7 +230,7 @@
                 id:event.target.dataset.id
             },
             success: function(data) {
-                windows.location.href="/"
+                
                 
             },
             error: function(error) {

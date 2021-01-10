@@ -105,10 +105,6 @@
 
 
 
-    function cancelar(event){
-        windows.location.href="index.php?page=carrito"
-    }
-
     function realizarPedido(event){
        
     }
