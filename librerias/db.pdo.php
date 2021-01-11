@@ -21,10 +21,10 @@ class database {
 
 
     private $driver = 'mysql';
-    private $dbhost = 'n2o93bb1bwmn0zle.chr7pe7iynqr.eu-west-1.rds.amazonaws.com';
-    private $dbuser = 's4utqu5rea0pqwx2';
-    private $dbpass = 'wnx7qv0kncx18qu6';
-    private $dbname = 'yl1hjxlx8inolkvp';
+    private $dbhost = 'f80b6byii2vwv8cx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com';
+    private $dbuser = 'opf8o098e6r79vlg';
+    private $dbpass = 'qghz2wi7ugbaikor';
+    private $dbname = 'tpn57e54xra7g9g7';
     
     //constructor que realiza la conexion a la bbdd
     public function __construct() {
