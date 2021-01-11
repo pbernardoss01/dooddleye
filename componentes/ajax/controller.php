@@ -84,6 +84,14 @@ switch ($_POST['action']) {
       echo json_encode($_POST);
       exit;     
     break; 
+    case 'hacerPedido': 
+      $userData=$_SESSION['userData']["idUsuario"];
+      $cesta=$_SESSION['cesta'];
+      $preciototal=$_SESSION['preciototal'];
+      $data = AjaxModel::hacerPedido($userData,$cesta,$preciototal);
+      
+      exit;     
+    break; 
 
   default:
     echo 'null';

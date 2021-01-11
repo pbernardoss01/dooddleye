@@ -292,11 +292,11 @@ background-color: #fff;
   width: 25%;
   text-align: center;
 }
-
+/*
 .card{
   border: none;
 }
-
+*/
 
 
 
@@ -406,7 +406,7 @@ margin-top: 2%;
   width: 65%;
 }
 
-#login .titulo{  
+#login .titulo, #registro .titulo{  
   font-size: 3em;
   margin-bottom: 1em;
 }
@@ -430,6 +430,17 @@ margin-top: 2%;
 }
 #login .links{
   color: #627DD0;
+}
+
+
+#formularioRegistro .card{
+ padding:3em;
+ margin-bottom: 1em;
+}
+#registro .form-control{
+  margin-top: 0.5em;
+  padding: 2%;
+  font-size: 1em;
 }
 
 
@@ -466,20 +477,31 @@ margin-top: 2%;
 
 }
 
-
+#catalogoProductos .card{
+  border:none;
+}
 
 
 
 #contacto{
-  margin: 0 auto;
-  padding: 5%;
+  margin: 3em;
+  border: none;
 }
-
-#contacto h3{
-  padding: 1em;
-  margin: 0 auto;
+#contacto a{
+  color:#000;
+  margin-left: 0.5em;
 }
+#contacto .card-title{
+  margin:0em;
+  padding:0.5em;
+  font-size: 1em;
+  font-weight: bolder;
 
+}
+#contacto .card-body{
+  padding:0.5em;
+  font-size: 1em;
+}
 #formContacto{
   margin: 2em;
 }
@@ -549,4 +571,12 @@ margin-top: 2%;
 }
 #datosUsuarioVenta div{
   margin-top:1em;
+}
+
+footer{
+  padding: 4em 4em 1em 4em;
+  color: #999;
+}
+#rights{
+  margin-left: 3em;
 }
