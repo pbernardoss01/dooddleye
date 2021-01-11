@@ -22,13 +22,18 @@
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6><strong id="precioProducto"></strong></h6>
+                                <h6><strong id="precioProducto"></strong><span class="text-muted">x</span></h6>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
-                                
+                                <div class="quantity">
+                                    <input type="button" value="+" class="plus">
+                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
+                                           size="4">
+                                    <input type="button" value="-" class="minus">
+                                </div>
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
-                                <button id="borrarProducto" type="button" onclick="borrarProducto(event)" class="btn btn-outline-danger btn-xs">
+                                <button type="button" class="btn btn-outline-danger btn-xs">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -74,20 +79,14 @@
             action: 'mostrarCesta'
         },
             success: function(data) {
-                
-                if (!Array.isArray(data) && Object.keys(data).length) {
-                    data = Object.values(data)
-                }
-
-                var contador=0
                 console.log(data)
                 const $listaCesta = document.querySelector('#listaCesta')
-                const $productoItem = document.querySelector('#producto')
+                const $producto = document.querySelector('#producto')
                 
                 data.forEach(producto => {
-                    
+
                     //clona la tarjeta modelo
-                    const clone = $productoItem.cloneNode(true)
+                    const clone = $producto.cloneNode(true)
        
                     //asigna id y display a la tarjeta clon
                     
@@ -97,14 +96,10 @@
                     const $productImg = clone.querySelector('img')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
-                    const $botonBorrar=clone.querySelector('button')
-
-                    $botonBorrar.setAttribute('id', contador)
-                    $botonBorrar.setAttribute('data-numeroProducto', contador)
-                    clone.setAttribute('id', `producto`+contador)
+                    
                     
                     //asigna atributos
-                    contador++
+                   
                 
                     $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     
@@ -112,17 +107,13 @@
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
                     $listaCesta.append(clone)
-                  
+
 
 
                 })
-                var total=0;
-
-                $("#precioProducto").each(function(indice,elemento){
-                    total=total +$("#precioProducto").value 
-                })
-                
-            $("#totalCarrito").append(total)
+            
+            
+            
             
             },
             error: function(error) {
@@ -133,39 +124,6 @@
         
     })
 
-
-function borrarProducto(event) {
-    let productId = -1
-    if (event.target.dataset.numeroproducto) {
-        productId = event.target.dataset.numeroproducto
-    } else {
-        const parent = event.target.parentElement
-        if (parent.dataset.numeroproducto)  productId = parent.dataset.numeroproducto
-    }
-
-    productId = parseInt(productId)
-
-    $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'borrarProductoCesta',
-            producto: productId
-        },
-        success: function(data) {
-            var id="#producto"+productId
-            $(id).remove();
-
-        },
-        error: function(error) {
-            console.log(arguments, "lol");
-        }
-
-    
-    })
-}
 
 
     </script>

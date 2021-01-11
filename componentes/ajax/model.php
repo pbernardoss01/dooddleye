@@ -122,6 +122,8 @@ public static function recogerSeries($arrays) {
   return $result;
 }
 
+
+
 }
 
 /*a = new URLSearchParams(window.location.search)*/
