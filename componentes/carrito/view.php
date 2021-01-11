@@ -22,7 +22,11 @@
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+<<<<<<< HEAD
                                 <h6><strong id="precioProducto"></strong><span class="text-muted">x</span></h6>
+=======
+                                <h6><strong id="precioProducto"></strong></h6>
+>>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
                                 <div class="quantity">
@@ -96,7 +100,15 @@
                     const $productImg = clone.querySelector('img')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
+<<<<<<< HEAD
                     
+=======
+                    const $botonBorrar=clone.querySelector('button')
+
+                    $botonBorrar.setAttribute('id', contador)
+                    $botonBorrar.setAttribute('data-numeroProducto', contador)
+                    clone.setAttribute('id', `producto`+contador)
+>>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
                     
                     //asigna atributos
                    
@@ -109,11 +121,22 @@
                     $listaCesta.append(clone)
 
 
+<<<<<<< HEAD
 
                 })
             
             
             
+=======
+                })
+                var total=0;
+
+                $("#precioProducto").each(function(indice,elemento){
+                    total=total +$("#precioProducto").value 
+                })
+                
+            $("#totalCarrito").append(total)
+>>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
             
             },
             error: function(error) {
@@ -125,6 +148,42 @@
     })
 
 
+<<<<<<< HEAD
+=======
+function borrarProducto(event) {
+    let productId = -1
+    if (event.target.dataset.numeroproducto) {
+        productId = event.target.dataset.numeroproducto
+    } else {
+        const parent = event.target.parentElement
+        if (parent.dataset.numeroproducto)  productId = parent.dataset.numeroproducto
+    }
+
+    productId = parseInt(productId)
+
+    $.ajax({
+        url: '/',
+        type: 'POST',
+        dataType: "json",
+        data: {
+            page: 'ajax',
+            action: 'borrarProductoCesta',
+            producto: productId
+        },
+        success: function(data) {
+            var id="#producto"+productId
+            $(id).remove();
+
+        },
+        error: function(error) {
+            console.log(arguments, "lol");
+        }
+
+    
+    })
+}
+
+>>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
 
     </script>
 <?php var_dump($_SESSION)?>

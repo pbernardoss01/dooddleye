@@ -81,17 +81,19 @@
         dataType: "json",
         data: {
             page: 'ajax',
-            action: 'recogerDatosUsuario'
+            action: 'mostrarCesta'
         },
-            success: function(data) {
-                
-                $nombreUsuario=$("#nombreUsuario")
-                $telefono=$("#telefono")
-                $direccionUsuario=$("#direccionUsuario")
-                $nombreUsuario.append("Nombre y apellidos: ", data.nombre, ' ' , data.apellido1, ' ' , data.apellido2)
-                $direccionUsuario.append("Direccion de envio: ",data.direccion)
-                $telefono.append("Telefono: ",data.telefono)
-                
+        success: function(data) {
+            console.log(data)/*
+                if (!Array.isArray(data) && Object.keys(data).length) {
+                    data = Object.values(data)
+                }*/
+                console.log(data)
+                const preciototal = data.reduce(function(total, producto) {
+                    return total + parseFloat(producto.precio)
+                }, 0)
+
+                $('#precioTotal').append(`El precio a pagar es: ${preciototal}€`)
             },
             error: function(error) {
                 
@@ -99,19 +101,103 @@
                 
             }
         })
-
     })
+   
+   
+    function validate(data) {
+        let valid = true
 
+        if ('creditCard' in data ) {
+            const $input =  document.querySelector('#creditCard')
+            if (data.creditCard.trim() !== '' && (/^[0-9]{12}$/).test(data.creditCard)) {
+                $input.classList.add('is-valid')
+                $input.classList.remove('is-invalid')
+            } else {
+                $input.classList.add('is-invalid')
+                $input.classList.remove('is-valid')
+                valid = false
+            }
+        }
+        if ('mesExpired' in data ) {
+            const $input =  document.querySelector('#mesExpired')
+            if (data.mesExpired.trim() !== '' && (/^(0[1-9]|1[012])$/).test(data.mesExpired)) {
+                $input.classList.add('is-valid')
+                $input.classList.remove('is-invalid')
+            } else {
+                $input.classList.add('is-invalid')
+                $input.classList.remove('is-valid')
+                valid = false
+            }
+        }
+        if ('yearExpired' in data ) {
+            const $input =  document.querySelector('#yearExpired')
+            if (data.yearExpired.trim() !== '' && (/^2[1-9]{1}$/).test(data.yearExpired)) {
+                $input.classList.add('is-valid')
+                $input.classList.remove('is-invalid')
+            } else {
+                $input.classList.add('is-invalid')
+                $input.classList.remove('is-valid')
+                valid = false
+            }
+        }
+        if ('ccv' in data ) {
+            const $input =  document.querySelector('#CCV')
+            if (data.ccv.trim() !== ''  && (/^[0-9]{3}$/).test(data.ccv)) {
+                $input.classList.add('is-valid')
+                $input.classList.remove('is-invalid')
+            } else {
+                $input.classList.add('is-invalid')
+                $input.classList.remove('is-valid')
+                valid = false
+                console.log("opps")
+            }
+        }
+        if ('nombreTarjeta' in data ) {
+            const $input =  document.querySelector('#nombreTarjeta')
+            if (data.nombreTarjeta.trim() !== '' && (/^[A-Za-z\s]{0,50}$/).test(data.nombreTarjeta)) {
+                $input.classList.add('is-valid')
+                $input.classList.remove('is-invalid')
+            } else {
+                $input.classList.add('is-invalid')
+                $input.classList.remove('is-valid')
+                valid = false
+            }
+        }
 
-
-
-    function cancelar(event){
-        windows.location.href="index.php?page=carrito"
+        return valid
     }
+
 
     function realizarPedido(event){
+       const data = {
+        creditCard: document.querySelector('#creditCard').value,
+        mesExpired: document.querySelector('#mesExpired').value,
+        yearExpired: document.querySelector('#yearExpired').value,
+        ccv: document.querySelector('#ccv').value,
+        nombreTarjeta: document.querySelector('#nombreTarjeta').value
+       }
+       const isValid = validate(data)
+      
+       var nombreTarjeta= $('#nombreTarjeta').value
        
+        const precio=  $('#precioTotal').text
+       if (isValid) {
+    /*    $.ajax({
+        url: '/',
+        type: 'POST',
+        dataType: "json",
+        data: {
+            page: 'ajax',
+            action: 'hacerPedido',
+            preciototal: precio
+        },
+            success: function(data) {
+                console.log("exito")
+        },
+            error: function(error) {
+                console.log(error)
+            }
+       })*/
+    }
     }
     </script>
-
-    
