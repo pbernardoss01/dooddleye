@@ -121,18 +121,7 @@ public static function recogerSeries($arrays) {
 
   return $result;
 }
-public static function hacerPedido($userData,$cesta,$preciototal) {
-  $db = new database();
-  $current_date = date("Y-m-d H:i:s");
 
-  $query = "INSERT INTO pedido(idPedido, idUsuario, idPago, idEnvio, fechaEnvio, fechaPedido, pagoAceptado) VALUES ('1', '$userData', '1', '1', '$current_date', '$current_date', '$preciototal');";
-
-  $db->query($query);
-  
-  $result = $db->cargaMatriz();
-
-  return $result;
-}
 }
 
 /*a = new URLSearchParams(window.location.search)*/

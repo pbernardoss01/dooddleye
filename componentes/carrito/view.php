@@ -22,7 +22,7 @@
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6><strong class="precioProducto">0</strong></h6>
+                                <h6><strong id="precioProducto"></strong></h6>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
                                 
@@ -63,20 +63,7 @@
         
 
         <script type="text/javascript">
- 
-function actualizarPrecio(){
-    var precioTotal=0;
 
-    $(".precioProducto").each(function(indice,elemento){
-        precioTotal=precioTotal +parseFloat(elemento.textContent) 
-        console.log(parseFloat(elemento.textContent) )
-    })
-    $("#totalCarrito").html(`${precioTotal}€`)
-}
-
-
-
-        
     window.addEventListener('load', event_load => {
         $.ajax({
         url: '/',
@@ -109,10 +96,9 @@ function actualizarPrecio(){
                     //recoge tag img, descripcion, precio y boton 
                     const $productImg = clone.querySelector('img')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
-                    const $precioProducto = clone.querySelector('.precioProducto')
+                    const $precioProducto = clone.querySelector('#precioProducto')
                     const $botonBorrar=clone.querySelector('button')
 
-             
                     $botonBorrar.setAttribute('id', contador)
                     $botonBorrar.setAttribute('data-numeroProducto', contador)
                     clone.setAttribute('id', `producto`+contador)
@@ -124,15 +110,20 @@ function actualizarPrecio(){
                     
                 
                     $descripcionProducto.append(producto.descripcion)
-                    $precioProducto.innerHTML = producto.precio
+                    $precioProducto.append(producto.precio)
                     $listaCesta.append(clone)
                   
 
 
                 })
-                
+                var total=0;
 
-            actualizarPrecio();
+                $("#precioProducto").each(function(indice,elemento){
+                    total=total +$("#precioProducto").value 
+                })
+                
+            $("#totalCarrito").append(total)
+            
             },
             error: function(error) {
                 
@@ -166,7 +157,6 @@ function borrarProducto(event) {
         success: function(data) {
             var id="#producto"+productId
             $(id).remove();
-            actualizarPrecio();
 
         },
         error: function(error) {
