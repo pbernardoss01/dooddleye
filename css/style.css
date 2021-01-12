@@ -31,6 +31,7 @@
 body {
   overflow-x: hidden;
 background-color: #fff;
+width: 100%;
 }
 
 /*******************************Cabecera***********************************/
@@ -129,7 +130,7 @@ background-color: #fff;
 }
 #formContacto{
   margin: 2em;
-}
+
 }
 #datosUsuarioVenta div{
   margin-top:1em;
@@ -160,13 +161,15 @@ background-color: #fff;
 
 .tarjetaSerie {
   position: relative;
-  width: 50%;
+  width: 50%; 
+  padding: 1em 1em 0em 0em;
 }
 
 .imagenSerie {
   display: block;
   width: 100%;
   height: auto;
+  padding: 0;
 }
 
 .overlaySerie {
@@ -176,7 +179,7 @@ background-color: #fff;
   left: 0;
   right: 0;
   height: 100%;
-  width: 100%;
+  width: 99%;
   opacity: 0;
   transition: .5s ease;
   background-color:hsla(0, 0%, 100%, 0.658)  ;
@@ -597,4 +600,50 @@ margin-top: 2%;
 }
 #datosUsuarioVenta div{
   margin-top:1em;
+}
+
+
+
+#sliderProductos{
+  height: 35rem;
+margin-top: 5%;
+margin-bottom: 2%;
+}
+
+
+#carouselSliderProductos{
+  height: inherit;
+}
+
+#indicadoresSliderProductos li{
+  background-color: #999;
+}
+
+
+.cartaSliderProducto{
+  margin: 0em 2em 0em 2em;
+}
+
+.cartaSliderProducto a{
+  color:black;
+}
+.cartaSliderProducto:hover{
+  background-color:var(--gris3s);
+}
+.cartaSliderProducto a:hover{
+  background-color: #EEE;
+  text-decoration-line: none;
+}
+
+#imagenProductoSlider{
+  height:15em;
+  object-fit: cover;
+}
+
+#tituloSliderProducto{
+  margin-bottom: 2em;
+}
+
+#indicadoresSliderProductos{
+  bottom: 1em;
 }

@@ -27,4 +27,178 @@
 
 
 
+<div id="sliderProductos" class="container-fluid">
+    <div id="carouselSliderProductos" class="carousel slide" data-ride="carousel">
+        <div  id="tituloSliderProducto" class="row d-flex justify-content-center">
+            <h4>Productos destacados</h4>
+</div>
+    <ol id="indicadoresSliderProductos" class="carousel-indicators">
+        <li data-target="#carouselSliderProductos" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselSliderProductos" data-slide-to="1"></li>
+        <li data-target="#carouselSliderProductos" data-slide-to="2"></li>
+        <li data-target="#carouselSliderProductos" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div id="productosBesto" class="row d-flex justify-content-center">
+                <div id="cartaSliderProducto" class="card cartaSliderProducto" style="display:none; width: 18rem;">
+                    <a id="productoEnlace" >
+                        <img id="imagenProductoSlider" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            
+                            <p id="descripcionProducto"></p>
+                        
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div id="productosKoloi" class="row d-flex justify-content-center">
+                
+        
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div id="productosOlona" class="row d-flex justify-content-center">
+               
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div id="productosMalang" class="row d-flex justify-content-center">
+               
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    
+
+
+    function borrarDuplicados(arr) {
+    return arr.sort().filter(function(ProductoActual, PosicionActual, arry) {
+        return !PosicionActual || ProductoActual != arry[PosicionActual - 1];
+        })
+    }
+
+
+
+    var categorias=[]
+                var series=[]
+
+
+    window.addEventListener('load', event_load => {
+        $.ajax({
+        url: '/',
+        type: 'POST',
+        dataType: "json",
+        data: {
+            page: 'ajax',
+            action: 'mostrarProductos'
+           
+        },
+            success: function(data) {
+                const $productosBesto = document.querySelector('#productosBesto')
+                const $productosMalang = document.querySelector('#productosMalang')
+                const $productosOlona = document.querySelector('#productosOlona')
+                const $productosKoloi = document.querySelector('#productosKoloi')
+                const $cartaSliderProducto = document.querySelector('#cartaSliderProducto')
+                var contadorBesto=0
+                var contadorKoloi=0
+                var contadorOlona=0
+                var contadorMalang=0
+                const stop= 4
+                for (let i = 0; i < data.le; i++) {
+                    str = str + i;
+                }
+                data.forEach(producto => {
+
+
+
+                    if(producto.idSerieProducto=="1" && contadorBesto!=stop){
+
+                        const clone = $cartaSliderProducto.cloneNode(true)
+                        clone.setAttribute('id', `producto${producto.idProducto}`)
+                        clone.style.display = 'flex'
+                        const $productoEnlace = clone.querySelector('#productoEnlace')
+                        $productoEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                        const $productImg = clone.querySelector('img')
+                        $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                        const $descripcionProducto = clone.querySelector('#descripcionProducto')
+                        $descripcionProducto.append(producto.descripcion)
+                        $productosBesto.append(clone)
+                        contadorBesto++
+                    }
+
+                    if(producto.idSerieProducto=="2" && contadorKoloi!=stop){
+                        const clone = $cartaSliderProducto.cloneNode(true)
+                        clone.setAttribute('id', `producto${producto.idProducto}`)
+                        clone.style.display = 'flex'
+                        const $productEnlace = clone.querySelector('#productoEnlace')
+                        $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                        const $productImg = clone.querySelector('img')
+                        $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                        const $descripcionProducto = clone.querySelector('#descripcionProducto')
+                        $descripcionProducto.append(producto.descripcion)
+                        $productosKoloi.append(clone)
+                        contadorKoloi++
+                        
+                    }
+                    if(producto.idSerieProducto=="3" && contadorOlona!=stop){
+                        const clone = $cartaSliderProducto.cloneNode(true)
+                        clone.setAttribute('id', `producto${producto.idProducto}`)
+                        clone.style.display = 'flex'
+                        const $productEnlace = clone.querySelector('#productoEnlace')
+                        $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                        const $productImg = clone.querySelector('img')
+                        $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                        const $descripcionProducto = clone.querySelector('#descripcionProducto')
+                        $descripcionProducto.append(producto.descripcion)
+                        $productosOlona.append(clone)
+                        contadorOlona++
+                    }
+                    if(producto.idSerieProducto=="4" && contadorMalang!=stop){
+                        const clone = $cartaSliderProducto.cloneNode(true)
+                        clone.setAttribute('id', `producto${producto.idProducto}`)
+                        clone.style.display = 'flex'
+                        const $productEnlace = clone.querySelector('#productoEnlace')
+                        $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                        const $productImg = clone.querySelector('img')
+                        $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                        const $descripcionProducto = clone.querySelector('#descripcionProducto')
+                        $descripcionProducto.append(producto.descripcion)
+                        $productosMalang.append(clone)
+                        contadorMalang++
+                    }
+
+                    
+                  
+
+                   
+                })
+               
+            },
+            error: function(error) {
+                
+        
+                
+            }
+        })  })
+
+      
+
+</script>
 
