@@ -71,6 +71,8 @@ class AjaxModel {
     return $result;
   }
 
+ 
+
   public static function getEntradas() {
     $db = new database();
 

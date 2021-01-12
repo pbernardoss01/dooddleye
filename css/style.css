@@ -134,12 +134,26 @@ background-color: #fff;
 #datosUsuarioVenta div{
   margin-top:1em;
 }
-footer{
-  padding: 4em 4em 1em 4em;
+#footer{
+  padding: 5em 5em 0em 5em;
   color: #999;
 }
+#footer .columnaFooter{
+  vertical-align: middle;
+ 
+
+}
+.columnaFooter ul{
+  vertical-align: middle;
+  padding: 4em 4em 1em 4em;
+
+}
+.columnaFooter a{
+  color: #999;
+  
+}
 #rights{
-  margin-left: 3em;
+  margin-top:2em;
 }
 
 /*******************************Hover Series***********************************/

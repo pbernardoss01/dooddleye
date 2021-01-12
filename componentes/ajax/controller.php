@@ -29,6 +29,7 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
+    
     case 'mostrarProducto': 
       $data = AjaxModel::addProductToCard($_POST['id']);
       echo json_encode($data);

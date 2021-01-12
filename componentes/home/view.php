@@ -1,8 +1,26 @@
 <div  id="rowSeries" class="row">
-    <div id="productCard" style="display:none" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-        <img class="col-12 imagenSerie" src=""/>
+    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+        <img class="col-12 imagenSerie" src="/img/productos/1/animal1.jpg"/>
         <div class="overlaySerie">
-            <div class="textHoverSerie">Hello World</div>
+            <div class="textHoverSerie">Besto</div>
+        </div>
+    </div>
+    <div id="productCard"  class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+        <img class="col-12 imagenSerie" src="/img/productos/2/vehiculo1.jpg"/>
+        <div class="overlaySerie">
+            <div class="textHoverSerie">Koloi</div>
+        </div>
+    </div>
+    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+        <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
+        <div class="overlaySerie">
+            <div class="textHoverSerie">Olona</div>
+        </div>
+    </div>
+    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+        <img class="col-12 imagenSerie" src="/img/productos/4/paisaje1.jpg"/>
+        <div class="overlaySerie">
+            <div class="textHoverSerie">Malang</div>
         </div>
     </div>
 </div>
@@ -10,39 +28,3 @@
 
 
 
-<script type="text/javascript">
-    
-    window.addEventListener('load', event_load => {
-        $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'mostrarProductos'
-        },
-            success: function(data) {
-      
-                console.log(data)
-                const $productCard = document.querySelector('#productCard')
-                const $rowSeries = document.querySelector('#rowSeries')
-
-                data.forEach(product => {
-
-                    const clone = $productCard.cloneNode(true)
-                    clone.style.display = 'block'
-                    const $productImg = clone.querySelector('img')
-                    $productImg.setAttribute('src', `/img/productos/${product.idSerieProducto}/${product.nombreProducto}.jpg`)
-                    $rowSeries.append(clone)
-
-                })
-            },
-            error: function(error) {
-                
-                console.log(error,"lol");
-            }
-        })
-        
-    })
-
-</script>
