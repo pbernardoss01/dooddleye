@@ -106,7 +106,41 @@ background-color: #fff;
 
 
 
-
+#catalogoProductos .card{
+  border:none;
+}
+#contacto{
+  margin: 3em;
+  border: none;
+}
+#contacto a{
+  color:#000;
+  margin-left: 0.5em;
+}
+#contacto .card-title{
+  margin:0em;
+  padding:0.5em;
+  font-size: 1em;
+  font-weight: bolder;
+}
+#contacto .card-body{
+  padding:0.5em;
+  font-size: 1em;
+}
+#formContacto{
+  margin: 2em;
+}
+}
+#datosUsuarioVenta div{
+  margin-top:1em;
+}
+footer{
+  padding: 4em 4em 1em 4em;
+  color: #999;
+}
+#rights{
+  margin-left: 3em;
+}
 
 /*******************************Hover Series***********************************/
 

@@ -121,11 +121,8 @@ public static function recogerSeries($arrays) {
 
   return $result;
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
 
 }
 

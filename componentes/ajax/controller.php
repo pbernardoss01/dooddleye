@@ -77,9 +77,6 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
-<<<<<<< HEAD
-
-=======
     case 'borrarProductoCesta': 
       $producto=$_POST['producto'];
       
@@ -87,7 +84,6 @@ switch ($_POST['action']) {
       echo json_encode($_POST);
       exit;     
     break; 
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
 
   default:
     echo 'null';
