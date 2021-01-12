@@ -2,7 +2,7 @@
  
 <footer id="footer" class="row d-flex bg-dark">
   <div class="col-4  d-flex justify-content-center columnaFooter">
-    <a href="index.php"><img src="/img/logo/logo2.png" class="img-fluid"></a><br>
+    <a href="index.php"><img src="/img/logo/logo4.png" class="img-fluid"></a><br>
   </div>
   <div class="col-4 d-flex justify-content-center columnaFooter">
      
