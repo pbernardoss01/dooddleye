@@ -41,7 +41,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div id="productosBesto" class="row d-flex justify-content-center">
-                <div id="cartaSliderProducto" class="card cartaSliderProducto" style="display:none; width: 18rem;">
+                <div id="cartaSliderProducto" class="card cartaSliderProducto" style="display:none; width: 25em;">
                     <a id="productoEnlace" >
                         <img id="imagenProductoSlider" class="card-img-top" alt="Card image cap">
                         <div class="card-body">
@@ -70,14 +70,7 @@
             </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+    
     </div>
 </div>
 

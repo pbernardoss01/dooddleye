@@ -72,25 +72,43 @@ switch ($_POST['action']) {
       exit;     
     break;
 
-    case 'recogerDatosUsuario': 
+    case 'cambiarDatos': 
+      AjaxModel::cambiarDatosUsuario($_SESSION['userData']['idUsuario'], $_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['direccion'], $_POST['telefono'], $_POST['mail']);
+      $userData = AjaxModel::mostrarDatosUsuario($_SESSION['userData']['idUsuario']);
+     
+      $_SESSION['userData'] = $userData;
       
-      $data =$_SESSION['userData'];
+      exit;     
+    break;
+   
+    case 'borrarProductoCesta': 
+      $producto=$_POST['producto'];
+      unset($_SESSION['cesta']["$producto"]);
+
+      echo json_encode(empty($_SESSION['cesta']));
+      exit;     
+    break; 
+    case 'mostrarPedidos': 
+      
+      $usuarioLogueado =$_SESSION['userData']['idUsuario'];
+      $data =AjaxModel::mostrarPedidos($usuarioLogueado);
       echo json_encode($data);
       exit;     
     break;
-    case 'borrarProductoCesta': 
-      $producto=$_POST['producto'];
-      
-      unset($_SESSION['cesta'][$producto]);
-      echo json_encode($_POST);
+    case 'mostrarPedidos': 
+      $usuarioLogueado = $_SESSION['userData']['idUsuario'];
+      $data =AjaxModel::mostrarPedidos($usuarioLogueado);
+      echo json_encode($data);
       exit;     
-    break; 
-
+    break;
+    case 'borrarProducto': 
+      $data =AjaxModel::borrarProducto($_POST['producto']);
+      echo json_encode($data);
+      exit;     
+    break;
   default:
     echo 'null';
     break;
 }
 
 
-// Datos a recoger de la peticion
-echo $data;

@@ -14,5 +14,10 @@
 				<a href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
 				<a href="#"><i class="fab fa-twitter-square"></i>Instagram</a>
 				<a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></div>
-  			</div>
-	<!-- ./Footer -->
+			  </div>
+			  </div>	  </div>
+			  
+			  
+			 
+			 
+			  <section> <!-- ./Footer -->

@@ -4,7 +4,7 @@
 
     <?php 
                   if($_SESSION['userRol'] == "1") {  
-                    echo '<a class="link-carta-usuario" href="#" >
+                    echo '<a class="link-carta-usuario" href="index.php?page=pedidos" >
                             <div class="card carta-usuario" style="width: 20rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Mis Pedidos</h5>
@@ -12,7 +12,7 @@
                                 </div>
                             </div>
                         </a>';
-                    echo '<a class="link-carta-usuario" href="#" >
+                    echo '<a class="link-carta-usuario" href="index.php?page=datos" >
                             <div class="card carta-usuario" style="width: 20rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Mis Datos</h5>
@@ -21,16 +21,8 @@
                             </div>
                         </a>';
                   } else if($_SESSION['userRol'] == "3") {  
-                    echo ' <a class="link-carta-usuario" href="#" >
-                    <div class="card carta-usuario" style="width: 20rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Usuarios</h5>
-                            <p class="card-text">Editar inicio de sesión, direccion y otros datos personales.</p>
-                            
-                        </div>
-                    </div>
-                </a>';
-                    echo ' <a class="link-carta-usuario" href="#" >
+                    
+                    echo ' <a class="link-carta-usuario" href="index.php?page=productosAdmin" >
                     <div class="card carta-usuario" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Productos</h5>
@@ -39,7 +31,7 @@
                         </div>
                     </div>
                 </a>';
-                echo '<a class="link-carta-usuario" href="#" >
+                echo '<a class="link-carta-usuario" href="index.php?page=entradas" >
                 <div class="card carta-usuario" style="width: 20rem;">
                     <div class="card-body">
                         <h5 class="card-title">Entradas</h5>

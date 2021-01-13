@@ -1,14 +1,14 @@
 <div class="card shopping-cart">
             <div class="card-header text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-               <h2>Tu cesta</h2>
+               <h2 style="color:black;">Tu cesta</h2>
          
                 <div class="clearfix"></div>
             </div>
             <div id="listaCesta" class="card-body">
                     <!-- PRODUCT -->
                     <?php 
-                    if(!isset($_SESSION['cesta'])){
+                    if(!isset($_SESSION['cesta']) || empty($_SESSION['cesta'])){
                         
                       echo "<h3>No hay productos en la cesta</h3>";
                     }else{
@@ -22,11 +22,7 @@
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-<<<<<<< HEAD
-                                <h6><strong id="precioProducto"></strong><span class="text-muted">x</span></h6>
-=======
-                                <h6><strong id="precioProducto"></strong></h6>
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
+                                <h6 style="font-weight: bold;"><strong id="precioProducto"></strong>€</h6>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
                                 <div class="quantity">
@@ -37,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
-                                <button type="button" class="btn btn-outline-danger btn-xs">
+                                <button type="button" onclick="borrarProducto(event)" class="btn btn-outline-danger btn-xs">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -86,9 +82,9 @@
                 console.log(data)
                 const $listaCesta = document.querySelector('#listaCesta')
                 const $producto = document.querySelector('#producto')
-                
+                var contador=0;
                 data.forEach(producto => {
-
+                    
                     //clona la tarjeta modelo
                     const clone = $producto.cloneNode(true)
        
@@ -100,15 +96,12 @@
                     const $productImg = clone.querySelector('img')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
-<<<<<<< HEAD
-                    
-=======
+                    $precioProducto.setAttribute('class', 'precioProducto')
                     const $botonBorrar=clone.querySelector('button')
 
                     $botonBorrar.setAttribute('id', contador)
                     $botonBorrar.setAttribute('data-numeroProducto', contador)
                     clone.setAttribute('id', `producto`+contador)
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
                     
                     //asigna atributos
                    
@@ -119,24 +112,21 @@
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
                     $listaCesta.append(clone)
+                    contador++
 
-
-<<<<<<< HEAD
-
-                })
-            
-            
-            
-=======
                 })
                 var total=0;
+                console.log(total)
+                $(".precioProducto").each(function(indice,elemento){
+                    
+             
+                    total= total + parseFloat($(".precioProducto").text())
+            
 
-                $("#precioProducto").each(function(indice,elemento){
-                    total=total +$("#precioProducto").value 
                 })
                 
-            $("#totalCarrito").append(total)
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
+                console.log(total)
+            $("#totalCarrito").append(total, "€")
             
             },
             error: function(error) {
@@ -148,8 +138,6 @@
     })
 
 
-<<<<<<< HEAD
-=======
 function borrarProducto(event) {
     let productId = -1
     if (event.target.dataset.numeroproducto) {
@@ -173,6 +161,8 @@ function borrarProducto(event) {
         success: function(data) {
             var id="#producto"+productId
             $(id).remove();
+            console.log(data)
+          location.reload();
 
         },
         error: function(error) {
@@ -183,7 +173,5 @@ function borrarProducto(event) {
     })
 }
 
->>>>>>> parent of 7df786a... cambios en el registro de nuevos usuarios
 
     </script>
-<?php var_dump($_SESSION)?>

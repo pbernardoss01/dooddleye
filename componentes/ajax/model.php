@@ -124,7 +124,53 @@ public static function recogerSeries($arrays) {
   return $result;
 }
 
+public static function mostrarPedidos($idUsuario) {
+  $db = new database();
+  
+  $query = "SELECT pedido.fechaPedido, pedido.precioTotal, detallepedido.cantidad, detallepedido.precioTotal, producto.nombreProducto FROM detallepedido INNER JOIN pedido ON pedido.idPedido=detallepedido.idPedido  INNER JOIN usuario ON usuario.idUsuario=pedido.idUsuario INNER JOIN producto ON producto.idProducto=detallepedido.idProducto";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
 
+  return $result;
+}
+public static function cambiarDatosUsuario($idUsuario, $nombre, $apellido1, $apellido2, $direccion, $telefono, $mail) {
+  $db = new database();
+  
+  $query = "UPDATE usuario SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', direccion = '$direccion', telefono = '$telefono', mail = '$mail' WHERE usuario.idUsuario = '$idUsuario';";
+  
+  $db->query($query);
+  
+  $query = "SELECT * FROM usuario WHERE idUsuario='$idUsuario;";
+
+  $db->query($query);
+  return $result;
+
+}
+public static function mostrarDatosUsuario($idUsuario) {
+  $db = new database();
+
+  $query = "SELECT * FROM usuario WHERE idUsuario = '$idUsuario'";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result[0];
+}
+
+public static function borrarProducto($producto) {
+  $db = new database();
+
+  $query = "DELETE FROM 'producto' WHERE 'producto'.'idProducto' = '$producto'";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result[0];
+}
 
 }
 

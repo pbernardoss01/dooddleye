@@ -110,6 +110,13 @@ width: 100%;
 #catalogoProductos .card{
   border:none;
 }
+
+#imagenProduto img{
+  height: 30em;
+  
+  object-fit: cover;
+}
+
 #contacto{
   margin: 3em;
   border: none;
@@ -621,17 +628,16 @@ margin-bottom: 2%;
 
 
 .cartaSliderProducto{
-  margin: 0em 2em 0em 2em;
+  padding: 0em 2em 0em 2em;
 }
-
 .cartaSliderProducto a{
   color:black;
 }
-.cartaSliderProducto:hover{
-  background-color:var(--gris3s);
-}
+
 .cartaSliderProducto a:hover{
-  background-color: #EEE;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.75);
   text-decoration-line: none;
 }
 
@@ -646,4 +652,16 @@ margin-bottom: 2%;
 
 #indicadoresSliderProductos{
   bottom: 1em;
+}
+
+#datos{
+  padding: 1em 5em 4em 5em;
+}
+#datos .titulo{
+font-size: 3em;
+margin: 1em;
+}
+
+#listaProductos .tarjetaProducto{
+  margin:1em 0em;
 }

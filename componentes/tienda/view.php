@@ -29,10 +29,10 @@
                 <div class="col-md-6">
                     <select id="filtrarSerie" class="form-control" onchange="filtradoSerie(event)">
                         <option  value="0">Todas</option>
-                        <option value="1">Animales</option>
-                        <option  value="2">Automoviles</option>
-                        <option value="3">Gente</option>
-                        <option  value="4">Paisajes</option>
+                        <option value="1">Besto</option>
+                        <option  value="2">Koloi</option>
+                        <option value="3">Olona</option>
+                        <option  value="4">Malang</option>
                     </select>
                 </div>
                 </div>
@@ -72,8 +72,8 @@
         
     
             <div id="tarjetaProducto" class="card col-lg-4 col-md-6 mb-4 " style="display:none">
-                <a href="page=producto&productid=">
-                    <img  id="imagenProduto"  class="card-img-top" src="" alt="">
+                <a id="imagenProduto" href="page=producto&productid=">
+                    <img   class="card-img-top" src="" alt="">
                 </a>
                 <div class="card-body">
                     <h5 id="precioProducto"></h5>
