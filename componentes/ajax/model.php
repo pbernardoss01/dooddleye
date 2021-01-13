@@ -163,13 +163,12 @@ public static function mostrarDatosUsuario($idUsuario) {
 public static function borrarProducto($producto) {
   $db = new database();
 
-  $query = "DELETE FROM 'producto' WHERE 'producto'.'idProducto' = '$producto'";
+  $query = "DELETE FROM producto WHERE idProducto = '$producto'";
   
   $db->query($query);
   
   $result = $db->cargaMatriz();
-
-  return $result[0];
+  return true;
 }
 
 }

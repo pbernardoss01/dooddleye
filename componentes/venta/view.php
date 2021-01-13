@@ -60,7 +60,7 @@
      <?php   ;
 
     }else{
-        echo 'Logueate <a class="dropdown-item" href="index.php?page=usuario">Mi cuenta</a>';
+      header("index.php?page=login");
     }
     ?> 
 

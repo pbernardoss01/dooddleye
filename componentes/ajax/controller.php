@@ -102,7 +102,8 @@ switch ($_POST['action']) {
       exit;     
     break;
     case 'borrarProducto': 
-      $data =AjaxModel::borrarProducto($_POST['producto']);
+      $data = AjaxModel::borrarProducto($_POST['producto']);
+      
       echo json_encode($data);
       exit;     
     break;

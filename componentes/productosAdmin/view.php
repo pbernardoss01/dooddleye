@@ -14,7 +14,7 @@
             </div>    
             <div class="col-1 text-md-right">
                 <div class="col-2 col-sm-2 col-md-2 text-right">
-                    <button type="button"  class="btn btn-outline-danger btn-xs">
+                    <button type="button" onclick="borrarProducto(event)"  class="btn btn-outline-danger btn-xs">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -87,16 +87,23 @@ window.addEventListener('load', event_load => {
 
 
     function borrarProducto(event) {
-    let productId = -1
-    if (event.target.dataset.numeroproducto) {
-        productId = event.target.dataset.numeroproducto
+      console.log(event)
+        let productId = -1
+    if (event.target.dataset.id) {
+        productId = event.target.dataset.id
+        console.log(productId)
     } else {
         const parent = event.target.parentElement
-        if (parent.dataset.numeroproducto)  productId = parent.dataset.numeroproducto
+        if (parent.dataset.id)  {
+            productId = parent.dataset.id
+        }else{
+            console.log("fail")
+        }
+    
     }
 
     productId = parseInt(productId)
-
+console.log(productId)
     $.ajax({
         url: '/',
         type: 'POST',
@@ -107,7 +114,9 @@ window.addEventListener('load', event_load => {
             producto: productId
         },
         success: function(data) {
+            console.log(data)
             var id="#producto"+productId
+            console.log(id)
             $(id).remove();
 
         },
