@@ -97,10 +97,25 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
-    case 'mostrarPedidos': 
+    case 'hacerPedido':
       $usuarioLogueado = $_SESSION['userData']['idUsuario'];
-      $data =AjaxModel::mostrarPedidos($usuarioLogueado);
-      echo json_encode($data);
+      $idPedido =AjaxModel::hacerPedido($usuarioLogueado, $_POST['preciototal']);
+      $pedido = $_SESSION['cesta'];
+      $idProducto="";
+      foreach ($pedido as &$value) {
+        if( $idProducto == $value['idProducto']){  
+            $cantidad=$cantidad + 1;
+            $precio=$precio+ floatval($value['precio']);
+        }else{
+          $idProducto = $value['idProducto'];
+          $cantidad = 1;
+          $precio=floatval($value['precio']);
+        }
+        $data =AjaxModel::detallePedido($idProducto, $idPedido, $cantidad, $precio);
+      }
+     
+      
+      echo json_encode($cantidad);
       exit;     
     break;
     case 'borrarProducto': 

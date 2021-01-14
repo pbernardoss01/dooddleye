@@ -174,6 +174,30 @@ public static function borrarProducto($producto) {
   return true;
 }
 
+public static function hacerPedido($idUsuario, $precioTotal) {
+  $db = new database();
+
+  $query = "INSERT INTO pedido (idUsuario, precioTotal) VALUES ('$idUsuario', '$precioTotal');";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+  $query = "SELECT idPedido FROM pedido ORDER BY idPedido DESC LIMIT 1;";
+  $db->query($query);
+  $result = $db->cargaFila();
+  return $result["idPedido"];
+
+}
+public static function detallePedido($idProducto, $idPedido, $cantidad,$precio) {
+  $db = new database();
+
+  $query = "INSERT INTO detallepedido (idProducto, idPedido, cantidad, precioTotal) VALUES ('$idProducto','$idPedido','$cantidad','$precio');";
+
+  $db->query($query);
+  
+  
+
+}
 }
 
 /*a = new URLSearchParams(window.location.search)*/

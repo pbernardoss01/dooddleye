@@ -12,33 +12,37 @@
                     <div class="panel panel-default col-12 row" >
                         
                             <div id="datosUsuarioVenta" class="col-4">
-                                <div class="" id="nombreUsuario"></div>
-                                <div class="" id="direccionUsuario"></div>
-                                <div class="" id="telefono"></div>      
+                                <div class="" id="nombreUsuario"><?php echo $_SESSION['userData']['nombre'] . " ". $_SESSION['userData']['apellido1'] . " ".$_SESSION['userData']['apellido2']?></div>
+                                <div class="" id="direccionUsuario"><?php echo $_SESSION['userData']['direccion'] ?></div>
+                                <div class="" id="telefono"><?php echo $_SESSION['userData']['telefono'] ?></div>      
+                                <div id="precioTotal" class="">
+                                 
+                                 </div>
                             </div>
+                            
                             <div class="col-8" id="datosTarjetaCredito">
                                 
                                 <div class="row col-md-12">
-                                    <input type="text" class="form-control" placeholder="Numero de tarjeta de crédito/débito" />                                    
+                                    <input type="text" class="form-control" id="creditCard" placeholder="Numero de tarjeta de crédito/débito" />                                    
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                         <span class="help-block text-muted small-font" >Mes de expiración</span>
-                                        <input type="text" class="form-control" placeholder="MM" />
+                                        <input   id="mesExpired" type="text" class="form-control" placeholder="MM" />
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                         <span class="help-block text-muted small-font" >Año de expiración</span>
-                                        <input type="text" class="form-control" placeholder="YY" />
+                                        <input id="yearExpired" type="text" class="form-control" placeholder="YY" />
                                     </div>
                                     <div class="col-md-3 col-sm-3 col-xs-3">
                                         <span class="help-block text-muted small-font" > CCV</span>
-                                        <input type="text" class="form-control" placeholder="CCV" />
+                                        <input id="CCV" type="text" class="form-control" placeholder="CCV" />
                                     </div>
                                     
                                 </div>
                                 <div class="row col-md-12">
-                                    <input type="text" class="form-control" placeholder="Nombre completo de la tarjeta de crédito/débito" />
+                                    <input id="nombreTarjeta" type="text" class="form-control" placeholder="Nombre completo de la tarjeta de crédito/débito" />
                                 </div>
                             </div>
                         
@@ -73,7 +77,7 @@
     
 <script type="text/javascript">
     
-
+    var precioTotal=0;
     window.addEventListener('load', event_load => {
         $.ajax({
         url: '/',
@@ -89,11 +93,11 @@
                     data = Object.values(data)
                 }*/
                 console.log(data)
-                const preciototal = data.reduce(function(total, producto) {
+                precioTotal = data.reduce(function(total, producto) {
                     return total + parseFloat(producto.precio)
                 }, 0)
 
-                $('#precioTotal').append(`El precio a pagar es: ${preciototal}€`)
+                $('#precioTotal').append(`El precio a pagar es: ${precioTotal}€`)
             },
             error: function(error) {
                 
@@ -180,24 +184,25 @@
       
        var nombreTarjeta= $('#nombreTarjeta').value
        
-        const precio=  $('#precioTotal').text
+     
+      
        if (isValid) {
-    /*    $.ajax({
+        $.ajax({
         url: '/',
         type: 'POST',
         dataType: "json",
         data: {
             page: 'ajax',
             action: 'hacerPedido',
-            preciototal: precio
+            preciototal: precioTotal
         },
             success: function(data) {
-                console.log("exito")
+                console.log(data)
         },
             error: function(error) {
                 console.log(error)
             }
-       })*/
+       })
     }
     }
-    </script>
+    </script><?php echo $_SESSION['userData']['idUsuario'];?>
