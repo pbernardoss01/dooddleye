@@ -22,13 +22,14 @@
         </div> </a>
     </div>
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-    <a class="" href="index.php/?page=tienda" role="button">  <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
+    <a class="" href="index.php/?page=tienda" role="button">  
+    <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Olona</div>
         </div></a>
     </div>
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-    <a class="" href="index.php/?page=tienda" role="button">  <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
+    <a class="" href="index.php/?page=tienda" role="button">  
         <img class="col-12 imagenSerie" src="/img/productos/4/paisaje1.jpg"/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Malang</div>
