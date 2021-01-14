@@ -1,38 +1,27 @@
-<?php 
-$productid = 'no hay producto id';
-  if (isset($data['productid'])) $productid = $data['productid']
-?>
+
 
 <div class="container" id="entradasBlog">
-<?php 
-  echo $productid;
-?>
+
 <div class="row">
   <div id="entrada" style="display:none">
     <div class="row">
-        <h4><a id="tituloEntrada" href="#"></a></h4>
+        <h4 id="tituloEntrada"></h4>
     </div>
     <div class="row">
       <div id="contenidoEntrada">      
         
       </div>
     </div>
-    <div class="row">
-      <i class="icon-user"></i><a href="#">Dooddleye</a> 
-    | <i class="icon-calendar"></i><div id="fechaEntrada"></div>
-    | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-    |
-    | 
-        
-    <a href="#"><span class="label label-info"></span></a> 
-          <a href="#"><span class="label label-info">UI</span></a> 
-          <a href="#"><span class="label label-info">growth</span></a>
-        </p>
-      </div>
+    <div class="row" style="margin:1em 0em;">
+      <div style="margin:0em 1em;"><strong>Dooddleye </strong></div> 
+      <div id="fechaEntrada"></div>
+    
+      
     </div>
+    <hr>
   </div>
 </div>
-<hr>
+
 </div>
 
 

@@ -50,13 +50,16 @@ class AjaxModel {
     }
   }
 
-  public static function createUser($mail, $clave) {
+  public static function createUser($nombre , $apellido1, $apellido2, $telefono, $direccion, $mail, $clave){
     $db = new database();
 
-    $query = "INSERT INTO usuario(idUsuario, nombre, apellido1, apellido2, direccion, telefono, mail, clave) VALUES (NULL, 'a', 'a', 'a', 'a', '9', '$mail', '$clave');";
- 
+    $query = "INSERT INTO usuario(nombre, apellido1, apellido2, direccion, telefono, mail, clave, rol) VALUES ('$nombre', '$apellido1', '$apellido2', '$direccion', '$telefono', '$mail', '$clave', '0');";
+  
     $db->query($query);
-    return "done";
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
     
   }
   public static function getProducts() {

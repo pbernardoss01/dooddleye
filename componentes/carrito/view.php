@@ -97,6 +97,7 @@
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
                     $precioProducto.setAttribute('class', 'precioProducto')
+                    $precioProducto.setAttribute('data-precio', producto.precio)
                     const $botonBorrar=clone.querySelector('button')
 
                     $botonBorrar.setAttribute('id', contador)
@@ -119,15 +120,12 @@
                 console.log(total)
                 $(".precioProducto").each(function(indice,elemento){
                     
-             
-                    total= total + parseFloat($(".precioProducto").text())
-            
-
+                    total= total + parseFloat(elemento.dataset.precio)
                 })
                 
                 console.log(total)
             $("#totalCarrito").append(total, "€")
-            
+                
             },
             error: function(error) {
                 

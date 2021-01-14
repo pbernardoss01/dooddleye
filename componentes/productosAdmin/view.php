@@ -1,15 +1,41 @@
 <div id="listaProductos" class="container">
+    <div id="cabecera" class="col-12" >
+        <div class="row" >
+            <div class="col-2 text-center d-flex">
+            <strong>Imagen</strong>
+                  
+            </div>
+            <div id="idProducto" class="col-1">
+            <strong>Id</strong>
+                
+            </div>
+                <div id="descripcionProducto" class="col-7">
+                <strong>Descripcion</strong>
+                </div>
+            <div class="col-1 text-md-right">
+                <div class="col-12" style="padding-top: 5px">
+                <strong>Precio</strong>
+                </div>
+            </div>    
+            <div class="col-1 text-md-right">
+                
+            </div>
+        </div> 
+    </div>
     <div id="producto" class="col-12" style="display:none ">
         <div class="row" >
             <div class="col-2 text-center d-flex">
                     <img class="img-responsive" src="" alt="prewiew" width="120" height="80">
             </div>
-            <div id="descripcionProducto" class="col-8">
+            <div id="idProducto" class="col-1">
                 
             </div>
+                <div id="descripcionProducto" class="col-7">
+                
+                </div>
             <div class="col-1 text-md-right">
                 <div class="col-12" style="padding-top: 5px">
-                    <h6><strong id="precioProducto"></strong></h6>
+                    <h6 id="precioProducto"></h6>
                 </div>
             </div>    
             <div class="col-1 text-md-right">
@@ -53,6 +79,7 @@ window.addEventListener('load', event_load => {
                     //recoge tag img, descripcion, precio y boton 
                     const $productImg = clone.querySelector('img')
                     const $productEnlace = clone.querySelector('a')
+                    const $idProducto = clone.querySelector('#idProducto')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
                     const $btnProducto = clone.querySelector('button')
@@ -68,6 +95,7 @@ window.addEventListener('load', event_load => {
                 
                     $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     
+                    $idProducto.append(producto.idProducto)
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
                     $catalogoProductos.append(clone)

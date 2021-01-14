@@ -18,11 +18,13 @@ switch ($_POST['action']) {
       $_SESSION['registro'] = "entra";
       $data = AjaxModel::mailExists($_POST['mail']);
       $_SESSION['registro'] = $data;
-
+      $userData="fail";
       if ($data == 'false') {
-        $userData = AjaxModel::createUser($_POST['mail'], $_POST['clave']);
+        $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
         $_SESSION['registro'] = $userData;
       }
+      echo json_encode(false);
+      exit;     
     break;
     case 'mostrarProductos': 
       $data = AjaxModel::getProducts();
@@ -105,7 +107,13 @@ switch ($_POST['action']) {
       $data = AjaxModel::borrarProducto($_POST['producto']);
       
       echo json_encode($data);
-      exit;     
+      exit;
+      break;
+    case 'mostrarEntradas': 
+      $data = AjaxModel::getEntradas();
+      
+      echo json_encode($data);
+      exit;       
     break;
   default:
     echo 'null';

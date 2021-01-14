@@ -1,30 +1,40 @@
+
+<div class="jumbotron" style="margin:2em 0em;">
+        <h1>Mi trabajo</h1>
+        <p class="lead">Con esta página presento todo mi trabajo como ilustrador. Desde aquí tenéis disponibles todas mis láminas y algunos otros productos que tienen estampados mis 
+        ilustraciones, para poder comprarlas. Además está disponible todo mi currículum y un blog donde voy contando mi día como ilustrador.</p>
+        <a class="btn btn-lg btn-primary" href="index.php/?page=curriculum" role="button">Lee mi curriculum</a>
+      </div>
 <div  id="rowSeries" class="row">
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-        <img class="col-12 imagenSerie" src="/img/productos/1/animal1.jpg"/>
-        <div class="overlaySerie">
-            <div class="textHoverSerie">Besto</div>
-        </div>
+        <a class="" href="index.php/?page=tienda" role="button">
+            <img class="col-12 imagenSerie" src="/img/productos/1/animal1.jpg"/>
+            <div class="overlaySerie">
+                <div class="textHoverSerie">Besto</div>
+            </div>
+        </a>
     </div>
     <div id="productCard"  class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+    <a class="" href="index.php/?page=tienda" role="button">
         <img class="col-12 imagenSerie" src="/img/productos/2/vehiculo1.jpg"/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Koloi</div>
-        </div>
+        </div> </a>
     </div>
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-        <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
+    <a class="" href="index.php/?page=tienda" role="button">  <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Olona</div>
-        </div>
+        </div></a>
     </div>
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+    <a class="" href="index.php/?page=tienda" role="button">  <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
         <img class="col-12 imagenSerie" src="/img/productos/4/paisaje1.jpg"/>
         <div class="overlaySerie">
             <div class="textHoverSerie">Malang</div>
-        </div>
+        </div></a>
     </div>
 </div>
-
 
 
 <div id="sliderProductos" class="container-fluid">

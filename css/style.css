@@ -111,6 +111,7 @@ width: 100%;
   border:none;
 }
 
+
 #imagenProduto img{
   height: 30em;
   
@@ -464,7 +465,7 @@ margin-top: 2%;
   width: 65%;
 }
 
-#login .titulo{  
+#login .titulo, #registro .titulo{  
   font-size: 3em;
   margin-bottom: 1em;
 }
@@ -664,4 +665,28 @@ margin: 1em;
 
 #listaProductos .tarjetaProducto{
   margin:1em 0em;
+}
+
+
+#registro .form-control{
+  margin-top: 1em;
+}
+
+
+#btnRegistro{
+  border:none;
+  background-color: #555;
+  margin-top:1.5em;
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+#btnRegistro:hover{
+  background-color: #627DD0;
+}
+
+
+.formularioRegistro{
+
+padding: 1em 0em;
 }
