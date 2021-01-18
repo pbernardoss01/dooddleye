@@ -49,7 +49,7 @@
         <li data-target="#carouselSliderProductos" data-slide-to="2"></li>
         <li data-target="#carouselSliderProductos" data-slide-to="3"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner" id="sliderContenedorProductos">
         <div class="carousel-item active">
             <div id="productosBesto" class="row d-flex justify-content-center">
                 <div id="cartaSliderProducto" class="card cartaSliderProducto" style="display:none; width: 25em;">
@@ -65,12 +65,8 @@
             </div>
         </div>
         <div class="carousel-item">
-            <div id="productosKoloi
-            
-            
-                                                                                                                                                                                                                                                                                                                                                                                                                                       " class="row d-flex justify-content-center">
-                
-        
+            <div id="productosKoloi" class="row d-flex justify-content-center"> 
+
             </div>
         </div>
         <div class="carousel-item">
@@ -118,11 +114,12 @@
            
         },
             success: function(data) {
-                const $productosBesto = document.querySelector('#productosBesto')
-                const $productosMalang = document.querySelector('#productosMalang')
-                const $productosOlona = document.querySelector('#productosOlona')
-                const $productosKoloi = document.querySelector('#productosKoloi')
-                const $cartaSliderProducto = document.querySelector('#cartaSliderProducto')
+                const productosBesto = document.querySelector('#productosBesto')
+                const productosMalang = document.querySelector('#productosMalang')
+                const productosOlona = document.querySelector('#productosOlona')
+                const productosKoloi = document.querySelector('#productosKoloi')
+                const cartaSliderProducto = document.querySelector('#cartaSliderProducto')
+                console.log(productosKoloi)
                 var contadorBesto=0
                 var contadorKoloi=0
                 var contadorOlona=0
@@ -137,7 +134,7 @@
 
                     if(producto.idSerieProducto=="1" && contadorBesto!=stop){
 
-                        const clone = $cartaSliderProducto.cloneNode(true)
+                        const clone = cartaSliderProducto.cloneNode(true)
                         clone.setAttribute('id', `producto${producto.idProducto}`)
                         clone.style.display = 'flex'
                         const $productoEnlace = clone.querySelector('#productoEnlace')
@@ -146,12 +143,12 @@
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
                         $descripcionProducto.append(producto.descripcion)
-                        $productosBesto.append(clone)
+                        productosBesto.appendChild(clone)
                         contadorBesto++
                     }
 
                     if(producto.idSerieProducto=="2" && contadorKoloi!=stop){
-                        const clone = $cartaSliderProducto.cloneNode(true)
+                        const clone = cartaSliderProducto.cloneNode(true)
                         clone.setAttribute('id', `producto${producto.idProducto}`)
                         clone.style.display = 'flex'
                         const $productEnlace = clone.querySelector('#productoEnlace')
@@ -160,12 +157,13 @@
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
                         $descripcionProducto.append(producto.descripcion)
-                        $productosKoloi.append(clone)
+                        console.log(clone)
+                        productosKoloi.appendChild(clone)
                         contadorKoloi++
                         
                     }
                     if(producto.idSerieProducto=="3" && contadorOlona!=stop){
-                        const clone = $cartaSliderProducto.cloneNode(true)
+                        const clone = cartaSliderProducto.cloneNode(true)
                         clone.setAttribute('id', `producto${producto.idProducto}`)
                         clone.style.display = 'flex'
                         const $productEnlace = clone.querySelector('#productoEnlace')
@@ -174,11 +172,11 @@
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
                         $descripcionProducto.append(producto.descripcion)
-                        $productosOlona.append(clone)
+                        productosOlona.appendChild(clone)
                         contadorOlona++
                     }
                     if(producto.idSerieProducto=="4" && contadorMalang!=stop){
-                        const clone = $cartaSliderProducto.cloneNode(true)
+                        const clone = cartaSliderProducto.cloneNode(true)
                         clone.setAttribute('id', `producto${producto.idProducto}`)
                         clone.style.display = 'flex'
                         const $productEnlace = clone.querySelector('#productoEnlace')
@@ -187,7 +185,7 @@
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
                         $descripcionProducto.append(producto.descripcion)
-                        $productosMalang.append(clone)
+                        productosMalang.appendChild(clone)
                         contadorMalang++
                     }
 

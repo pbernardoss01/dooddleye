@@ -463,8 +463,9 @@
       return valid
   }
 
-
+//Evento del boton "registro"
   function realizarRegistro(event){
+    //Recogida de los datos de 
     const $direccion = document.querySelector('#linea1').value + " " + document.querySelector('#linea2').value  + "\n" +  document.querySelector('#CP').value + " " + document.querySelector('#ciudad').value + "\n" + document.querySelector('#provincia').value + " " + document.querySelector('#pais').value;
 if( document.querySelector('#apellido2').value==null){
   apellido2=" "

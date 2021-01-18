@@ -31,7 +31,7 @@
 body {
   overflow-x: hidden;
   background-color: #fff;
-  width: 100%;
+  width: 104%
 
 }
 
@@ -132,7 +132,33 @@ body {
   #catalogoProductos{
     margin: 0;
   }
+  
+  #producto{
+    padding: 0.5em;
+  }
+  
+  #listaCesta #descripcionProducto{
+    font-size: 1em;
+  }
+  .cartaSliderProducto{
+    height: 32em;
+  }
+  #sliderContenedorProductos{
+    height: 23em;
+  }
 }
+
+@media (min-width: 721px) {
+  #imagenProduto img{
+    height: 30em;
+    object-fit: cover;
+  }
+  #catalogoProductos{
+    margin: 0;
+  }
+
+}
+
 
 
 
@@ -779,4 +805,14 @@ padding: 1em 0em;
 
 #tituloPedido{
   margin: 2rem;
+}
+
+#botonVolver{
+height: 4em;
+    vertical-align: middle;
+    padding: 1em;
+}
+
+#botonesProducto input, #botonesProducto a{
+  margin:0.5em;
 }

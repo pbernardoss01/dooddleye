@@ -21,24 +21,17 @@
                     <span class="product-form-price" id="precioProducto"></span>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="Quantity" class="col-sm-3 col-md-3 form-control-label">Cantidad:</label>
-                <div class="col-sm-8 col-md-9">
-                    <input type="number" class="qty form-control" id="input-qty" name="qty" maxlength="5" value="1">
-                </div>
-            </div>
-
+            
 
            
 
-            <div class="form-group product-stock product-available row visible">
-                <label class="col-sm-3 col-md-3 form-control-label"></label>
-                <div class="col-sm-8 col-sm-offset-3 col-md-9 col-md-offset-3">
-                    <input type="button" onclick="" class="adc btn btn-primary" value="Añadir a la cesta">              
-                </div>
-            </div>
+          <div id="botonesProducto">
+            <input type="button" id="btnCarrito" onclick="addCarrito(event)" class="adc btn btn-primary col-sm-12 col-md-6 " value="Añadir a la cesta">              
+            <a  href="index.php?page=tienda" class="adc btn btn btn-outline-info col-sm-12 col-md-6" >Volver a la tienda</a> 
+
         </div>
-       
+        </div>
+        
     </div>
 </div>
 
@@ -58,12 +51,14 @@
             id: $id
         },
             success: function(data) {
-                console.log(data[0].idSerieProducto)
+                console.log(data[0])
                 const $imagenProducto = $("#imagenProducto")
                 const $descripcionProducto = $('#descripcionProducto')
                 const $precioProducto = $('#precioProducto')
+                const $btnProducto = document.querySelector('#btnCarrito')
                 
                 $("#imagenProducto")[0].setAttribute('src', `/img/productos/${data[0].idSerieProducto}/${data[0].nombreProducto}.jpg`)
+                $btnProducto.setAttribute('data-id', `${data[0].idProducto}`)
                 $descripcionProducto.append(data[0].descripcion)
                 $precioProducto.append(data[0].precio)
 
@@ -73,6 +68,32 @@
             }
     })
 })
+
+
+
+//Funcion añadir a carrito. Añade el elemento seleccionado a la sesion
+function addCarrito(event){
+
+        console.log(event.target.dataset.id)
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                page: 'ajax',
+                action: 'addACesta',
+                id:event.target.dataset.id
+            },
+            success: function(data) {
+               console.log("exito")
+                
+            },
+            error: function(error) {
+               console.log(error)              
+            }
+        })  
+    }
+    
 </script>
 
 

@@ -1,4 +1,4 @@
-<div class="card shopping-cart">
+<div class="card shopping-cart text-center">
             <div class="card-header text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                <h2 style="color:black;">Tu cesta</h2>
@@ -17,22 +17,15 @@
                         <div class="col-12 col-sm-12 col-md-2 text-center">
                                 <img class="img-responsive" src="" alt="prewiew" width="120" height="80">
                         </div>
-                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                        <div class="col-6 text-sm-center col-sm-12 text-md-left col-md-6">
                             <h4 id="descripcionProducto"> </h4>
                         </div>
-                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                        <div class="col-6 text-sm-center col-md-4 text-md-right row justify-content-center">
+                            <div class="col-8 col-md-6 text-md-right" style="padding-top: 5px">
                                 <h6 style="font-weight: bold;"><strong id="precioProducto"></strong>€</h6>
                             </div>
-                            <div class="col-4 col-sm-4 col-md-4">
-                                <div class="quantity">
-                                    <input type="button" value="+" class="plus">
-                                    <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                           size="4">
-                                    <input type="button" value="-" class="minus">
-                                </div>
-                            </div>
-                            <div class="col-2 col-sm-2 col-md-2 text-right">
+                            
+                            <div class="col-2 col-sm-2 col-md-2 text-right ">
                                 <button type="button" onclick="borrarProducto(event)" class="btn btn-outline-danger btn-xs">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
@@ -51,13 +44,16 @@
 
             <div class="card-footer">
                 
-                <div class="pull-right" style="margin: 10px">
-                    <a href="index.php?page=venta" class="btn btn-success pull-right">Tramitar pedido</a>
-                    <div class="pull-right" style="margin: 5px">
-                        Total: <b id="totalCarrito"></b>
-                    </div>
+                <div class="row justify-content-around" >
+                    
 
-                    <a href="" class="btn btn-outline-info btn-sm pull-right">Continua comprando</a>
+                    <a href="index.php?page=tienda" id="botonVolver" class="btn btn-outline-info btn-sm align-middle">Continua comprando</a>
+
+                    
+                    <div class="pull-right text-center" style="margin: 5px">
+                        Total: <b id="totalCarrito"></b>
+                        <a href="index.php?page=venta" class="btn btn-success pull-right col-12">Tramitar pedido</a>
+                    </div>
                 </div>
             </div>
 
@@ -84,6 +80,7 @@
                 const $producto = document.querySelector('#producto')
                 var contador=0;
                 data.forEach(producto => {
+
                     
                     //clona la tarjeta modelo
                     const clone = $producto.cloneNode(true)
@@ -146,7 +143,7 @@ function borrarProducto(event) {
     }
 
     productId = parseInt(productId)
-
+    console.log(productId)
     $.ajax({
         url: '/',
         type: 'POST',
@@ -157,10 +154,12 @@ function borrarProducto(event) {
             producto: productId
         },
         success: function(data) {
+            
             var id="#producto"+productId
-            $(id).remove();
-            console.log(data)
-          location.reload();
+             console.log(id)
+            document.querySelector(id).style.display = 'none'
+           
+            location.reload();
 
         },
         error: function(error) {

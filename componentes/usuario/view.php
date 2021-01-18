@@ -3,7 +3,7 @@
 
 
     <?php 
-                  if($_SESSION['userRol'] == "1") {  
+                  if($_SESSION['userRol'] == "2") {  
                     echo '<a class="link-carta-usuario" href="index.php?page=pedidos" >
                             <div class="card carta-usuario" style="width: 20rem;">
                                 <div class="card-body">
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </a>';
-                  } else if($_SESSION['userRol'] == "3") {  
+                  } else if($_SESSION['userRol'] == "0") {  
                     
                     echo ' <a class="link-carta-usuario" href="index.php?page=productosAdmin" >
                     <div class="card carta-usuario" style="width: 20rem;">
@@ -31,15 +31,7 @@
                         </div>
                     </div>
                 </a>';
-                echo '<a class="link-carta-usuario" href="index.php?page=entradas" >
-                <div class="card carta-usuario" style="width: 20rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Entradas</h5>
-                        <p class="card-text">Editar inicio de sesión, direccion y otros datos personales.</p>
-                        
-                    </div>
-                </div>
-            </a>';
+                
                   }
                 ?>  
 
