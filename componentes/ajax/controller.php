@@ -23,7 +23,7 @@ switch ($_POST['action']) {
         $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
 
       }
-      echo json_encode(false);
+      echo json_encode($data);
       exit;     
     break;
     case 'mostrarProductos': 

@@ -1,7 +1,7 @@
 <div class="container">
 
  <?php 
-    if(isset($_SESSION['validUser']) && $_SESSION['validUser'] == true && $_SESSION['userRol'] == "1") {  
+    if(isset($_SESSION['validUser']) && $_SESSION['validUser'] == true && $_SESSION['userRol'] == "2") {  
        
     ?>    
         
@@ -198,6 +198,7 @@
         },
             success: function(data) {
                 console.log(data)
+                window.location.href="/index.php?page=confirmacionPedido";
         },
             error: function(error) {
                 console.log(error)

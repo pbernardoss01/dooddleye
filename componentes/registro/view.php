@@ -509,7 +509,7 @@ if( document.querySelector('#apellido2').value==null){
             if(data){
               alert("Ya existe una cuenta con ese correo")
             }else{
-            window.location.href="/index.php?page=confirmacionRegistro";
+            //window.location.href="/index.php?page=confirmacionRegistro";
             }
       },
           error: function(error) {
