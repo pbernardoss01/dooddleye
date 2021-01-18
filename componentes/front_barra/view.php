@@ -8,7 +8,7 @@
       <li class="col-2"><a class="col-2" href="#"><i class="fab fa-instagram"></i></a></li>
       <li class="col-2"><a class="col-2" href="#"><i class="fab fa-deviantart"></i></a></li>
       <li class="col-2 nav-item dropdown" >
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="index.php?page=usuario" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
