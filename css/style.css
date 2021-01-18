@@ -96,11 +96,18 @@ body {
 }
 
 
-#sliderCarrusel{
+#sliderCarruselGrande{
   height: 35em;
   width: 100%;
   padding: 0;
 }
+
+#sliderCarruselPequeño{
+  height: 11em;
+  width: 100%;
+  padding: 0;
+}
+
 
 .carousel-inner{
   height: inherit;
@@ -118,12 +125,16 @@ body {
   border:none;
 }
 
-
-#imagenProduto img{
-  height: 30em;
-  
-  object-fit: cover;
+@media (max-width: 720px) {
+  #imagenProduto img{
+    object-fit: cover;
+  }
+  #catalogoProductos{
+    margin: 0;
+  }
 }
+
+
 
 #contacto{
   margin: 3em;

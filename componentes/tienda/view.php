@@ -9,11 +9,11 @@
         <div class="row">
             
     
-            <div class="col-2 pt-2" >
+            <div class="col-12 col-md-2 pt-2" >
                 <span><strong id="contador"></strong></span>
             </div>
     
-            <div class="col-3">
+            <div class="col-12 col-md-3">
                 <form class="form-horizontal">
                     <div class="form-group row">
                         <label class="col-md-6 control-label text-right pt-2">Filtrar por categoria:</label>
@@ -30,7 +30,7 @@
                 </form>
             </div>
         
-            <div class="col-3">
+            <div class="col-12 col-md-3">
                 <form class="form-horizontal">
                     <div class="form-group row">
                     <label class="col-md-6 control-label text-right pt-2">Filtrar por serie:</label>
@@ -48,7 +48,7 @@
                 </form>
             </div>
             
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <form class="form-horizontal">
                     <div class="form-group row">
                         <label class="col-md-3 control-label text-left pt-2">Ordenar por:</label>
