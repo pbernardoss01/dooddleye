@@ -53,7 +53,7 @@ class AjaxModel {
   public static function createUser($nombre , $apellido1, $apellido2, $telefono, $direccion, $mail, $clave){
     $db = new database();
 
-    $query = "INSERT INTO usuario(nombre, apellido1, apellido2, direccion, telefono, mail, clave, rol) VALUES ('$nombre', '$apellido1', '$apellido2', '$direccion', '$telefono', '$mail', '$clave', '0');";
+    $query = "INSERT INTO usuario(nombre, apellido1, apellido2, direccion, telefono, mail, clave, rol) VALUES ('$nombre', '$apellido1', '$apellido2', '$direccion', '$telefono', '$mail', '$clave', '1');";
   
     $db->query($query);
     
@@ -130,7 +130,7 @@ public static function recogerSeries($arrays) {
 public static function mostrarPedidos($idUsuario) {
   $db = new database();
   
-  $query = "SELECT pedido.fechaPedido, pedido.precioTotal, detallepedido.cantidad, detallepedido.precioTotal, producto.nombreProducto FROM detallepedido INNER JOIN pedido ON pedido.idPedido=detallepedido.idPedido  INNER JOIN usuario ON usuario.idUsuario=pedido.idUsuario INNER JOIN producto ON producto.idProducto=detallepedido.idProducto";
+  $query = "SELECT pedido.fechaPedido, pedido.precioTotal, detallepedido.cantidad, detallepedido.precioTotal AS precioProducto, producto.nombreProducto FROM detallepedido INNER JOIN pedido ON pedido.idPedido=detallepedido.idPedido  INNER JOIN usuario ON usuario.idUsuario=pedido.idUsuario INNER JOIN producto ON producto.idProducto=detallepedido.idProducto WHERE usuario.idUsuario='$idUsuario'";
   
   $db->query($query);
   

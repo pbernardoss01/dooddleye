@@ -1,91 +1,100 @@
-<div class="container" id="barraFiltros">
-    <div class="row">
-        <div class="col-2 pt-2" >
-        <span><strong id="contador"></strong></span>
-        </div>
 
-        <div class="col-3">
-            <form class="form-horizontal">
-                <div class="form-group row">
-                <label class="col-md-6 control-label text-right pt-2">Filtrar por categoria:</label>
-                <div class="col-md-6">
-                    <select id="filtrarCategoria" class="form-control"  onchange="filtradoCategoria(event)">
-                        <option value="0">Todas</option>
-                        <option value="1">Laminas</option>
-                        <option value="2">Tazas</option>
-                        <option value="3">Camisetas</option>
-                       <!-- <option id="opcionCategoria" value="/techno/name/asc#category-gallery"></option>
---></select>
-                </div>
-                </div>
-            <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token">
-            </form>
-        </div>
-       
-        <div class="col-3">
-            <form class="form-horizontal">
-                <div class="form-group row">
-                <label class="col-md-6 control-label text-right pt-2">Filtrar por serie:</label>
-                <div class="col-md-6">
-                    <select id="filtrarSerie" class="form-control" onchange="filtradoSerie(event)">
-                        <option  value="0">Todas</option>
-                        <option value="1">Besto</option>
-                        <option  value="2">Koloi</option>
-                        <option value="3">Olona</option>
-                        <option  value="4">Malang</option>
-                    </select>
-                </div>
-                </div>
-            <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token">
-            </form>
-        </div>
+<!-- FAB de carrito -->
+<a href="index.php?page=carrito" id="globoCarrito">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</a>
+   <!--Barra de filtros--> 
+    <div class="container" id="barraFiltros">
         
-    <div class="col-4">
-        <form class="form-horizontal">
-            <div class="form-group row">
-            <label class="col-md-3 control-label text-left pt-2">Ordenar por:</label>
-            <div class="col-md-9">
-                <select id="filtrarPrecio" class="form-control" onchange="filtradoPrecio(event)">
-                    <option value="...">
-                        Selecciona...
-                    </option>
-                    
-                    <option value="bajo">
-                        Precio: de más bajo a más alto
-                    </option>
-                    
-                    <option value="alto">
-                        Precio: de más alto a más bajo
-                    </option>
-                
-                </select>
-            </div>
-            </div>
-            <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token"></form>
-        </div>
-    </div>
+        <div class="row">
+            
     
-  </div>
+            <div class="col-2 pt-2" >
+                <span><strong id="contador"></strong></span>
+            </div>
+    
+            <div class="col-3">
+                <form class="form-horizontal">
+                    <div class="form-group row">
+                        <label class="col-md-6 control-label text-right pt-2">Filtrar por categoria:</label>
+                        <div class="col-md-6">
+                            <select id="filtrarCategoria" class="form-control"  onchange="filtradoCategoria(event)">
+                                <option value="0">Todas</option>
+                                <option value="1">Laminas</option>
+                                <option value="2">Tazas</option>
+                                <option value="3">Camisetas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token">
+                </form>
+            </div>
+        
+            <div class="col-3">
+                <form class="form-horizontal">
+                    <div class="form-group row">
+                    <label class="col-md-6 control-label text-right pt-2">Filtrar por serie:</label>
+                    <div class="col-md-6">
+                        <select id="filtrarSerie" class="form-control" onchange="filtradoSerie(event)">
+                            <option  value="0">Todas</option>
+                            <option value="1">Besto</option>
+                            <option  value="2">Koloi</option>
+                            <option value="3">Olona</option>
+                            <option  value="4">Malang</option>
+                        </select>
+                    </div>
+                    </div>
+                <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token">
+                </form>
+            </div>
+            
+            <div class="col-4">
+                <form class="form-horizontal">
+                    <div class="form-group row">
+                        <label class="col-md-3 control-label text-left pt-2">Ordenar por:</label>
+                        <div class="col-md-9">
+                            <select id="filtrarPrecio" class="form-control" onchange="filtradoPrecio(event)">
+                                <option value="...">
+                                    Selecciona...
+                                </option>
+                                
+                                <option value="bajo">
+                                    Precio: de más bajo a más alto
+                                </option>
+                                
+                                <option value="alto">
+                                    Precio: de más alto a más bajo
+                                </option>
+                            
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" value="WFbgp88A9K59yU/Kr1qyc/JRVvG8d0Po0W3R4a8zBNo=" name="authenticity_token"></form>
+                </form>
+            </div>
+        
+        </div>
+    </div>     
+    
 
-
+  <!--Catalogo de productos--> 
     <div class="col-12 row" id="catalogoProductos">
-        
-    
-            <div id="tarjetaProducto" class="card col-lg-4 col-md-6 mb-4 " style="display:none">
-                <a id="imagenProduto" href="page=producto&productid=">
-                    <img   class="card-img-top" src="" alt="">
-                </a>
-                <div class="card-body">
-                    <h5 id="precioProducto"></h5>
-                    <p id="descripcionProducto" class="card-text"></p>
-                    <button id=""  onclick="addCarrito(event)" type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
-                </div>
-                
+        <!--Tarjeta de producto a clonar--> 
+        <div id="tarjetaProducto" class="card col-lg-4 col-md-6 mb-4 " style="display:none">
+            <a id="imagenProduto" href="page=producto&productid=">
+                <img   class="card-img-top" src="" alt="">
+            </a>
+            <div class="card-body">
+                <h5 id="precioProducto"></h5>
+                <p id="descripcionProducto" class="card-text"></p>
+                <button id=""  onclick="addCarrito(event)" type="button" class="btn btn-sm btn-outline-secondary">Añadir a carrito</button>
             </div>
+            
+        </div>
     
-     
-
     </div>
+
+ 
 
 <script type="text/javascript">
     
@@ -100,9 +109,9 @@
 
 
     var categorias=[]
-                var series=[]
+    var series=[]
 
-
+//Llamada a ajax inicial donde se pide a la bd los productos
     window.addEventListener('load', event_load => {
         $.ajax({
         url: '/',
@@ -113,13 +122,15 @@
             action: 'mostrarProductos'
         },
             success: function(data) {
+                //Recibidos los productos, se recogen el contenedor de productos y el modelo de tarjeta de producto a clonar
                 const $catalogoProductos = document.querySelector('#catalogoProductos')
                 const $tarjetaProducto = document.querySelector('#tarjetaProducto')
                 var contador=0
 
+                //Recogemos el resultado de la llamada 
                 data.forEach(producto => {
-                    categorias.push(producto.idCategoriaProducto)
-                    series.push(producto.idSerieProducto)
+
+  
                     //clona la tarjeta modelo
                     contador++
                     const clone = $tarjetaProducto.cloneNode(true)
@@ -128,7 +139,7 @@
                     
                     clone.style.display = 'flex'
 
-                    //recoge tag img, descripcion, precio y boton 
+                    //recoge tag img, descripcion, precio y boton del clon
                     const $productImg = clone.querySelector('img')
                     const $productEnlace = clone.querySelector('a')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
@@ -152,72 +163,18 @@
 
                    
                 })
-                categorias = borrarDuplicados(categorias);
-                series = borrarDuplicados(series);
-          
-                
+               //Añadimos a html el conteo de los productos recibidos.
                 document.querySelector('#contador').append(contador+" productos")
             },
             error: function(error) {
-                
-        
-                
+              console.log(error)  
             }
-        })
-
- /*  
-        $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'recogerCategorias'
-        },
-        success: function(data){
-            const filtrarCategoria=document.querySelector("#filtrarCategoria")
-            const opcionCategoria=document.querySelector("#opcionCategoria")
-            console.log(data)
-            data.forEach(categoria => {
-                console.log(categoria)
-                if(categorias.includes( categoria.idCategoriaProducto)){
-                    const clone = $tarjetaProducto.cloneNode(true)
-                    clone.append(categoria.nombre)
-                    $filtrarCategoria.append(clone)
-                }
-            })
-
-
-        },
-        error: function(error){
-
-        }
-        })
-        
-
-        $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'recogerSeries',
-            series: series
-        },
-        success: function(data){
-
-        },
-        error: function(error){
-
-        }
-        })
-        */
-        
+        })    
     })
 
 
 
-
+//Funcion añadir a carrito. Añade el elemento seleccionado a la sesion
     function addCarrito(event){
         console.log(event.target.dataset.id)
         $.ajax({
@@ -230,28 +187,28 @@
                 id:event.target.dataset.id
             },
             success: function(data) {
-                windows.location.href="/"
+               console.log("exito")
                 
             },
             error: function(error) {
-                
-         
-                
+               console.log(error)              
             }
         })  
-          
     }
     
+
+//Funcion para filtrar los productos segun la serie. Borra todos aquellos elementos que no sean de la serie seleccionada
     function filtradoSerie(event){
         var contador= 0
         var opcionSeleccionada = document.querySelector("#filtrarSerie");
-     
-        
+    
+        //Recogiendo la seleccion hecha se cambia a display flex todos los articulos seleccionados.
         if("0"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 $(this)[0].style.display = 'flex'
             })
         }else{
+            //Se cambia a displey none aquellos productos no seleccionados
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 if($(this)[0].dataset.serie != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
                     $(this)[0].style.display = 'none'
@@ -260,41 +217,38 @@
                     $(this)[0].style.display = 'flex'}
             })
         }
+        //Se cuenta los productos a mostrar
         $("#catalogoProductos .tarjetaProducto").each(function (){
             if($(this)[0].style.display=="flex"){
                 contador++
             }
         })
-
+        //Se resetean el resto de filtros y se actualiza el contador deproductos
         $('#contador').empty()
         $('#contador').append(contador+" productos")
         $("#filtrarCategoria").val("0")
-           $("#filtrarPrecio").val("...")
+        $("#filtrarPrecio").val("...")
     }
 
 
 
 
 
-
+//Funcion para filtrar los productos segun la serie. Borra todos aquellos elementos que no sean de la serie seleccionada
     function filtradoCategoria(event){
         var contador= 0
-        /*parseInt(document.querySelector('#contador').innerHTML.charAt(0))
-        */
         var opcionSeleccionada = document.querySelector("#filtrarCategoria");
         
+        //Recogiendo la seleccion hecha se cambia a display flex todos los articulos seleccionados.
         if("0"== opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
             $("#catalogoProductos .tarjetaProducto").each(function (){
                 $(this)[0].style.display = 'flex'
             })
         } else{
+            //Se cambia a displey none aquellos productos no seleccionados
            $("#catalogoProductos .tarjetaProducto").each(function (){
-          
-               
                 if($(this)[0].dataset.categoria != opcionSeleccionada.options[opcionSeleccionada.selectedIndex].value){
                     $(this)[0].style.display = 'none'
-                  
-               
                 }else{
                     $(this)[0].style.display = 'flex'}
             })}

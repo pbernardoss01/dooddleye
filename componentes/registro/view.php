@@ -1,7 +1,7 @@
 
 <!-- Modal -->
 <div id="registro" class= "offset-3 col-6" aria-hidden="true">
-  <div class="container">   
+  <div class="container-fluid">   
     <div id="logoRegistro" class="row row offset-3 col-6 ">
       <a href="index.php"><img src="/img/logo/logo1.png" class="img-fluid mx-auto d-block"> </a>
     </div>
@@ -18,29 +18,27 @@
       
       <div class="formularioRegistro" >
         <div class="row" >
-
-          <div class="control-group col-3">
+          <!-- Nombre -->  
+          <div class="control-group col-md-3 col-12 "><div class="obligatorio">*</div>    
             <input id="nombre" class="form-control" type="text"  placeholder="Nombre">
             <div class="invalid-feedback">
                 Numero incorrecto
             </div>     
           </div>
-      
-          <div class="control-group col-3">
+          <!--Primer apellido-->  
+          <div class="control-group col-md-3 col-12"><div class="obligatorio">*</div>    
             <input id="apellido1" class="form-control " type="text"  placeholder="Primer apellido">
             <div class="invalid-feedback">
               Numero incorrecto
             </div>     
           </div>
-            
-          <div class="control-group col-3">
+          <!-- Segundo apellido-->              
+          <div class="control-group col-md-3 col-12"><div class="no-obligatorio">.</div> 
             <input id="apellido2" class="form-control " type="mail"  placeholder="Segundo apellido">
-            <div class="invalid-feedback">
-              Numero incorrecto
-            </div>     
+             
           </div>
-
-          <div class="control-group col-3">
+          <!-- telefono -->  
+          <div class="control-group col-md-3 col-12"><div class="obligatorio">*</div>    
             <input id="telefono" class="form-control " type="text"  placeholder="telefono">
             <div class="invalid-feedback">
               Formato incorrecto
@@ -53,16 +51,16 @@
       <div id="direccion" class="formularioRegistro" >
         
         <!-- direccion linea 1 -->
-        <div class="control-group">
+        <div class="control-group"><div class="obligatorio">*</div>    
           <input id="linea1" name="linea1" type="text" placeholder="Calle, plaza, vía, etc." class="form-control">  
         </div>
         <!-- direccion linea 2 -->            
-        <div class="control-group">
-          <input id="linea2" name="linea2" type="text" placeholder="Apartamento, suite, bloque, edificio, piso, etc." class="form-control">  
+        <div class="control-group"><div class="obligatorio">*</div>    
+          <input id="linea2" name="linea2" type="text" placeholder="Apartamento, suite, bloque, edificio, piso, etc." class="form-control">
         </div>
 
         <div class="row">
-          <div class="control-group d-flex col-3">
+          <div class="control-group col-md-3 col-12"><div class="no-obligatorio">.</div>    
             
             <select id="pais" name="country"  class="form-control ">
                 <option value="AF">Afghanistan</option>
@@ -310,16 +308,16 @@
           </div>
         
             <!-- ciudad -->  
-          <div class="col-3 control-group">
-            <input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="Ciudad"> 
+          <div class="col-md-3 col-12 control-group"><div class="obligatorio">*</div>
+            <input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="Ciudad">
           </div>
             <!-- provincia --> 
-          <div class="col-3 control-group">
-            <input id="provincia" name="provincia" type="text" class="form-control" placeholder="Estado/Provincia/Región">                
+          <div class="col-md-3 col-12 control-group"> <div class="obligatorio">*</div>    
+            <input id="provincia" name="provincia" type="text" class="form-control" placeholder="Estado/Provincia/Región">          
           </div>
-
-          <div class="col-3 control-group">
-            <input id="CP" name="CP" type="text" class="form-control" placeholder="Codigo postal">                
+            <!-- Codigo postal -->  
+          <div class="col-md-3 col-12 control-group"><div class="obligatorio">*</div>    
+            <input id="CP" name="CP" type="text" class="form-control" placeholder="Codigo postal">           
           </div>      
           <div class="invalid-feedback">
               Revisa los datos de dirección
@@ -328,32 +326,37 @@
       </div>
 
       <div class="row formularioRegistro" >
-        <div class="col-4 control-group">
+        <!-- Correo electronico -->  
+        <div class="col-md-3 col-12 control-group"><div class="obligatorio">*</div>    
           <input id="mail" class="form-control" type="mail"  placeholder="Correo electrónico">
           <div class="invalid-feedback">
             Correo electronico incorrecto
           </div>       
         </div>  
-        <div class="col-4 control-group">
-          <input id="clave" class="form-control" type="password"  placeholder="Contraseña"> 
+        <!-- Contraseña -->  
+        <div class="col-md-3 col-12 control-group"><div class="obligatorio">*</div>    
+          <input id="clave" class="form-control" type="password"  placeholder="Contraseña">
           <div class="invalid-feedback">
             Contraseña no valida
           </div>       
         </div>
-        <div class="col-4 control-group">
-          <input id="clave2" class="form-control" type="password"  placeholder="Confirmar contraseña">  
+        <!-- Confirmacion de contraseña -->  
+        <div class="col-md-3 col-12 control-group"><div class="obligatorio">*</div>    
+          <input id="clave2" class="form-control" type="password"  placeholder="Confirmar contraseña"> 
           <div class="invalid-feedback">
             La contraseña no coincide
           </div>       
         </div>
       </div>
-
+      <div class="obligatorio">*Obligatorio</div>  
+      <div class="obligatorio" style="margin-top:0.5em"> La contraseña debe contener al menos un caracter especial, una mayuscula y un numero</div>  
+      
     </div>
 
 
     <!-- Boton -->
     <div class="row d-flex justify-content-center">
-      <div class="form-group text-center col-4 ">
+      <div class="form-group text-center col-md-3 col-12 ">
         <button id="btnRegistro" onclick="realizarRegistro(event)" class="btn btn-dark mb-2">Registrarse</button>
       </div>
     </div>
@@ -365,41 +368,7 @@
 
 <script type="text/javascript">
 
-  window.addEventListener('load', event_load => {
-
-    const $inputMail = document.querySelector('#mail')
-    const $inputClave = document.querySelector('#clave')
-    const $inputClave2 = document.querySelector('#clave2')
-    const $btnRegistro = document.querySelector('#btnRegistro')
-
-    function validForm() {
-      let ok = true
-
-      if ($inputMail.value.trim() === '') {
-        ok = false;
-        // Si quieres muesta un mensaje de error
-      }
-
-      if ($inputClave.value.trim() === '') {
-        ok = false;
-        // Si quieres muesta un mensaje de error
-      }
-      
-      return ok
-    }
-    function validClave($inputClave, $inputClave2) {
-      let ok = false
-
-      if ($inputClave != $inputClave2) {
-        ok = true; 
-      }
-      
-      return ok
-    }
-  })
-
-
-  
+//Validacion de los campos 
   function validate(data) {
       let valid = true
 
@@ -422,23 +391,13 @@
               $input.classList.remove('is-invalid')
           } else {
               $input.classList.add('is-invalid')
-  console.log("apellido1")
+              console.log("apellido1")
           
               valid = false
           }
       }
-      if ('apellido2' in data ) {
-          const $input =  document.querySelector('#apellido2')
-          if (data.apellido2.trim() !== '' && (/^[A-Za-zÀ-ÿ\s]{0,50}$/).test(data.apellido2)) {
-              
-              $input.classList.remove('is-invalid')
-          } else {
-              $input.classList.add('is-invalid')
-  console.log("apellido2")
-            
-              valid = false
-          }
-      }
+
+       
       if ('telefono' in data ) {
           const $input =  document.querySelector('#telefono')
           if (data.telefono.trim() !== '' && (/^\(?([9,7,6]{1})([0-9]{8})$/).test(data.telefono)) {
@@ -507,11 +466,16 @@
 
   function realizarRegistro(event){
     const $direccion = document.querySelector('#linea1').value + " " + document.querySelector('#linea2').value  + "\n" +  document.querySelector('#CP').value + " " + document.querySelector('#ciudad').value + "\n" + document.querySelector('#provincia').value + " " + document.querySelector('#pais').value;
-    console.log("true")
+if( document.querySelector('#apellido2').value==null){
+  apellido2=" "
+}else(
+  apellido2= document.querySelector('#apellido2').value==null
+)
+
     const data = {
       nombre: document.querySelector('#nombre').value,
       apellido1: document.querySelector('#apellido1').value,
-      apellido2: document.querySelector('#apellido2').value,
+      apellido2: apellido2,
       telefono: document.querySelector('#telefono').value,
       direccion: $direccion,
       mail: document.querySelector('#mail').value,
@@ -539,10 +503,13 @@
           
       },
           success: function(data) {
-            if(!data){
+            console.log(data)
+            console.log(1)            
+            if(data){
               alert("Ya existe una cuenta con ese correo")
             }else{
-            window.location.href="/index.php?page=home";}
+            window.location.href="/index.php?page=confirmacionRegistro";
+            }
       },
           error: function(error) {
               console.log(error)

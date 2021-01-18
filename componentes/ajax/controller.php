@@ -19,9 +19,9 @@ switch ($_POST['action']) {
       $data = AjaxModel::mailExists($_POST['mail']);
       $_SESSION['registro'] = $data;
       $userData="fail";
-      if ($data == 'false') {
+      if ($data == false) {
         $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
-        $_SESSION['registro'] = $userData;
+
       }
       echo json_encode(false);
       exit;     
@@ -134,5 +134,3 @@ switch ($_POST['action']) {
     echo 'null';
     break;
 }
-
-

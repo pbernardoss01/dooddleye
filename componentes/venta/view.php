@@ -61,7 +61,7 @@
         
         
         
-     <?php   
+     <?php   ;
 
     }else{
       header("index.php?page=login");

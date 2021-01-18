@@ -65,7 +65,10 @@
             </div>
         </div>
         <div class="carousel-item">
-            <div id="productosKoloi" class="row d-flex justify-content-center">
+            <div id="productosKoloi
+            
+            
+                                                                                                                                                                                                                                                                                                                                                                                                                                       " class="row d-flex justify-content-center">
                 
         
             </div>

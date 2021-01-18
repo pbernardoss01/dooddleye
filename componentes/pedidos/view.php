@@ -1,31 +1,35 @@
 <div class="container" id="pedidos">
- 
-    <div id="pedido" class="panel panel-primary" style="display:none;">
-        <div class="panel-heading">
-            <h3 class="panel-title">Pedido</h3>
+    <div class="row">
+        <div id="tituloPedido" class="text-center col-12">
+            <h3>Pedidos</h3>
+        </div>    
+    </div>
+    <div id="pedido" class="row" style="display:none;">
+        <div class="col-md-12">
             
+            <div class="row">
+                <div class="col-6 text-center">Fecha del pedido: <span id="fechaPedido"></span></div>
+                <div class="col-6 text-center"> Precio Total:  <span id="precioTotal"></span></div>
+            </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr class="filters">
-                    <th>Fecha del pedido: <p id="fechaPedido"></p></th>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio unitario</th>
-                    <th>Precio Total:  <p id="precioTotal"></p></th>
-                </tr>
-            </thead>
-            <tbody id="datosPedido">
-                <tr  >
-                    <td></td>
-                    <td id="producto"></td>
-                    <td id="cantidad"></td>
-                    <td id="precioUnitario"></td>
-                    <td></td>
-                </tr>
-               
-            </tbody>
-        </table>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr class="filters">  
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio unitario</th>
+                    </tr>
+                </thead>
+                <tbody id="datosPedido">
+                    <tr>
+                        <td id="producto"></td>
+                        <td id="cantidad"></td>
+                        <td id="precioUnitario"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
@@ -52,25 +56,63 @@
             action: 'mostrarPedidos'
         },
             success: function(data) {
-  
-                const $pedido = $("#pedido")
-                console.log(data)
-                var nuevoArray    = []
-                var arrayTemporal = []
+                const formateado = data.reduce((listado, row) => {
+                    const productData = {
+                        cantidad: row.cantidad,
+                        precioProducto: row.precioProducto,
+                        nombreProducto:  row.nombreProducto
+                    };
 
-                    for(var i=0; i<data.length; i++){
-                   arrayTemporal = nuevoArray.filter(resp => resp["Pedido"] == data[i]["fechaPedido"])
- /*                    if(arrayTemporal.length>0){
-                        nuevoArray[nuevoArray.indexOf(arrayTemporal[0])]["Productos"].push(data[i]["nombreProducto"])
-                    }else{
-                        data.push({"Pedido" : data[i]["fechaPedido"] , "Productos" : [data[i]["nombreProducto"]]})
+                    if(!listado[row.fechaPedido]) {
+                        listado[row.fechaPedido] = {
+                            precioTotal: row.precioTotal,
+                            productos: [productData]
+                        } 
+                    }else {
+                        listado[row.fechaPedido].productos.push(productData)
                     }
-                    console.log(nuevoArray)
- */               }
 
-        
-                console.log(data)
-               console.log(arrayTemporal)
+                    return listado
+                }, {})
+                
+                
+                const $divPedidos = document.querySelector('#pedidos')
+                const $tablaPedido = document.querySelector('#pedido')
+          
+                const fechasPedidos = Object.keys(formateado)
+                
+                fechasPedidos.forEach(fecha => {
+
+                    const clone = $tablaPedido.cloneNode(true)
+                    const tr = clone.querySelector('#datosPedido tr')
+                    const tbody = clone.querySelector('#datosPedido')
+                    
+                    const $fecha = clone.querySelector('#fechaPedido')
+                    const $precioTotal = clone.querySelector('#precioTotal')
+                    clone.style.display = 'flex'
+                    
+                    $fecha.append(fecha)
+                    $precioTotal.append(formateado[fecha].precioTotal)
+                    
+                    formateado[fecha].productos.forEach( producto=> {datosPedido
+                    
+                    
+                        const cloneProducto = tr.cloneNode(true)
+
+                        const $producto = cloneProducto.querySelector('#producto')
+                        const $cantdad = cloneProducto.querySelector('#cantidad')
+                        const $precioUnitario = cloneProducto.querySelector('#precioUnitario')
+                        
+                        $producto.append(producto.nombreProducto)
+                        $cantdad.append(producto.cantidad)
+                        $precioUnitario.append(producto.precioProducto)
+
+                        tbody.append(cloneProducto)
+                    
+                    })
+                  $divPedidos.append(clone)  
+                  
+                })
 
                 
             },

@@ -30,8 +30,9 @@
 
 body {
   overflow-x: hidden;
-background-color: #fff;
-width: 100%;
+  background-color: #fff;
+  width: 100%;
+
 }
 
 /*******************************Cabecera***********************************/
@@ -43,7 +44,7 @@ width: 100%;
    justify-content: center;
   columns: var(--negro);
   background-color: #333;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 #barraTop li{
   text-align: center;
@@ -96,13 +97,19 @@ width: 100%;
 
 
 #sliderCarrusel{
-  height: 37em;
+  height: 35em;
+  width: 100%;
+  padding: 0;
 }
 
 .carousel-inner{
   height: inherit;
+  padding: 0;
 }
-
+#sliderCarrusel img{
+  object-fit: cover;
+  padding: 0;
+}
 
 
 
@@ -466,7 +473,7 @@ margin-top: 2%;
 }
 
 #login .titulo, #registro .titulo{  
-  font-size: 3em;
+  font-size: 3rem;
   margin-bottom: 1em;
 }
 
@@ -498,7 +505,7 @@ margin-top: 2%;
   margin-top:1.5em;
   width: 100%;
   padding: 3%;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 
@@ -669,7 +676,7 @@ margin: 1em;
 
 
 #registro .form-control{
-  margin-top: 1em;
+
 }
 
 
@@ -689,4 +696,79 @@ margin: 1em;
 .formularioRegistro{
 
 padding: 1em 0em;
+}
+
+
+.mensaje{
+  font-size: 140%;
+  height: 20em;
+  text-align: center;
+  padding: 8em;
+
+}
+
+.mensaje p{
+  margin-bottom: 2em;
+}
+
+.obligatorio{
+  margin-top: 1em;
+  color: red;
+  font-weight: bold;
+}
+
+
+.no-obligatorio{
+  margin-top: 1em;
+  color: #ffffff00;
+  font-weight: bold;
+}
+
+.opcionesBarra{
+  text-align: center;
+  text-decoration: none;
+  color: #CCC;
+  margin-left: 2em;
+  font-size: 0.5em;
+}
+
+#globoCarrito{
+  color: white;
+  background-color: #627DD0;
+  padding: 24px;
+  font-size: 16;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99999999;
+  bottom: 2em;
+  right: 1.5em;
+  
+}
+
+
+
+@media (max-width:768px) {
+  .container {
+    padding:0;
+    margin:0;
+  }
+
+  body {
+    padding:0;
+  }
+
+  .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom:0;
+  }
+}
+
+#pedidos{
+  padding: 4rem;
+
+}
+
+#tituloPedido{
+  margin: 2rem;
 }
