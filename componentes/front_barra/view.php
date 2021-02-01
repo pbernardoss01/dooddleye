@@ -22,9 +22,11 @@
             } 
           ?>  
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="index.php?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito</a>
+          
         </div>
       </li>
+      <li class="col-2 nav-item dropdown" >
+      <a class="col-2" href="index.php?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito</a></li>
     </ul>
    
   <div id="barraTop" class="d-flex d-lg-none justify-content-center col-12">
