@@ -47,12 +47,12 @@
                 <div class="row justify-content-around" >
                     
 
-                    <a href="index.php?page=tienda" id="botonVolver" class="btn btn-outline-info btn-sm align-middle">Continua comprando</a>
+                    <a href="?page=tienda" id="botonVolver" class="btn btn-outline-info btn-sm align-middle">Continua comprando</a>
 
                     
                     <div class="pull-right text-center" style="margin: 5px">
                         Total: <b id="totalCarrito"></b>
-                        <a href="index.php?page=venta" class="btn btn-success pull-right col-12">Tramitar pedido</a>
+                        <a href="?page=venta" class="btn btn-success pull-right col-12">Tramitar pedido</a>
                     </div>
                 </div>
             </div>
@@ -73,56 +73,60 @@
         data: {
             page: 'ajax',
             action: 'mostrarCesta'
-        },
+            },
             success: function(data) {
                 console.log(data)
-                const $listaCesta = document.querySelector('#listaCesta')
-                const $producto = document.querySelector('#producto')
+                var cesta=Object.values(data);
+
+                
+                console.log(cesta)
+                const $listaCesta = document.querySelector('#listaCesta');
+                const $producto = document.querySelector('#producto');
                 var contador=0;
-                data.forEach(producto => {
+                cesta.forEach(articulo => {
 
                     
                     //clona la tarjeta modelo
-                    const clone = $producto.cloneNode(true)
-       
+                    const clone = $producto.cloneNode(true);
+        
                     //asigna id y display a la tarjeta clon
                     
-                    clone.style.display = 'flex'
+                    clone.style.display = 'flex';
 
                     //recoge tag img, descripcion, precio y boton 
-                    const $productImg = clone.querySelector('img')
-                    const $descripcionProducto = clone.querySelector('#descripcionProducto')
-                    const $precioProducto = clone.querySelector('#precioProducto')
-                    $precioProducto.setAttribute('class', 'precioProducto')
-                    $precioProducto.setAttribute('data-precio', producto.precio)
-                    const $botonBorrar=clone.querySelector('button')
+                    const $productImg = clone.querySelector('img');
+                    const $descripcionProducto = clone.querySelector('#descripcionProducto');
+                    const $precioProducto = clone.querySelector('#precioProducto');
+                    $precioProducto.setAttribute('class', 'precioProducto');
+                    $precioProducto.setAttribute('data-precio', articulo.precio);
+                    const $botonBorrar=clone.querySelector('button');
 
-                    $botonBorrar.setAttribute('id', contador)
-                    $botonBorrar.setAttribute('data-numeroProducto', contador)
-                    clone.setAttribute('id', `producto`+contador)
+                    $botonBorrar.setAttribute('id', contador);
+                    $botonBorrar.setAttribute('data-numeroProducto', contador);
+                    clone.setAttribute('id', `producto`+contador);
                     
                     //asigna atributos
-                   
-                
-                    $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                     
                 
-                    $descripcionProducto.append(producto.descripcion)
-                    $precioProducto.append(producto.precio)
-                    $listaCesta.append(clone)
-                    contador++
+                    $productImg.setAttribute('src', `/img/productos/${articulo.idSerieProducto}/${articulo.nombreProducto}.jpg`);
+                    
+                
+                    $descripcionProducto.append(articulo.descripcion);
+                    $precioProducto.append(articulo.precio);
+                    $listaCesta.append(clone);
+                    contador++;
 
                 })
                 var total=0;
-                console.log(total)
+                console.log(total);
                 $(".precioProducto").each(function(indice,elemento){
                     
-                    total= total + parseFloat(elemento.dataset.precio)
+                    total= total + parseFloat(elemento.dataset.precio);
                 })
                 
-                console.log(total)
-            $("#totalCarrito").append(total, "€")
-                
+                console.log(total);
+                $("#totalCarrito").append(total, "€");
+         
             },
             error: function(error) {
                 
@@ -154,12 +158,12 @@ function borrarProducto(event) {
             producto: productId
         },
         success: function(data) {
-            
+console.log(data)
             var id="#producto"+productId
-             console.log(id)
+            console.log(id)
             document.querySelector(id).style.display = 'none'
            
-            location.reload();
+           // location.reload();
 
         },
         error: function(error) {

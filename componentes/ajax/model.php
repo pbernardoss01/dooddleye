@@ -59,7 +59,7 @@ class AjaxModel {
     
     $result = $db->cargaMatriz();
 
-    return $result;
+    return $query;
     
   }
   public static function getProducts() {

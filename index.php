@@ -36,7 +36,7 @@
     <body>
    
       <?php 
-          include COMPONENT_PATH . '/spinner/view.php';
+        
           // Cuerpo
           echo loader($componente); 				
           //   echo var_dump($_SESSION);

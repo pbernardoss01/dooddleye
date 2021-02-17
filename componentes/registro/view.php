@@ -380,7 +380,7 @@
           } else {
               $input.classList.add('is-invalid')
               valid = false
-  console.log("nombre")
+    console.log("nombre")
 
           }
       }
@@ -465,15 +465,17 @@
 
 //Evento del boton "registro"
   function realizarRegistro(event){
+
+    console.log("ok")
     //Recogida de los datos de 
     const $direccion = document.querySelector('#linea1').value + " " + document.querySelector('#linea2').value  + "\n" +  document.querySelector('#CP').value + " " + document.querySelector('#ciudad').value + "\n" + document.querySelector('#provincia').value + " " + document.querySelector('#pais').value;
-if( document.querySelector('#apellido2').value==null){
-  apellido2=" "
-}else(
-  apellido2= document.querySelector('#apellido2').value==null
-)
+    if( document.querySelector('#apellido2').value==null){
+      apellido2=" "
+    }else(
+      apellido2= document.querySelector('#apellido2').value==null
+    )
 
-    const data = {
+    const datosNuevo = {
       nombre: document.querySelector('#nombre').value,
       apellido1: document.querySelector('#apellido1').value,
       apellido2: apellido2,
@@ -483,40 +485,60 @@ if( document.querySelector('#apellido2').value==null){
       clave: document.querySelector('#clave').value,
       clave2: document.querySelector('#clave2').value
     }
-   
-    const isValid = validate(data)
-  
-    if (isValid) {
+   console.log(datosNuevo)
+    const isValid = validate(datosNuevo)
+  console.log(isValid)
+    
+  if (isValid) {
       $.ajax({
       url: '/',
       type: 'POST',
       dataType: "json",
       data: {
           page: 'ajax',
-          action: 'createUser',
-          nombre: data.nombre,
-          apellido1: data.apellido1,
-          apellido2: data.apellido2,
-          direccion: data.direccion,
-          telefono: data.telefono,
-          mail: data.mail,
-          clave: data.clave
+          action: 'existeUser',
+          mail: datosNuevo.mail
           
       },
-          success: function(data) {
-            console.log(data)
-            console.log(1)            
-            if(data){
-              alert("Ya existe una cuenta con ese correo")
-            }else{
-            //window.location.href="/index.php?page=confirmacionRegistro";
+      success: function(data) {
+          
+        if(!data){
+          alert("Ya existe una cuenta con ese correo")
+        }else{
+
+        
+          $.ajax({
+          url: '/',
+          type: 'POST',
+          dataType: "json",
+          data: {
+              page: 'ajax',
+              action: 'createUser',
+              nombre: datosNuevo.nombre,
+              apellido1: datosNuevo.apellido1,
+              apellido2: datosNuevo.apellido2,
+              direccion: datosNuevo.direccion,
+              telefono: datosNuevo.telefono,
+              mail: datosNuevo.mail,
+              clave: datosNuevo.clave
+              
+          },
+            success: function(resultado) {
+              window.location.href="/index.php?page=confirmacionRegistro";
+            },
+            error: function(error) {
+                console.log(error)
             }
-      },
-          error: function(error) {
-              console.log(error)
-          }
-      })
-    }
+          })
+        }
+  },
+      error: function(error) {
+          console.log(error)
+      }
+  })
+}
+  
+  
   }
    
     

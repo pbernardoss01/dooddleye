@@ -1,5 +1,4 @@
 
- 
 <footer id="footer" class="bg-dark">
   <!--Logo de la pagina-->
   <div class="row">

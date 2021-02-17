@@ -816,3 +816,37 @@ height: 4em;
 #botonesProducto input, #botonesProducto a{
   margin:0.5em;
 }
+
+.jumbotron {
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+
+  font-size: 1.5em;
+}
+
+.textoJumbotron{
+  width: 87%;
+  text-align: center;
+  margin: 2em;
+}
+
+.margin-sides{
+  margin:0em 1em;
+}
+
+.image-wrap-2 {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  color: #333;
+  background-color: #ffffffbf;
+}
+.image-wrap-2 .image-info {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+}

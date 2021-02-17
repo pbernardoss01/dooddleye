@@ -27,7 +27,7 @@
 
           <div id="botonesProducto">
             <input type="button" id="btnCarrito" onclick="addCarrito(event)" class="adc btn btn-primary col-sm-12 col-md-6 " value="Añadir a la cesta">              
-            <a  href="index.php?page=tienda" class="adc btn btn btn-outline-info col-sm-12 col-md-6" >Volver a la tienda</a> 
+            <a  href="?page=tienda" class="adc btn btn btn-outline-info col-sm-12 col-md-6" >Volver a la tienda</a> 
 
         </div>
         </div>

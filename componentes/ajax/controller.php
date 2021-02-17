@@ -14,16 +14,16 @@ switch ($_POST['action']) {
         $_SESSION['userRol'] = end($userData);
       }
     break;
-    case 'createUser': 
-      $_SESSION['registro'] = "entra";
+    case 'existeUser': 
       $data = AjaxModel::mailExists($_POST['mail']);
-      $_SESSION['registro'] = $data;
-      $userData="fail";
-      if ($data == false) {
-        $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
-
-      }
       echo json_encode($data);
+      
+    break;
+    case 'createUser': 
+
+      $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
+
+      echo json_encode($userData);
       exit;     
     break;
     case 'mostrarProductos': 
@@ -87,7 +87,7 @@ switch ($_POST['action']) {
       $producto=$_POST['producto'];
       unset($_SESSION['cesta']["$producto"]);
 
-      echo json_encode(empty($_SESSION['cesta']));
+      echo json_encode($_SESSION['cesta']);
       exit;     
     break; 
     case 'mostrarPedidos': 

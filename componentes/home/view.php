@@ -1,10 +1,16 @@
 
-<div class="jumbotron" style="margin:2em 0em;">
+<div class="jumbotron">
+    <div class="d-flex justify-content-center">
         <h1>Mi trabajo</h1>
-        <p class="lead">Con esta página presento todo mi trabajo como ilustrador. Desde aquí tenéis disponibles todas mis láminas y algunos otros productos que tienen estampados mis 
+    </div>
+    <div class="d-flex justify-content-center textoJumbotron">    
+        <p>Con esta página presento todo mi trabajo como ilustrador. Desde aquí tenéis disponibles todas mis láminas y algunos otros productos que tienen estampados mis 
         ilustraciones, para poder comprarlas. Además está disponible todo mi currículum y un blog donde voy contando mi día como ilustrador.</p>
-        <a class="btn btn-lg btn-primary" href="index.php/?page=curriculum" role="button">Lee mi curriculum</a>
-      </div>
+    </div>
+    <div class="d-flex justify-content-center">    
+        <a class="btn btn-outline-secondary btn-lg" href="index.php/?page=curriculum" role="button">Lee mi curriculum</a>
+    </div>
+</div>
 <div  id="rowSeries" class="row">
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
         <a class="" href="index.php/?page=tienda" role="button">
@@ -17,9 +23,7 @@
     <div id="productCard"  class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
     <a class="" href="index.php/?page=tienda" role="button">
         <img class="col-12 imagenSerie" src="/img/productos/2/vehiculo1.jpg"/>
-        <div class="overlaySerie">
-            <div class="textHoverSerie">Koloi</div>
-        </div> </a>
+        </a>
     </div>
     <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
     <a class="" href="index.php/?page=tienda" role="button">  

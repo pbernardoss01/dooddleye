@@ -1,8 +1,26 @@
 <div class="container">
 
  <?php 
-    if(isset($_SESSION['validUser']) && $_SESSION['validUser'] == true && $_SESSION['userRol'] == "2") {  
-       
+    if(isset($_SESSION['validUser'])== false) {  
+
+        
+ ?>     
+
+
+<div class="jumbotron">
+        <div class="row justify-content-center"> <p>No estás logueado. Para continuar con la compra: </p></div>
+
+        <div class="row justify-content-center"> <a  href="index.php?page=login"  type="button" class="">Logueate aquí, si ya tienes cuenta</a></div>
+        <div class="row justify-content-center">     <a  href="index.php?page=registro"  type="button" class="">Crea una nueva cuenta</a></div>
+
+</div>
+
+ <?php 
+    
+    } else{
+      
+    if( $_SESSION['validUser'] == true) {  
+        
     ?>    
         
         <div class="row">
@@ -61,12 +79,10 @@
         
         
         
-     <?php   ;
+     <?php   
 
-    }else{
-      header("index.php?page=login");
-    }
-    ?> 
+    }}
+?> 
 
     </div>
 
@@ -206,4 +222,5 @@
        })
     }
     }
-    </script><?php echo $_SESSION['userData']['idUsuario'];?>
+    </script>
+    

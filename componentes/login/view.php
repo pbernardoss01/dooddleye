@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div id="login" class= "col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-12" aria-hidden="true">
-  <div class="container">
+  <div class="container-fluid">
     <div class="justify-content-center ">
       <div class=" align-items-center">
         <a href="index.php"><img src="/img/logo/logo1.png" class="img-fluid mx-auto d-block"> </a>
@@ -21,7 +21,6 @@
           <button id="btnLogin" class="btn btn-dark mb-2">Login</button>
         </div>
         <div class="form-group links">
-          <a href="index.html">¿Has olvidado contraseña?</a><br>
           <a href="index.php?page=registro">¿No tienes una cuenta de Dooddleye? Crearte una ahora.</a>
         </div>
       </div>
