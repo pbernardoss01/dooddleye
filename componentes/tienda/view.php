@@ -154,8 +154,10 @@
                     clone.setAttribute('data-categoria', `${producto.idCategoriaProducto}`)
                     $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
                     $btnProducto.setAttribute('data-id', `${producto.idProducto}`)
-                
-                    $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                    
+
+                    $productImg.setAttribute('src',`${producto.imagen}` )
+
                     
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
@@ -190,7 +192,7 @@
             success: function(data) {
                 location.reload();
                     
-                    
+
             },
             error: function(error) {
                console.log(error)              

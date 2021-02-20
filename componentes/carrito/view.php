@@ -108,7 +108,7 @@
                     //asigna atributos
                     
                 
-                    $productImg.setAttribute('src', `/img/productos/${articulo.idSerieProducto}/${articulo.nombreProducto}.jpg`);
+                    $productImg.setAttribute('src', `${articulo.imagen}`);
                     
                 
                     $descripcionProducto.append(articulo.descripcion);

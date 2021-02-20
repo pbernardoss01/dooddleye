@@ -57,7 +57,7 @@
                 const $precioProducto = $('#precioProducto')
                 const $btnProducto = document.querySelector('#btnCarrito')
                 
-                $("#imagenProducto")[0].setAttribute('src', `/img/productos/${data[0].idSerieProducto}/${data[0].nombreProducto}.jpg`)
+                $("#imagenProducto")[0].setAttribute('src', `${data[0].imagen}`)
                 $btnProducto.setAttribute('data-id', `${data[0].idProducto}`)
                 $descripcionProducto.append(data[0].descripcion)
                 $precioProducto.append(data[0].precio)
