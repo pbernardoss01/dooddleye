@@ -4,7 +4,7 @@ include COMPONENT_PATH . '/ajax/model.php';
 $data = array();
 $_SESSION['productos']="lol";  
 switch ($_POST['action']) {
-    case 'checkUser': 
+    case 'loginUser': 
       $data = AjaxModel::userExists($_POST['mail'], $_POST['clave']);
       if ($data == 'true') {
         $userData = AjaxModel::getUser($_POST['mail'], $_POST['clave']);
@@ -12,9 +12,12 @@ switch ($_POST['action']) {
         $_SESSION['validUser'] = true;
         $_SESSION['userData'] = $userData;
         $_SESSION['userRol'] = end($userData);
+      
+        
       }
+      echo json_encode($data);
     break;
-    case 'existeUser': 
+    case 'checkUser': 
       $data = AjaxModel::mailExists($_POST['mail']);
       echo json_encode($data);
       
@@ -101,21 +104,39 @@ switch ($_POST['action']) {
       $usuarioLogueado = $_SESSION['userData']['idUsuario'];
       $idPedido =AjaxModel::hacerPedido($usuarioLogueado, $_POST['preciototal']);
       $pedido = $_SESSION['cesta'];
-      $idProducto="";
-      foreach ($pedido as &$value) {
-        if( $idProducto == $value['idProducto']){  
-            $cantidad=$cantidad + 1;
-            $precio=$precio+ floatval($value['precio']);
-        }else{
-          $idProducto = $value['idProducto'];
-          $cantidad = 1;
-          $precio=floatval($value['precio']);
-        }
-        $data =AjaxModel::detallePedido($idProducto, $idPedido, $cantidad, $precio);
-      }
-     
+      $idProductos=array();
       
-      echo json_encode($cantidad);
+
+      for ($i = 0; $i < count($pedido); $i++) { array_push($idProductos, $pedido[$i]['idProducto']);}
+      
+      $cantidadesProductos = array_count_values($idProductos) ;
+
+      foreach ($cantidadesProductos as $id => $cantidad) {
+        $encontrado = null;
+        foreach($pedido as $producto) {
+          if ($encontrado == null) {
+            if ($producto['idProducto'] !== null && $producto['idProducto'] == $id) {
+              $encontrado = $producto;
+              $precio=floatval($encontrado['precio'])*$cantidad;
+              AjaxModel::detallePedido($id, $idPedido, $cantidad, $precio);
+            }
+          }
+        }
+        
+      }
+
+        // if($pedido[$i]['idProducto'] !== null){
+
+        //   $idProducto = $pedido[$i]['idProducto'];
+        //   $precio=floatval($pedido[$i]['precio']);
+        //   $data =AjaxModel::detallePedido($idProducto, $idPedido, $cantidad, $precio);
+        // }
+      
+      
+
+
+      $_SESSION['cesta']='';
+      echo json_encode($pedido);
       exit;     
     break;
     case 'borrarProducto': 

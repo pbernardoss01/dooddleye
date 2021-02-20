@@ -22,26 +22,22 @@
           <div class="control-group col-md-3 col-12 "><div class="obligatorio">*</div>    
             <input id="nombre" class="form-control" type="text"  placeholder="Nombre">
             <div class="invalid-feedback">
-                Numero incorrecto
+                Formato incorrecto
             </div>     
           </div>
           <!--Primer apellido-->  
           <div class="control-group col-md-3 col-12"><div class="obligatorio">*</div>    
-            <input id="apellido1" class="form-control " type="text"  placeholder="Primer apellido">
+            <input id="apellidos" class="form-control " type="text"  placeholder="Apellidos">
             <div class="invalid-feedback">
               Numero incorrecto
             </div>     
           </div>
-          <!-- Segundo apellido-->              
-          <div class="control-group col-md-3 col-12"><div class="no-obligatorio">.</div> 
-            <input id="apellido2" class="form-control " type="mail"  placeholder="Segundo apellido">
-             
-          </div>
+          
           <!-- telefono -->  
           <div class="control-group col-md-3 col-12"><div class="obligatorio">*</div>    
             <input id="telefono" class="form-control " type="text"  placeholder="telefono">
             <div class="invalid-feedback">
-              Formato incorrecto
+              El formato de numeración son 9 dígitos, siendo el primero 9, 6 ó 7
             </div>     
           </div>
 
@@ -384,14 +380,14 @@
 
           }
       }
-      if ('apellido1' in data ) {
-          const $input =  document.querySelector('#apellido1')
-          if (data.apellido1.trim() !== '' && (/^[A-Za-zÀ-ÿ\s]{0,50}$/).test(data.apellido1)) {
+      if ('apellidos' in data ) {
+          const $input =  document.querySelector('#apellidos')
+          if (data.apellidos.trim() !== '' && (/^[A-Za-zÀ-ÿ\s]{0,50}$/).test(data.apellidos)) {
      
               $input.classList.remove('is-invalid')
           } else {
               $input.classList.add('is-invalid')
-              console.log("apellido1")
+              console.log("apellidos")
           
               valid = false
           }
@@ -413,7 +409,7 @@
       }
       if ('direccion' in data ) {
           const $input =  document.querySelector('#direccion')
-          if (data.direccion.trim() !== '' && (/^[A-Za-z0-9À-ÿ\s]{10,200}$/).test(data.direccion)) {
+          if (data.direccion.trim() !== '' && (/^[A-Za-z0-9ºªÀ-ÿ\s]{10,200}$/).test(data.direccion)) {
            
               $input.classList.remove('is-invalid')
           } else {
@@ -469,16 +465,11 @@
     console.log("ok")
     //Recogida de los datos de 
     const $direccion = document.querySelector('#linea1').value + " " + document.querySelector('#linea2').value  + "\n" +  document.querySelector('#CP').value + " " + document.querySelector('#ciudad').value + "\n" + document.querySelector('#provincia').value + " " + document.querySelector('#pais').value;
-    if( document.querySelector('#apellido2').value==null){
-      apellido2=" "
-    }else(
-      apellido2= document.querySelector('#apellido2').value==null
-    )
+    
 
     const datosNuevo = {
       nombre: document.querySelector('#nombre').value,
-      apellido1: document.querySelector('#apellido1').value,
-      apellido2: apellido2,
+      apellido: document.querySelector('#apellidos').value,
       telefono: document.querySelector('#telefono').value,
       direccion: $direccion,
       mail: document.querySelector('#mail').value,
@@ -496,7 +487,7 @@
       dataType: "json",
       data: {
           page: 'ajax',
-          action: 'existeUser',
+          action: 'checkUser',
           mail: datosNuevo.mail
           
       },
@@ -515,8 +506,7 @@
               page: 'ajax',
               action: 'createUser',
               nombre: datosNuevo.nombre,
-              apellido1: datosNuevo.apellido1,
-              apellido2: datosNuevo.apellido2,
+              apellidos: datosNuevo.apellidos,
               direccion: datosNuevo.direccion,
               telefono: datosNuevo.telefono,
               mail: datosNuevo.mail,

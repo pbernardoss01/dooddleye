@@ -191,11 +191,11 @@ public static function hacerPedido($idUsuario, $precioTotal) {
 public static function detallePedido($idProducto, $idPedido, $cantidad,$precio) {
   $db = new database();
 
-  $query = "INSERT INTO detallepedido (idProducto, idPedido, cantidad, precioTotal) VALUES ('$idProducto','$idPedido','$cantidad','$precio');";
+  $query = "INSERT INTO detallepedido (idProducto, idPedido, cantidad, precioTotal) VALUES ($idProducto,$idPedido,$cantidad,$precio);";
 
   $db->query($query);
-  
-  
+
+  return $idProducto;
 
 }
 }

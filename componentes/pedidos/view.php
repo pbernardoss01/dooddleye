@@ -9,7 +9,7 @@
             
             <div class="row">
                 <div class="col-6 text-center">Fecha del pedido: <span id="fechaPedido"></span></div>
-                <div class="col-6 text-center"> Precio Total:  <span id="precioTotal"></span></div>
+                <div class="col-6 text-center">Precio Total:  <span id="precioTotal"></span></div>
             </div>
         </div>
         <div class="col-12">
@@ -56,64 +56,73 @@
             action: 'mostrarPedidos'
         },
             success: function(data) {
-                const formateado = data.reduce((listado, row) => {
-                    const productData = {
-                        cantidad: row.cantidad,
-                        precioProducto: row.precioProducto,
-                        nombreProducto:  row.nombreProducto
-                    };
 
-                    if(!listado[row.fechaPedido]) {
-                        listado[row.fechaPedido] = {
-                            precioTotal: row.precioTotal,
-                            productos: [productData]
-                        } 
-                    }else {
-                        listado[row.fechaPedido].productos.push(productData)
-                    }
 
-                    return listado
-                }, {})
-                
-                
-                const $divPedidos = document.querySelector('#pedidos')
-                const $tablaPedido = document.querySelector('#pedido')
-          
-                const fechasPedidos = Object.keys(formateado)
-                
-                fechasPedidos.forEach(fecha => {
+                if(data.length!==0){
+                    console.log(data)
+                    const formateado = data.reduce((listado, row) => {
+                        const productData = {
+                            cantidad: row.cantidad,
+                            precioProducto: row.precioProducto,
+                            nombreProducto:  row.nombreProducto
+                        };
 
-                    const clone = $tablaPedido.cloneNode(true)
-                    const tr = clone.querySelector('#datosPedido tr')
-                    const tbody = clone.querySelector('#datosPedido')
-                    
-                    const $fecha = clone.querySelector('#fechaPedido')
-                    const $precioTotal = clone.querySelector('#precioTotal')
-                    clone.style.display = 'flex'
-                    
-                    $fecha.append(fecha)
-                    $precioTotal.append(formateado[fecha].precioTotal)
-                    
-                    formateado[fecha].productos.forEach( producto=> {datosPedido
-                    
-                    
-                        const cloneProducto = tr.cloneNode(true)
+                        if(!listado[row.fechaPedido]) {
+                            listado[row.fechaPedido] = {
+                                precioTotal: row.precioTotal,
+                                productos: [productData]
+                            } 
+                        }else {
+                            listado[row.fechaPedido].productos.push(productData)
+                        }
 
-                        const $producto = cloneProducto.querySelector('#producto')
-                        const $cantdad = cloneProducto.querySelector('#cantidad')
-                        const $precioUnitario = cloneProducto.querySelector('#precioUnitario')
+                        return listado
+                    }, {})
+                    
+                    
+                    const $divPedidos = document.querySelector('#pedidos')
+                    const $tablaPedido = document.querySelector('#pedido')
+            
+                    const fechasPedidos = Object.keys(formateado)
+                    
+                    fechasPedidos.forEach(fecha => {
+
+                        const clone = $tablaPedido.cloneNode(true)
+                        const tr = clone.querySelector('#datosPedido tr')
+                        const tbody = clone.querySelector('#datosPedido')
                         
-                        $producto.append(producto.nombreProducto)
-                        $cantdad.append(producto.cantidad)
-                        $precioUnitario.append(producto.precioProducto)
+                        const $fecha = clone.querySelector('#fechaPedido')
+                        const $precioTotal = clone.querySelector('#precioTotal')
+                        clone.style.display = 'flex'
+                        
+                        $fecha.append(fecha)
+                        $precioTotal.append(formateado[fecha].precioTotal)
+                        
+                        formateado[fecha].productos.forEach( producto=> {datosPedido
+                        
+                        
+                            const cloneProducto = tr.cloneNode(true)
 
-                        tbody.append(cloneProducto)
+                            const $producto = cloneProducto.querySelector('#producto')
+                            const $cantdad = cloneProducto.querySelector('#cantidad')
+                            const $precioUnitario = cloneProducto.querySelector('#precioUnitario')
+                            
+                            $producto.append(producto.nombreProducto)
+                            $cantdad.append(producto.cantidad)
+                            $precioUnitario.append(producto.precioProducto)
+
+                            tbody.append(cloneProducto)
+                        
+                        })
+                    $divPedidos.append(clone)  
                     
                     })
-                  $divPedidos.append(clone)  
-                  
-                })
+                }else{
+                    $pedidos=$("#tituloPedido")
 
+                    $pedidos.after("No tienes pedidos todavía") 
+                    console.log("yep")   
+                }
                 
             },
             error: function(error) {
@@ -128,6 +137,6 @@
 
 
 
-
 </script>
 
+<?php var_dump($_SESSION["cesta"])?>

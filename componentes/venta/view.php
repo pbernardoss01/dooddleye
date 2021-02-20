@@ -30,7 +30,7 @@
                     <div class="panel panel-default col-12 row" >
                         
                             <div id="datosUsuarioVenta" class="col-4">
-                                <div class="" id="nombreUsuario"><?php echo $_SESSION['userData']['nombre'] . " ". $_SESSION['userData']['apellido1'] . " ".$_SESSION['userData']['apellido2']?></div>
+                                <div class="" id="nombreUsuario"><?php echo $_SESSION['userData']['nombre'] . " ". $_SESSION['userData']['apellidos']?></div>
                                 <div class="" id="direccionUsuario"><?php echo $_SESSION['userData']['direccion'] ?></div>
                                 <div class="" id="telefono"><?php echo $_SESSION['userData']['telefono'] ?></div>      
                                 <div id="precioTotal" class="">
@@ -214,10 +214,10 @@
         },
             success: function(data) {
                 console.log(data)
-                window.location.href="/index.php?page=confirmacionPedido";
+               // window.location.href="/index.php?page=confirmacionPedido";
         },
-            error: function(error) {
-                console.log(error)
+            error: function(error, otro) {
+                console.log(error, otro)
             }
        })
     }

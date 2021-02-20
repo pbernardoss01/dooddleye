@@ -176,6 +176,7 @@
 
 //Funcion añadir a carrito. Añade el elemento seleccionado a la sesion
     function addCarrito(event){
+   
         console.log(event.target.dataset.id)
         $.ajax({
             url: '/',
@@ -187,8 +188,9 @@
                 id:event.target.dataset.id
             },
             success: function(data) {
-               console.log("exito")
-                
+                location.reload();
+                    
+                    
             },
             error: function(error) {
                console.log(error)              
