@@ -1,5 +1,5 @@
 
-<footer id="footer" class="bg-dark">
+<footer id="footer" >
   <!--Logo de la pagina-->
   <div class="row">
     <div class="col-md-4 col-12 d-flex justify-content-center columnaFooter">

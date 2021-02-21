@@ -1,4 +1,11 @@
 <div id="listaProductos" class="container">
+<div id="tituloPedido" class="text-center col-12">
+<h2>Productos</h2>
+    
+        </div> 
+
+    
+
     <div id="cabecera" class="col-12" >
         <div class="row" >
             <div class="col-2 text-center d-flex">
@@ -19,13 +26,16 @@
             </div>    
             <div class="col-1 text-md-right">
                 
+   <a type="button"  href="?page=crearProducto"  class="btn btn-outline-secondary btn-xs">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </a> 
             </div>
         </div> 
     </div>
     <div id="producto" class="col-12" style="display:none ">
         <div class="row" >
             <div class="col-2 text-center d-flex">
-                    <img class="img-responsive" src="" alt="prewiew" width="120" height="80">
+                    <a id="enlaceProducto"> <img class="img-responsive" src="" alt="prewiew" width="120" height="80"></a>
             </div>
             <div id="idProducto" class="col-1">
                 
@@ -40,6 +50,9 @@
             </div>    
             <div class="col-1 text-md-right">
                 <div class="col-2 col-sm-2 col-md-2 text-right">
+                <a id="editProducto" type="button" href="page=editProducto&productid=" class="btn btn-outline-primary btn-xs">
+                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                    </a>
                     <button type="button" onclick="borrarProducto(event)"  class="btn btn-outline-danger btn-xs">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
@@ -78,7 +91,8 @@ window.addEventListener('load', event_load => {
 
                     //recoge tag img, descripcion, precio y boton 
                     const $productImg = clone.querySelector('img')
-                    const $productEnlace = clone.querySelector('a')
+                    const $enlaceProducto = clone.querySelector('#enlaceProducto')
+                    const $editProducto = clone.querySelector('#editProducto')
                     const $idProducto = clone.querySelector('#idProducto')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
@@ -90,10 +104,10 @@ window.addEventListener('load', event_load => {
                     clone.setAttribute('data-precio', `${producto.precio}`)
                     clone.setAttribute('data-serie', `${producto.idSerieProducto}`)
                     clone.setAttribute('data-categoria', `${producto.idCategoriaProducto}`)
-                   // $productEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                    $enlaceProducto.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
                     $btnProducto.setAttribute('data-id', `${producto.idProducto}`)
-                
-                    $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
+                    $editProducto.setAttribute('href', `index.php/?page=editProducto&productid=${producto.idProducto}`)
+                    $productImg.setAttribute('src', `${producto.imagen}`)
                     
                     $idProducto.append(producto.idProducto)
                     $descripcionProducto.append(producto.descripcion)

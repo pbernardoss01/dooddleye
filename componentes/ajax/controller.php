@@ -151,6 +151,18 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;       
     break;
+    case 'crearProducto': 
+      $data = AjaxModel::createProducto($_POST['nombre'], $_POST['categoria'], $_POST['serie'], $_POST['descripcion'],$_POST['precio'],$_POST['imagen']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'editarProducto': 
+      $data = AjaxModel::editProducto($_POST['id'], $_POST['nombre'], $_POST['categoria'], $_POST['serie'], $_POST['descripcion'],$_POST['precio'],$_POST['imagen']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
   default:
     echo 'null';
     break;

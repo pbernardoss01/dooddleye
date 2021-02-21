@@ -214,7 +214,8 @@
         },
             success: function(data) {
                 console.log(data)
-               // window.location.href="/index.php?page=confirmacionPedido";
+
+               window.location.href="/index.php?page=confirmacionPedido";
         },
             error: function(error, otro) {
                 console.log(error, otro)

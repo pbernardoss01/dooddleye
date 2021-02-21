@@ -34,14 +34,7 @@
         
       
       <li class="col-md-1 d-md-flex">
-        <a  href="?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 
-           <div id="carrito" > <?php 
-            if(isset($_SESSION['cesta']))
-            {
-              echo "(".count($_SESSION['cesta']).")" ;
-              }else{ echo "(0)";}
-              ?></div>
-        </a>
+        <a  href="?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
     </ul>
 

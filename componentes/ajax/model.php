@@ -198,6 +198,27 @@ public static function detallePedido($idProducto, $idPedido, $cantidad,$precio) 
   return $idProducto;
 
 }
+
+public static function createProducto($nombre, $categoria, $serie, $descripcion, $precio, $imagen) {
+  $db = new database();
+
+  $query = "INSERT INTO producto (nombreProducto, idCategoriaProducto, idSerieProducto, precio, descripcion, imagen) VALUES ('$nombre', $categoria, $serie, $precio, '$descripcion', '$imagen');";
+
+  $db->query($query);
+
+return "INSERT INTO producto (nombreProducto, idCategoriaProducto, idSerieProducto, precio, descripcion, imagen) VALUES ('$nombre', $categoria, $serie, $precio, '$descripcion', '$imagen');";
+}
+
+public static function editProducto($id, $nombre, $categoria, $serie, $descripcion, $precio, $imagen) {
+  $db = new database();
+
+  $query = "UPDATE producto SET  nombreProducto= '$nombre', idCategoriaProducto=$categoria, idSerieProducto=$serie, precio=$precio, descripcion='$descripcion', imagen='$imagen' WHERE idProducto=$id;";
+
+  $db->query($query);
+
+}
+
+
 }
 
 /*a = new URLSearchParams(window.location.search)*/
