@@ -160,7 +160,7 @@ console.log(productId)
             var id="#producto"+productId
             console.log(id)
             $(id).remove();
-
+            alert("El producto "+ productId + " se está borrando correctamente.");
         },
         error: function(error) {
             console.log(arguments, "lol");

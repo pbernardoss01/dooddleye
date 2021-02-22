@@ -21,8 +21,8 @@
         <ul class="list-unstyled">
         <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>RRSS</b></h6>
           <li><a href="#"><i class="fab fa-twitter-square"></i>Twitter</a></li>
-          <li><a href="#"><i class="fab fa-twitter-square"></i>DevianArt</a></li>
-          <li> <a href="#"><i class="fab fa-deviantart"></i>Instagram</a></li>
+          <li><a href="#"><i class="fab fa-deviantart"></i>DevianArt</a></li>
+          <li> <a href="#"><i class="fab fa-instagram"></i>Instagram</a></li>
           <li>  <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></div></li>
         </ul>
     </div> 

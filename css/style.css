@@ -160,7 +160,11 @@ body {
 }
 
 
-
+#catalogoProductos .card:hover{
+  transform: scale(1.05);
+ 
+  transition: 0.3s;
+}
 
 #contacto{
   margin: 3em;
@@ -397,9 +401,7 @@ body {
   text-align: center;
 }
 
-.card{
-  border: none;
-}
+
 
 
 
@@ -556,7 +558,7 @@ margin-top: 2%;
  * Página Blog
  */
 
-#entrada{
+ #entradasBlog #entrada{
   margin: 2em;
 }
 
@@ -565,7 +567,7 @@ margin-top: 2%;
   padding: 0.5em;
 }
 
-#titleEntrada{
+#entradasBlog #titleEntrada{
   margin: 2em;
 
 }
@@ -929,4 +931,97 @@ height: 4em;
 
 #listaEntradas div{
   margin-top:1em;
+}
+
+#entradasBlog .card{
+  margin: 2.2em;
+  padding: 0;
+
+}
+#entradasBlog .card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  transition: 0.3s;
+}
+
+
+#entradaBlog #tituloEntrada, #entradaBlog #fechaEntrada{
+  position:absolute;
+
+}
+
+#entradaBlog #fechaEntrada{
+
+  bottom: 6em;
+}
+#cabeceraEntrada{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+#imagenEntrada{
+height: 20em;
+width: 100%;
+object-fit: cover;
+
+}
+#cuerpoEntrada{
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 1.5em;
+  padding: 1em 3em;
+}
+
+#comentariosEntrada{
+  padding-top: 3em;
+  padding-bottom: 3em; 
+  background-color: #EEE;
+}
+
+#comentariosEntrada textarea{
+  margin-top: 3em;
+  margin-bottom: 2em; 
+  
+}
+
+#comentarioEntrada input{
+  margin: 0em 0em 3em 1em;
+  
+}
+#comentarioEntrada{
+  margin-top: 3em;
+  margin-bottom: 3em; 
+  padding: 2em;
+  background-color: #FFF;
+}
+
+#editEntrada{
+margin-top: 5em;
+margin-bottom: 5em;
+}
+
+#editEntrada #tituloEditarEntrada, #nuevoEntrada #botonesEntrada{
+  margin-top: 5em;
+  margin-bottom: 5em;
+
+}
+
+#editEntrada .add-new-photo {
+  
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: inherit;
+  border: 4px dashed #999;
+  justify-content: center;
+  font-size: 50px;
+  color: #555;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  -moz-transition: 0.3s all ease;
+  -ms-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
 }

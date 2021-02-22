@@ -90,7 +90,7 @@ class AjaxModel {
 
 
 
-  public static function addProductToCard($id) {
+  public static function getProducto($id) {
     $db = new database();
 
     $query = "SELECT * FROM producto where idProducto=$id";
@@ -217,7 +217,55 @@ public static function editProducto($id, $nombre, $categoria, $serie, $descripci
   $db->query($query);
 
 }
+public static function editEntrada($id, $titulo, $contenido, $imagen) {
+  $db = new database();
 
+  $query = "UPDATE entrada SET  titulo= '$nombre', contenido=$categoria, imagen='$imagen' WHERE idEntrada=$id;";
+
+  $db->query($query);
+
+}
+
+public static function getEntrada($id) {
+  $db = new database();
+
+  $query = "SELECT * FROM entrada WHERE idEntrada = '$id';";
+
+  $db->query($query);
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+public static function getComentarioEntrada($id) {
+  $db = new database();
+
+  $query = "SELECT comentariosentradas.idComentario, comentariosentradas.idUsuario, comentariosentradas.idEntrada, comentariosentradas.contenido, comentariosentradas.fecha, usuario.nombre FROM comentariosentradas INNER JOIN usuario ON comentariosentradas.idUsuario = usuario.idUsuario  WHERE comentariosentradas.idEntrada=$id;";
+
+  $db->query($query);
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+public static function createComentarioEntrada( $idUsuario, $entrada, $contenido) {
+  $db = new database();
+
+  $query = "INSERT INTO comentariosentradas(idUsuario, idEntrada, contenido) VALUES ($idUsuario, $entrada, '$contenido');";
+
+  $db->query($query);
+
+
+}
+
+
+public static function borrarEntrada( $id) {
+  $db = new database();
+
+  $query = "DELETE FROM entrada WHERE idEntrada = '$id'";
+
+  $db->query($query);
+
+
+}
 
 }
 

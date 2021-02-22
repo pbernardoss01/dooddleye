@@ -51,11 +51,11 @@
             id: $id
         },
             success: function(data) {
-                console.log(data[0])
-                const $imagenProducto = $("#imagenProducto")
-                const $descripcionProducto = $('#descripcionProducto')
-                const $precioProducto = $('#precioProducto')
-                const $btnProducto = document.querySelector('#btnCarrito')
+                console.log(data)
+                $imagenProducto = $("#imagenProducto")
+                $descripcionProducto = $('#descripcionProducto')
+                $precioProducto = $('#precioProducto')
+                $btnProducto = document.querySelector('#btnCarrito')
                 
                 $("#imagenProducto")[0].setAttribute('src', `${data[0].imagen}`)
                 $btnProducto.setAttribute('data-id', `${data[0].idProducto}`)

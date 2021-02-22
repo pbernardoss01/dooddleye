@@ -1,32 +1,28 @@
 
 
-<div class="container" id="entradasBlog">
 
-<div class="row">
-  <div id="entrada" style="display:none">
-    <div class="row">
-        <h4 id="titleEntrada"></h4>
-    </div>
-    <div class="row">
-      <div id="contenidoEntrada">      
+<div class="container">
+<div class="col-12 row " id="entradasBlog">
+  
+    <div class="card col-lg-3 col-md-4 mb-4 " style="display:none" id="entrada" >
+      <a id="enlaceEntrada"><img id="imagenEntrada" class="card-img-top"  src="/img/productos/2/vehiculo1.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 id="titleEntrada" class="card-title" > </h5>
         
-      </div>
-    </div>
-    <div class="row" style="margin:1em 0em;">
-      <div style="margin:0em 1em;"><strong>Dooddleye </strong></div> 
-      <div id="fechaEntrada"></div>
+        <div id="fechaEntrada"></div>
+      </div></a>
+    </div>  
     
-      
-    </div>
-    <hr>
-  </div>
-</div>
+ 
 
+
+
+</div>
 </div>
 
 
 <script type="text/javascript">
-    
+    $('#entrada').hide()
     window.addEventListener('load', event_load => {
         $.ajax({
         url: '/',
@@ -43,14 +39,20 @@
 
                 data.forEach(entrada => {
                     const clone = $entrada.cloneNode(true)
-               
-                    clone.style.display = 'block'
+                    console.log(entrada.titulo)
+                   
+                    const $enlaceEntrada = clone.querySelector('#enlaceEntrada')
                     const $tituloEntrada = clone.querySelector('#titleEntrada')
-                    const $contenidoEntrada = clone.querySelector('#contenidoEntrada')
+                    const $imagenEntrada = clone.querySelector('#imagenEntrada')
+                   
                     const $fechaEntrada = clone.querySelector('#fechaEntrada')
+                    clone.setAttribute('id', `entrada${entrada.idEntrada}`)
+                    $imagenEntrada.setAttribute('src', `${entrada.imagen}`)
+                    $enlaceEntrada.setAttribute('href', `index.php/?page=entrada&entradaid=${entrada.idEntrada}`)
 
+                    clone.style.display = 'flex'
                     $tituloEntrada.append(entrada.titulo)
-                    $contenidoEntrada.append(entrada.contenido)
+                   
                     $fechaEntrada.append(entrada.fecha)
                     $entradasBlog.append(clone)
                 })

@@ -36,13 +36,13 @@ switch ($_POST['action']) {
     break;
     
     case 'mostrarProducto': 
-      $data = AjaxModel::addProductToCard($_POST['id']);
+      $data = AjaxModel::getProducto($_POST['id']);
       echo json_encode($data);
       exit;     
     break;
 
     case 'addACesta': 
-      $data = AjaxModel::addProductToCard($_POST['id']);
+      $data = AjaxModel::getProducto($_POST['id']);
       if(!isset($_SESSION['cesta'])){
         $_SESSION['cesta']= $data;
       }else{
@@ -163,6 +163,38 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;       
     break;
+    case 'editarProducto': 
+      $data = AjaxModel::editProducto($_POST['id'], $_POST['titulo'], $_POST['contenido'], $_POST['imagen']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'mostrarEntrada': 
+      $data = AjaxModel::getEntrada($_POST['idEntrada']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'mostrarComentariosEntradas': 
+      $data = AjaxModel::getComentarioEntrada($_POST['id']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'crearComentario': 
+      $user =$_SESSION['userData']['idUsuario'];
+      $entrada =$_POST['idEntrada'];
+      $contenido =$_POST['contenidoComentario'];
+      $data = AjaxModel::createComentarioEntrada($user, $entrada, $contenido);
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'borrarEntrada': 
+     $data = AjaxModel::borrarEntrada($_POST['entrada']);
+
+      exit;       
+    break;
+ 
   default:
     echo 'null';
     break;

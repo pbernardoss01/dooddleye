@@ -1,6 +1,6 @@
 <div id="nuevoProducto" class="container">
     <div class="titulo text-center col-12">
-        <h2>Nuevo Producto</h2>
+        <h2>Editar entrada</h2>
     </div> 
     <div class="d-flex">
         <div id="Images" class="col-md-5 col-xs-12">

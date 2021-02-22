@@ -54,6 +54,7 @@
 
 <script>
 
+
 window.addEventListener('load', event_load => {
         $.ajax({
         url: '/',
@@ -139,7 +140,7 @@ window.addEventListener('load', event_load => {
     }
 
     entradaId = parseInt(entradaId)
-console.log(entradaId)
+    console.log(entradaId)
     $.ajax({
         url: '/',
         type: 'POST',
@@ -151,9 +152,12 @@ console.log(entradaId)
         },
         success: function(data) {
             console.log(data)
-            var id="#entrada"+entradaId
+            var id="#entrada"+entradaId;
             console.log(id)
             $(id).remove();
+
+
+            alert("La entrada "+ entradaId + " se borró correctamente.");
 
         },
         error: function(error) {
