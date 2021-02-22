@@ -88,7 +88,7 @@ $(document).on("change", "#add-new-photo", function () {
 
 $(document).on("click", "#Images .image-container", function(e){
     $(this).parent().remove();
-    $("#add-photo-container").show();;
+    $("#add-photo-container").show();
 });
 
 
@@ -101,7 +101,7 @@ function createPreview(file) {
     console.log($contenedor);
     var img = $('<div class="col-12"><div class="image-container"><img id="imagenCargada" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
-    $contenedor.hide();;
+    $contenedor.hide();
 }
 
 //Guardar producto
@@ -111,35 +111,39 @@ function guardarProducto(event){
 
     alert("Tienes que cargar una imagen y rellenar todos los campos para guardar el nuevo producto");
     }else{
-    var nombreNuevoProducto = document.getElementById("nombreProducto").value;
-    var categoriaNuevoProducto = document.getElementById("categoriaProducto").value;
-    var serieNuevoProducto = document.getElementById("serieProducto").value;
-    var imagenBase64 = getBase64Image(document.getElementById("imagenCargada"));
-    var descripcionNuevoProducto= document.getElementById("descripcionProducto").value;
-    var precioNuevoProducto= document.getElementById("precioProducto").value;
-    console.log(imagenBase64)
-    $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'crearProducto',
-            nombre: nombreNuevoProducto,
-            categoria: categoriaNuevoProducto,
-            serie: serieNuevoProducto,
-            imagen: imagenBase64,
-            descripcion: descripcionNuevoProducto,
-            precio: precioNuevoProducto
-        },
-            success: function(data) {
-                console.log(data)
+        var nombreNuevoProducto = document.getElementById("nombreProducto").value;
+        var categoriaNuevoProducto = document.getElementById("categoriaProducto").value;
+        var serieNuevoProducto = document.getElementById("serieProducto").value;
+        var imagenBase64 = getBase64Image(document.getElementById("imagenCargada"));
+        var descripcionNuevoProducto= document.getElementById("descripcionProducto").value;
+        var precioNuevoProducto= document.getElementById("precioProducto").value;
+        console.log(imagenBase64)
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                page: 'ajax',
+                action: 'crearProducto',
+                nombre: nombreNuevoProducto,
+                categoria: categoriaNuevoProducto,
+                serie: serieNuevoProducto,
+                imagen: imagenBase64,
+                descripcion: descripcionNuevoProducto,
+                precio: precioNuevoProducto
             },
-            error: function(error){
+                success: function(data) {
+                    console.log(data)
+                },
+                error: function(error){
 
-            } 
-    });
+                } 
+        });
+    }
 }
+
+
+
 function getBase64Image(img) {
   var canvas = document.createElement("canvas");
   canvas.width = img.naturalWidth;
@@ -149,10 +153,5 @@ function getBase64Image(img) {
   var dataURL = canvas.toDataURL("image/png");
   return dataURL;
 }
-
-
-
-
-
 
 </script>
