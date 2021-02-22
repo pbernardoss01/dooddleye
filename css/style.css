@@ -565,7 +565,7 @@ margin-top: 2%;
   padding: 0.5em;
 }
 
-#tituloEntrada{
+#titleEntrada{
   margin: 2em;
 
 }
@@ -923,4 +923,10 @@ height: 4em;
 }
 #nuevoProducto button, #nuevoProducto a{
   margin:2em;
+}
+
+
+
+#listaEntradas div{
+  margin-top:1em;
 }

@@ -5,7 +5,7 @@
 <div class="row">
   <div id="entrada" style="display:none">
     <div class="row">
-        <h4 id="tituloEntrada"></h4>
+        <h4 id="titleEntrada"></h4>
     </div>
     <div class="row">
       <div id="contenidoEntrada">      
@@ -45,7 +45,7 @@
                     const clone = $entrada.cloneNode(true)
                
                     clone.style.display = 'block'
-                    const $tituloEntrada = clone.querySelector('#tituloEntrada')
+                    const $tituloEntrada = clone.querySelector('#titleEntrada')
                     const $contenidoEntrada = clone.querySelector('#contenidoEntrada')
                     const $fechaEntrada = clone.querySelector('#fechaEntrada')
 

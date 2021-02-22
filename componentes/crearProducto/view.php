@@ -105,8 +105,12 @@ function createPreview(file) {
 }
 
 //Guardar producto
-
+                      
 function guardarProducto(event){
+    if( document.getElementById("nombreProducto").value==null|| document.getElementById("categoriaProducto").value==null||document.getElementById("serieProducto").value==null||document.getElementById("imagenCargada")==null|| document.getElementById("descripcionProducto").value==null || document.getElementById("precioProducto").value==null){
+
+    alert("Tienes que cargar una imagen y rellenar todos los campos para guardar el nuevo producto");
+    }else{
     var nombreNuevoProducto = document.getElementById("nombreProducto").value;
     var categoriaNuevoProducto = document.getElementById("categoriaProducto").value;
     var serieNuevoProducto = document.getElementById("serieProducto").value;
@@ -138,7 +142,7 @@ function guardarProducto(event){
 }
 function getBase64Image(img) {
   var canvas = document.createElement("canvas");
-  canvas.width = img.naturalHeight;
+  canvas.width = img.naturalWidth;
   canvas.height = img.naturalHeight;
   var ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0);

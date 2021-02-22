@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6  align-self-center">
              <div class="form-group row">
                 <div class="col-sm-8 col-md-9 description">
                     <p id="descripcionProducto"></p>

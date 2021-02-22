@@ -26,7 +26,17 @@
                     <div class="card carta-usuario" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Productos</h5>
-                            <p class="card-text">Editar inicio de sesión, direccion y otros datos personales.</p>
+                            <p class="card-text">Consultar, crear, modificar o borrar productos de la tienda.</p>
+                            
+                        </div>
+                    </div>
+                </a>';
+
+                echo ' <a class="link-carta-usuario" href="index.php?page=entradasAdmin" >
+                    <div class="card carta-usuario" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Entradas</h5>
+                            <p class="card-text">Consultar, crear, modificar o borrar productos de la tienda.</p>
                             
                         </div>
                     </div>

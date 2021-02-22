@@ -101,7 +101,7 @@
                     $precioProducto.setAttribute('data-precio', articulo.precio);
                     const $botonBorrar=clone.querySelector('button');
 
-                    $botonBorrar.front_header/view.php('id', contador);
+                    $botonBorrar.setAttribute('id', contador);
                     $botonBorrar.setAttribute('data-numeroProducto', contador);
                     clone.setAttribute('id', `producto`+contador);
                     

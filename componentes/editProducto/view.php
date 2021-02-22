@@ -135,7 +135,7 @@ function createPreview(file) {
     var imgCodified = URL.createObjectURL(file);
     $contenedor=$("#add-photo-container");
     console.log($contenedor);
-    var img = $('<div class="col-12"><div class="image-container"><img id="imagenCargada" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
+    var img = $('<div class="col-12"><div class="image-container"><img id="imagenProducto" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
     $contenedor.hide();
 }
@@ -143,13 +143,19 @@ function createPreview(file) {
 //Guardar producto
 
 function editarProducto(event){
+   
+    if( document.getElementById("nombreProducto").value==null|| document.getElementById("categoriaProducto").value==null||document.getElementById("serieProducto").value==null||document.getElementById("imagenProducto")==null|| document.getElementById("descripcionProducto").value==null || document.getElementById("precioProducto").value==null){
+
+        alert("Tienes que cargar una imagen y rellenar todos los campos para guardar los cambios en el producto");
+    }else{
+
     var nombreNuevoProducto = document.getElementById("nombreProducto").value;
     var categoriaNuevoProducto = document.getElementById("categoriaProducto").value;
     var serieNuevoProducto = document.getElementById("serieProducto").value;
-    var imagenBase64 = getBase64Image(document.getElementById("imagenCargada"));
+    var imagenBase64 = getBase64Image(document.getElementById("imagenProducto"));
     var descripcionNuevoProducto= document.getElementById("descripcionProducto").value;
     var precioNuevoProducto= document.getElementById("precioProducto").value;
-    console.log(imagenBase64)
+    
     $.ajax({
         url: '/',
         type: 'POST',
@@ -167,11 +173,12 @@ function editarProducto(event){
         },
             success: function(data) {
                 console.log(data)
+                window.location.href=`index.php/?page=producto&productid=`+ idProducto;
             },
             error: function(error){
 
             } 
-    });
+    });}
 }
 
 
