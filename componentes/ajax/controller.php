@@ -34,7 +34,11 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;     
     break;
-    
+    case 'mostrarImagenesProductos': 
+      $data = AjaxModel::getImagenesProducts();
+      echo json_encode($data);
+      exit;     
+    break;
     case 'mostrarProducto': 
       $data = AjaxModel::getProducto($_POST['id']);
       echo json_encode($data);
@@ -62,6 +66,11 @@ switch ($_POST['action']) {
     break;
     case 'mostrarEntradas': 
       $data = AjaxModel::getEntradas();
+      echo json_encode($data);
+      exit;     
+    break;
+    case 'mostrarImagenesEntradas': 
+      $data = AjaxModel::getImagenesEntradas();
       echo json_encode($data);
       exit;     
     break;

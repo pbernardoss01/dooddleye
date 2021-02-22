@@ -85,7 +85,7 @@ window.addEventListener('load', event_load => {
                     clone.style.display = 'flex'
 
                     //recoge tag img, descripcion, precio y boton 
-                    const $entradaImg = clone.querySelector('img')
+                   
                     const $enlaceEntrada = clone.querySelector('#enlaceEntrada')
                     const $editEntrada = clone.querySelector('#editEntrada')
                     const $idEntrada = clone.querySelector('#idEntrada')
@@ -102,7 +102,7 @@ window.addEventListener('load', event_load => {
                     $enlaceEntrada.setAttribute('href', `index.php/?page=entrada&entradaid=${entrada.idEntrada}`)
                     $btnEntrada.setAttribute('data-id', `${entrada.idEntrada}`)
                     $editEntrada.setAttribute('href', `index.php/?page=editEntrada&entradaid=${entrada.idEntrada}`)
-                    $entradaImg.setAttribute('src', `${entrada.imagen}`)
+                    
                     
                     $idEntrada.append(entrada.idEntrada)
                     $tituloEntrada.append(entrada.titulo)
@@ -117,6 +117,33 @@ window.addEventListener('load', event_load => {
             error: function(error) {
                 
         
+                
+            },
+            complete: function() {
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        page: 'ajax',
+                        action: 'mostrarImagenesEntradas'
+                    },
+                    success: function(hecho) {
+                        hecho.forEach(entrada => {
+                            console.log(entrada)
+                            document.querySelector(`#entrada${entrada.idEntrada} img`).setAttribute('src', `${entrada.imagen}`)
+                            console.log(entrada.imagen)
+                         
+                        })
+                  
+                    },
+                    error: function(error) {
+
+
+
+                    }
+                })
+
                 
             }
         })

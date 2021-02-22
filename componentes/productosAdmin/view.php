@@ -107,7 +107,7 @@ window.addEventListener('load', event_load => {
                     $enlaceProducto.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
                     $btnProducto.setAttribute('data-id', `${producto.idProducto}`)
                     $editProducto.setAttribute('href', `index.php/?page=editProducto&productid=${producto.idProducto}`)
-                    $productImg.setAttribute('src', `${producto.imagen}`)
+                    //$productImg.setAttribute('src', `${producto.imagen}`)
                     
                     $idProducto.append(producto.idProducto)
                     $descripcionProducto.append(producto.descripcion)
@@ -123,10 +123,36 @@ window.addEventListener('load', event_load => {
                 
         
                 
+            },
+            complete: function() {
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        page: 'ajax',
+                        action: 'mostrarImagenesProductos'
+                    },
+                    success: function(hecho) {
+                        hecho.forEach(producto => {
+                            document.querySelector(`#producto${producto.idProducto} img`).setAttribute('src', `${producto.imagen}`)
+                            console.log(producto.imagen)
+                         
+                        })
+                  
+                    },
+                    error: function(error) {
+
+
+
+                    }
+                })
+
+                
             }
         })
-    })
-
+        
+})
 
     function borrarProducto(event) {
       console.log(event)

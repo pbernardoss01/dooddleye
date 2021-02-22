@@ -22,6 +22,7 @@
             </select>
             <select id="serieProducto" class="form-control">
                 <option value="0">Serie</option>
+                <option  value="1">Besto</option>
                 <option  value="2">Koloi</option>
                 <option value="3">Olona</option>
                 <option  value="4">Malang</option>
@@ -133,7 +134,7 @@ function guardarProducto(event){
                 precio: precioNuevoProducto
             },
                 success: function(data) {
-                    console.log(data)
+                    window.location.href=`index.php/?page=productosAdmin`;
                 },
                 error: function(error){
 

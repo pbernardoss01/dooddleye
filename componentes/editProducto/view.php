@@ -173,12 +173,13 @@ function editarProducto(event){
         },
             success: function(data) {
                 console.log(data)
-                window.location.href=`index.php/?page=producto&productid=`+ idProducto;
+                window.location.href=`?page=productosAdmin`;
             },
             error: function(error){
 
             } 
-    });}
+    });
+    }
 }
 
 

@@ -65,7 +65,18 @@ class AjaxModel {
   public static function getProducts() {
     $db = new database();
 
-    $query = "SELECT * FROM producto";
+    $query = "SELECT producto.idProducto, producto.nombreProducto, producto.idCategoriaProducto, producto.precio, producto.idSerieProducto, producto.descripcion FROM producto";
+    
+    $db->query($query);
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
+  }
+  public static function getImagenesProducts() {
+    $db = new database();
+
+    $query = "SELECT idProducto, imagen FROM producto";
     
     $db->query($query);
     
@@ -79,7 +90,18 @@ class AjaxModel {
   public static function getEntradas() {
     $db = new database();
 
-    $query = "SELECT * FROM entrada";
+    $query = "SELECT entrada.idEntrada, entrada.titulo, entrada.contenido, entrada.fecha FROM entrada";
+    
+    $db->query($query);
+    
+    $result = $db->cargaMatriz();
+
+    return $result;
+  }
+  public static function getImagenesEntradas() {
+    $db = new database();
+
+    $query = "SELECT idEntrada, imagen FROM entrada";
     
     $db->query($query);
     

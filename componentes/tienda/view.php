@@ -140,7 +140,6 @@
                     clone.style.display = 'flex'
 
                     //recoge tag img, descripcion, precio y boton del clon
-                    const $productImg = clone.querySelector('img')
                     const $productEnlace = clone.querySelector('a')
                     const $descripcionProducto = clone.querySelector('#descripcionProducto')
                     const $precioProducto = clone.querySelector('#precioProducto')
@@ -156,8 +155,7 @@
                     $btnProducto.setAttribute('data-id', `${producto.idProducto}`)
                     
 
-                    $productImg.setAttribute('src',`${producto.imagen}` )
-
+                   
                     
                     $descripcionProducto.append(producto.descripcion)
                     $precioProducto.append(producto.precio)
@@ -170,6 +168,32 @@
             },
             error: function(error) {
               console.log(error)  
+            },
+            complete: function() {
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        page: 'ajax',
+                        action: 'mostrarImagenesProductos'
+                    },
+                    success: function(hecho) {
+                        hecho.forEach(producto => {
+                            document.querySelector(`#producto${producto.idProducto} img`).setAttribute('src', `${producto.imagen}`)
+                            console.log(producto.imagen)
+                         
+                        })
+                  
+                    },
+                    error: function(error) {
+
+
+
+                    }
+                })
+
+                
             }
         })    
     })

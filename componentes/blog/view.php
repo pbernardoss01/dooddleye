@@ -5,7 +5,7 @@
 <div class="col-12 row " id="entradasBlog">
   
     <div class="card col-lg-3 col-md-4 mb-4 " style="display:none" id="entrada" >
-      <a id="enlaceEntrada"><img id="imagenEntrada" class="card-img-top"  src="/img/productos/2/vehiculo1.jpg" alt="Card image cap">
+      <a id="enlaceEntrada"><img id="imagenEntrada" class="card-img-top"  src="" alt="Card image cap">
       <div class="card-body">
         <h5 id="titleEntrada" class="card-title" > </h5>
         
@@ -43,11 +43,11 @@
                    
                     const $enlaceEntrada = clone.querySelector('#enlaceEntrada')
                     const $tituloEntrada = clone.querySelector('#titleEntrada')
-                    const $imagenEntrada = clone.querySelector('#imagenEntrada')
+                    
                    
                     const $fechaEntrada = clone.querySelector('#fechaEntrada')
                     clone.setAttribute('id', `entrada${entrada.idEntrada}`)
-                    $imagenEntrada.setAttribute('src', `${entrada.imagen}`)
+                 
                     $enlaceEntrada.setAttribute('href', `index.php/?page=entrada&entradaid=${entrada.idEntrada}`)
 
                     clone.style.display = 'flex'
@@ -60,6 +60,33 @@
             error: function(error) {
                 
                 console.log(error,"lol");
+            },
+            complete: function() {
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        page: 'ajax',
+                        action: 'mostrarImagenesEntradas'
+                    },
+                    success: function(hecho) {
+                        hecho.forEach(entrada => {
+                            console.log(entrada)
+                            document.querySelector(`#entrada${entrada.idEntrada} img`).setAttribute('src', `${entrada.imagen}`)
+                            console.log(entrada.imagen)
+                         
+                        })
+                  
+                    },
+                    error: function(error) {
+
+
+
+                    }
+                })
+
+                
             }
         })
         
