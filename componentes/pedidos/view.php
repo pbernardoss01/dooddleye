@@ -1,10 +1,10 @@
 <div class="container" id="pedidos">
     <div class="row">
-        <div id="tituloPedido" class="text-center col-12">
+        <div id="tituloPedido" class="text-center col-12 justify-content-center d-flex">
             <h3>Pedidos</h3>
         </div>    
     </div>
-    <div id="pedido" class="row" style="display:none;">
+    <div id="pedido" class="row" style="display:none; justify-content-center">
         <div class="col-md-12">
             
             <div class="row">
@@ -121,7 +121,7 @@
                     $pedidos=$("#tituloPedido")
 
                     $pedidos.after("No tienes pedidos todavía") 
-                    console.log("yep")   
+                  
                 }
                 
             },
@@ -139,4 +139,3 @@
 
 </script>
 
-<?php var_dump($_SESSION["cesta"])?>

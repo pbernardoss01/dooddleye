@@ -50,10 +50,10 @@ class AjaxModel {
     }
   }
 
-  public static function createUser($nombre , $apellido1, $apellido2, $telefono, $direccion, $mail, $clave){
+  public static function createUser($nombre , $apellidos, $telefono, $direccion, $mail, $clave){
     $db = new database();
 
-    $query = "INSERT INTO usuario(nombre, apellido1, apellido2, direccion, telefono, mail, clave, rol) VALUES ('$nombre', '$apellido1', '$apellido2', '$direccion', '$telefono', '$mail', '$clave', '2');";
+    $query = "INSERT INTO usuario(nombre, apellidos, direccion, telefono, mail, clave, rol) VALUES ('$nombre', '$apellidos', '$direccion', '$telefono', '$mail', '$clave', '2');";
   
     $db->query($query);
     

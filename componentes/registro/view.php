@@ -469,7 +469,7 @@
 
     const datosNuevo = {
       nombre: document.querySelector('#nombre').value,
-      apellido: document.querySelector('#apellidos').value,
+      apellidos: document.querySelector('#apellidos').value,
       telefono: document.querySelector('#telefono').value,
       direccion: $direccion,
       mail: document.querySelector('#mail').value,

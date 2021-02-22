@@ -24,7 +24,7 @@ switch ($_POST['action']) {
     break;
     case 'createUser': 
 
-      $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
+      $userData = AjaxModel::createUser($_POST['nombre'], $_POST['apellidos'], $_POST['telefono'], $_POST['direccion'], $_POST['mail'], $_POST['clave']);
 
       echo json_encode($userData);
       exit;     
