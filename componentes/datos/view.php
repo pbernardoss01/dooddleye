@@ -42,12 +42,11 @@
         },
         success: function(data) {
       
-         window.location.href="/index.php?page=confirmacionDatos";
+         window.location.href="?page=confirmacionDatos";
 
 
         },
         error: function(error) { 
-            console.log("damm")
             console.log(error)
         }
     })

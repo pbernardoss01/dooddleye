@@ -1,5 +1,5 @@
 <div id="tituloAdminEntradas" class="text-center col-12">
-        <h2><a href="?page=usuario"> Entradas</a></h2>
+        <h2><a href="?page=usuario">Entradas</a></h2>
     </div> 
 
 
@@ -103,7 +103,7 @@ window.addEventListener('load', event_load => {
             },
             error: function(error) {
                 
-        
+                console.log(error)      
                 
             },
             complete: function() {
@@ -125,7 +125,7 @@ window.addEventListener('load', event_load => {
                   
                     },
                     error: function(error) {
-
+                        console.log(error)      
 
 
                     }

@@ -34,7 +34,7 @@
           ?>
         
       
-      <li class="col-md-1 col-4 d-md-flex">
+      <li class="col-md-1 d-md-flex justify-content-center">
         <a  href="?page=carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
     </ul>

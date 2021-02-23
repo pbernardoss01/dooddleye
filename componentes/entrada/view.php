@@ -2,11 +2,14 @@
 
     <div id="cabeceraEntrada">
         <h1 id="tituloEntrada"></h1>
-        <strong id="fechaEntrada"></strong>
+        
         <img id="imagenEntrada">
     </div>
     <div id="cuerpoEntrada" class="container" >
+    <strong id="fechaEntrada"></strong>
         <div id="contenidoEntrada"></div>
+        
+
     </div>
 </div>
 
@@ -137,7 +140,7 @@ function publicar(event){
             
         },
             error: function(error) {
-               
+                console.log(error)      
         }
     })
     

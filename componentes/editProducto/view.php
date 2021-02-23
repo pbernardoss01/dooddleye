@@ -1,6 +1,6 @@
 <div id="nuevoProducto" class="container">
     <div class="titulo text-center col-12">
-        <h2>Editar entrada</h2>
+        <h2><a href="?page=adminProductos">Editar producto</a></h2>
     </div> 
     <div class="d-flex">
         <div id="Images" class="col-md-5 col-xs-12">
@@ -70,7 +70,7 @@ window.addEventListener('load', event_load => {
             id: idProducto
         },
             success: function(data) {
-                console.log(data[0])
+ 
 
                 $("#imagenProducto")[0].setAttribute('src', `${data[0].imagen}`)
                 $('#nombreProducto').val(data[0].nombreProducto)
@@ -81,7 +81,7 @@ window.addEventListener('load', event_load => {
             
             },
             error: function(error) {
-               
+                console.log(error) 
             }
     })
 })
@@ -98,7 +98,6 @@ $(document).on("click", "#add-photo", function(){
 
 $(document).on("change", "#add-new-photo", function () {
 
-    console.log(this.files);
     var files = this.files;
     var element;
     var supportedImages = ["image/jpeg", "image/png", "image/gif"];
@@ -134,7 +133,7 @@ $(document).on("click", ".image-container", function(e){
 function createPreview(file) {
     var imgCodified = URL.createObjectURL(file);
     $contenedor=$("#add-photo-container");
-    console.log($contenedor);
+ 
     var img = $('<div class="col-12"><div class="image-container"><img id="imagenProducto" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
     $contenedor.hide();
@@ -172,11 +171,11 @@ function editarProducto(event){
             precio: precioNuevoProducto
         },
             success: function(data) {
-                console.log(data)
+          
                 window.location.href=`?page=productosAdmin`;
             },
             error: function(error){
-
+                console.log(error)
             } 
     });
     }

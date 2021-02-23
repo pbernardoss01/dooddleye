@@ -116,7 +116,7 @@
                 $('#precioTotal').append(`El precio a pagar es: ${precioTotal}€`)
             },
             error: function(error) {
-                
+                console.log(error)  
         
                 
             }
@@ -215,7 +215,7 @@
             success: function(data) {
                 console.log(data)
 
-               window.location.href="/index.php?page=confirmacionPedido";
+               window.location.href="?page=confirmacionPedido";
         },
             error: function(error, otro) {
                 console.log(error, otro)

@@ -1,7 +1,11 @@
 <?php
 
 class AjaxModel {
-        
+ 
+ 
+ 
+  //Funciones para interactuar los usuarios de la pagina
+       
   public static function userExists($mail, $clave) {  
     $db = new database();
 
@@ -62,68 +66,35 @@ class AjaxModel {
     return $query;
     
   }
-  public static function getProducts() {
-    $db = new database();
 
-    $query = "SELECT producto.idProducto, producto.nombreProducto, producto.idCategoriaProducto, producto.precio, producto.idSerieProducto, producto.descripcion FROM producto";
+
+  public static function cambiarDatosUsuario($idUsuario, $nombre, $apellido1, $apellido2, $direccion, $telefono, $mail) {
+    $db = new database();
+    
+    $query = "UPDATE usuario SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', direccion = '$direccion', telefono = '$telefono', mail = '$mail' WHERE usuario.idUsuario = '$idUsuario';";
+    
+    $db->query($query);
+    
+    $query = "SELECT * FROM usuario WHERE idUsuario='$idUsuario;";
+  
+    $db->query($query);
+    return $result;
+  
+  }
+  public static function mostrarDatosUsuario($idUsuario) {
+    $db = new database();
+  
+    $query = "SELECT * FROM usuario WHERE idUsuario = '$idUsuario'";
     
     $db->query($query);
     
     $result = $db->cargaMatriz();
-
-    return $result;
+  
+    return $result[0];
   }
-  public static function getImagenesProducts() {
-    $db = new database();
+  
 
-    $query = "SELECT idProducto, imagen FROM producto";
-    
-    $db->query($query);
-    
-    $result = $db->cargaMatriz();
-
-    return $result;
-  }
-
- 
-
-  public static function getEntradas() {
-    $db = new database();
-
-    $query = "SELECT entrada.idEntrada, entrada.titulo, entrada.contenido, entrada.fecha FROM entrada";
-    
-    $db->query($query);
-    
-    $result = $db->cargaMatriz();
-
-    return $result;
-  }
-  public static function getImagenesEntradas() {
-    $db = new database();
-
-    $query = "SELECT idEntrada, imagen FROM entrada";
-    
-    $db->query($query);
-    
-    $result = $db->cargaMatriz();
-
-    return $result;
-  }
-
-
-
-  public static function getProducto($id) {
-    $db = new database();
-
-    $query = "SELECT * FROM producto where idProducto=$id";
-    
-    $db->query($query);
-    
-    $result = $db->cargaMatriz();
-
-    return $result;
-  }
-
+//Filtros de productos para la tienda  
 
 public static function recogerCategorias($arrays) {
   $db = new database();
@@ -149,6 +120,12 @@ public static function recogerSeries($arrays) {
   return $result;
 }
 
+
+
+
+//Funciones para interactuar con pedidos en la tienda
+
+
 public static function mostrarPedidos($idUsuario) {
   $db = new database();
   
@@ -159,41 +136,6 @@ public static function mostrarPedidos($idUsuario) {
   $result = $db->cargaMatriz();
 
   return $result;
-}
-public static function cambiarDatosUsuario($idUsuario, $nombre, $apellido1, $apellido2, $direccion, $telefono, $mail) {
-  $db = new database();
-  
-  $query = "UPDATE usuario SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', direccion = '$direccion', telefono = '$telefono', mail = '$mail' WHERE usuario.idUsuario = '$idUsuario';";
-  
-  $db->query($query);
-  
-  $query = "SELECT * FROM usuario WHERE idUsuario='$idUsuario;";
-
-  $db->query($query);
-  return $result;
-
-}
-public static function mostrarDatosUsuario($idUsuario) {
-  $db = new database();
-
-  $query = "SELECT * FROM usuario WHERE idUsuario = '$idUsuario'";
-  
-  $db->query($query);
-  
-  $result = $db->cargaMatriz();
-
-  return $result[0];
-}
-
-public static function borrarProducto($producto) {
-  $db = new database();
-
-  $query = "DELETE FROM producto WHERE idProducto = '$producto'";
-  
-  $db->query($query);
-  
-  $result = $db->cargaMatriz();
-  return true;
 }
 
 public static function hacerPedido($idUsuario, $precioTotal) {
@@ -210,6 +152,7 @@ public static function hacerPedido($idUsuario, $precioTotal) {
   return $result["idPedido"];
 
 }
+
 public static function detallePedido($idProducto, $idPedido, $cantidad,$precio) {
   $db = new database();
 
@@ -221,14 +164,57 @@ public static function detallePedido($idProducto, $idPedido, $cantidad,$precio) 
 
 }
 
+
+
+//Funciones para interactuar con productos de la tienda
+
+public static function getProducts() {
+  $db = new database();
+
+  $query = "SELECT producto.idProducto, producto.nombreProducto, producto.idCategoriaProducto, producto.precio, producto.idSerieProducto, producto.descripcion FROM producto";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+
+
+public static function getImagenesProducts() {
+  $db = new database();
+
+  $query = "SELECT idProducto, imagen FROM producto";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+
+
+
+
+public static function getProducto($id) {
+  $db = new database();
+
+  $query = "SELECT * FROM producto where idProducto=$id";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+
+
 public static function createProducto($nombre, $categoria, $serie, $descripcion, $precio, $imagen) {
   $db = new database();
 
   $query = "INSERT INTO producto (nombreProducto, idCategoriaProducto, idSerieProducto, precio, descripcion, imagen) VALUES ('$nombre', $categoria, $serie, $precio, '$descripcion', '$imagen');";
 
   $db->query($query);
-
-return "INSERT INTO producto (nombreProducto, idCategoriaProducto, idSerieProducto, precio, descripcion, imagen) VALUES ('$nombre', $categoria, $serie, $precio, '$descripcion', '$imagen');";
 }
 
 public static function editProducto($id, $nombre, $categoria, $serie, $descripcion, $precio, $imagen) {
@@ -239,25 +225,20 @@ public static function editProducto($id, $nombre, $categoria, $serie, $descripci
   $db->query($query);
 
 }
-public static function editEntrada($id, $titulo, $contenido, $imagen) {
+
+public static function borrarProducto($producto) {
   $db = new database();
 
-  $query = "UPDATE entrada SET  titulo= '$nombre', contenido=$categoria, imagen='$imagen' WHERE idEntrada=$id;";
-
+  $query = "DELETE FROM producto WHERE idProducto = '$producto'";
+  
   $db->query($query);
-
-}
-
-public static function getEntrada($id) {
-  $db = new database();
-
-  $query = "SELECT * FROM entrada WHERE idEntrada = '$id';";
-
-  $db->query($query);
+  
   $result = $db->cargaMatriz();
-
-  return $result;
+  return true;
 }
+
+
+//Funciones para interactuar con comentarios de entradas del blog
 public static function getComentarioEntrada($id) {
   $db = new database();
 
@@ -279,6 +260,35 @@ public static function createComentarioEntrada( $idUsuario, $entrada, $contenido
 }
 
 
+//Funciones para interactuar con entradas del blog
+public static function getEntrada($id) {
+  $db = new database();
+
+  $query = "SELECT * FROM entrada WHERE idEntrada = '$id';";
+
+  $db->query($query);
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+
+
+public static function createEntrada( $titulo, $contenido, $imagen) {
+  $db = new database();
+  $query = "INSERT INTO entrada (titulo, contenido, imagen) VALUES ('$titulo', '$contenido', '$imagen');";
+
+  $db->query($query);
+
+
+}
+public static function editEntrada($id, $titulo, $contenido, $imagen) {
+  $db = new database();
+
+  $query = "UPDATE entrada SET  titulo= '$nombre', contenido=$categoria, imagen='$imagen' WHERE idEntrada=$id;";
+
+  $db->query($query);
+
+}
 public static function borrarEntrada( $id) {
   $db = new database();
 
@@ -288,6 +298,35 @@ public static function borrarEntrada( $id) {
 
 
 }
+
+
+public static function getEntradas() {
+  $db = new database();
+
+  $query = "SELECT entrada.idEntrada, entrada.titulo, entrada.contenido, entrada.fecha FROM entrada";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+public static function getImagenesEntradas() {
+  $db = new database();
+
+  $query = "SELECT idEntrada, imagen FROM entrada";
+  
+  $db->query($query);
+  
+  $result = $db->cargaMatriz();
+
+  return $result;
+}
+
+
+
+
+
 
 }
 

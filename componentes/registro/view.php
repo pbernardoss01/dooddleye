@@ -515,7 +515,7 @@
               
           },
             success: function(resultado) {
-              window.location.href="/index.php?page=confirmacionRegistro";
+              window.location.href="?page=confirmacionRegistro";
             },
             error: function(error) {
                 console.log(error)

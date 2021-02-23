@@ -181,14 +181,14 @@
                     success: function(hecho) {
                         hecho.forEach(producto => {
                             document.querySelector(`#producto${producto.idProducto} img`).setAttribute('src', `${producto.imagen}`)
-                            console.log(producto.imagen)
+                            
                          
                         })
                   
                     },
                     error: function(error) {
 
-
+                        console.log(error)
 
                     }
                 })
@@ -203,7 +203,6 @@
 //Funcion añadir a carrito. Añade el elemento seleccionado a la sesion
     function addCarrito(event){
    
-        console.log(event.target.dataset.id)
         $.ajax({
             url: '/',
             type: 'POST',

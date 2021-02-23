@@ -1,6 +1,6 @@
 <div id="nuevoProducto" class="container">
     <div class="titulo text-center col-12">
-        <h2>Nuevo Producto</h2>
+        <h2><a href="?page=adminProductos">Nuevo Producto</a></h2>
     </div> 
     <div class="d-flex">
         <div id="Images" class="col-md-5 col-xs-12">
@@ -62,8 +62,7 @@ $(document).on("click", "#add-photo", function(){
 //Abrir el inspector de archivos
 
 $(document).on("change", "#add-new-photo", function () {
-
-    console.log(this.files);
+ 
     var files = this.files;
     var element;
     var supportedImages = ["image/jpeg", "image/png", "image/gif"];
@@ -99,7 +98,7 @@ $(document).on("click", "#Images .image-container", function(e){
 function createPreview(file) {
     var imgCodified = URL.createObjectURL(file);
     $contenedor=$("#add-photo-container");
-    console.log($contenedor);
+  
     var img = $('<div class="col-12"><div class="image-container"><img id="imagenCargada" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
     $contenedor.hide();
@@ -118,7 +117,7 @@ function guardarProducto(event){
         var imagenBase64 = getBase64Image(document.getElementById("imagenCargada"));
         var descripcionNuevoProducto= document.getElementById("descripcionProducto").value;
         var precioNuevoProducto= document.getElementById("precioProducto").value;
-        console.log(imagenBase64)
+      
         $.ajax({
             url: '/',
             type: 'POST',
@@ -137,7 +136,7 @@ function guardarProducto(event){
                     window.location.href=`index.php/?page=productosAdmin`;
                 },
                 error: function(error){
-
+                    console.log(error)
                 } 
         });
     }

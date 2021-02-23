@@ -1,7 +1,7 @@
 
 <div id="editEntrada" class="container">
     <div  id="tituloEditarEntrada" class="text-center col-12">
-        <h2<a href="?page=adminEntradas">Editar entrada</a></h2>
+        <h2><a href="?page=adminEntradas">Editar entrada</a></h2>
     </div> 
     <div>
         <div  class="col-12">
@@ -11,7 +11,7 @@
                 </div>
                 <input type="file" multiple id="add-new-photo" name="images[]">
             </div>
-            <div class="col-12">
+            <div class="contenedorImagen col-12">
                 <div class="image-container">
                     <img id="imagenEntrada" src="" alt="Foto de la entrada">
                 </div>
@@ -22,14 +22,14 @@
         </div>
             
         <div id="caracteristicasEntrada" class="col-12">
-            <input id="tituloEntrada" placeholder="Título de Entrada" type="text" class="col-12 form-control"></input>
+            <input id="tituloEntrada" placeholder="Título de entrada" type="text" class="col-12 form-control"></input>
             <textarea id="descripcionEntrada" placeholder="Contenido de entrada" class="col-12 form-control" rows="25" cols="150"></textarea>
             
            
         </div>
         <div id="botonesEntrada" class="d-flex justify-content-center col-12">
-                <button id="" onclick="editarEntrada(event)" type="button" class="btn btn-sm btn-outline-success">Editar entrada</button>
-                <a id="" href="?page=adminEntradas"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
+                <button id="" onclick="publicarEntrada(event)" type="button" class="btn btn-sm btn-outline-success">Publicar entrada</button>
+                <a id="" href="?page=adminEntrada"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
         </div>
     </div>
     
@@ -41,34 +41,9 @@
 
 <script>
 const $id = parseInt(window.location.search.split("entradaid=")[1])
-//console.log($id)
-$('#add-photo-container').hide()    
-window.addEventListener('load', event_load => {
-        $.ajax({
-        url: '/',
-        type: 'POST',
-        dataType: "json",
-        data: {
-            page: 'ajax',
-            action: 'mostrarEntrada',
-            idEntrada: $id
-        },
-            success: function(data) {
-                
-                $imagenEntrada = document.getElementById('imagenEntrada')
-                $imagenEntrada.setAttribute('src', `${data[0].imagen}`)
-                
-                $('#tituloEntrada').val(data[0].titulo)
-                $('#descripcionEntrada').append(data[0].contenido)
-                
-            },
-            error: function(error) {
-                console.log(error)
-        
-                
-            }
-        })
-    })
+
+$('.contenedorImagen ').hide()    
+
 
 
 // Abrir el inspector de archivos
@@ -127,7 +102,7 @@ function createPreview(file) {
 
 //Guardar entrada
 
-function editarEntrada(event){
+function publicarEntrada(event){
    
     if( document.getElementById("tituloEntrada").value==null|| document.getElementById("descripcionEntrada").value==null||document.getElementById("imagenEntrada")==null){
 
@@ -145,16 +120,16 @@ function editarEntrada(event){
         dataType: "json",
         data: {
             page: 'ajax',
-            action: 'editarEntrada',
-            id: $id,
+            action: 'crearEntrada',
             titulo: tituloEntrada,
             contenido: descripcionEntrada,
             imagen: imagenBase64
            
         },
             success: function(data) {
-                console.log(data)
-                window.location.href=`?page=entradasAdmin`;
+                console.log(tituloEntrada)
+                console.log(descripcionEntrada)
+               // window.location.href=`?page=adminEntradas`;
             },
             error: function(error){
                 console.log(error)

@@ -12,31 +12,33 @@
     </div>
 </div>
 <div  id="rowSeries" class="row">
-    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+    <div id="productCard" class="col-lg-6 col-md-6 col-12 tarjetaSerie">
         <a class="" href="index.php/?page=tienda" role="button">
-            <img class="col-12 imagenSerie" src="/img/productos/1/animal1.jpg"/>
+            <img class="col-12 imagenSerie" src="/img/productos/1/animal1.jpg"/> <div class="textHoverSerie">Besto</div>
             <div class="overlaySerie">
-                <div class="textHoverSerie">Besto</div>
             </div>
         </a>
     </div>
-    <div id="productCard"  class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
-    <a class="" href="index.php/?page=tienda" role="button">
-        <img class="col-12 imagenSerie" src="/img/productos/2/vehiculo1.jpg"/>
+    <div id="productCard"  class="col-lg-6 col-md-6 col-12 tarjetaSerie">
+        <a class="" href="index.php/?page=tienda" role="button">
+            <img class="col-12 imagenSerie" src="/img/productos/2/vehiculo1.jpg"/> <div class="textHoverSerie">Koloi</div>
+            <div class="overlaySerie">
+            </div>
         </a>
     </div>
-    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+    <div id="productCard" class="col-lg-6 col-md-6 col-12 tarjetaSerie">
     <a class="" href="index.php/?page=tienda" role="button">  
-    <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/>
+    <img class="col-12 imagenSerie" src="/img/productos/3/persona1.jpg"/><div class="textHoverSerie">Olona</div>
         <div class="overlaySerie">
-            <div class="textHoverSerie">Olona</div>
+            
         </div></a>
     </div>
-    <div id="productCard" class="col-lg-6 col-md-6 col-sm-12 tarjetaSerie">
+    <div id="productCard" class="col-lg-6 col-md-6 col-12 tarjetaSerie">
     <a class="" href="index.php/?page=tienda" role="button">  
         <img class="col-12 imagenSerie" src="/img/productos/4/paisaje1.jpg"/>
+        <div class="textHoverSerie">Malang</div>
         <div class="overlaySerie">
-            <div class="textHoverSerie">Malang</div>
+           
         </div></a>
     </div>
 </div>
@@ -56,13 +58,13 @@
     <div class="carousel-inner" id="sliderContenedorProductos">
         <div class="carousel-item active">
             <div id="productosBesto" class="row d-flex justify-content-center">
-                <div id="cartaSliderProducto" class="card cartaSliderProducto" style="display:none; width: 25em;">
+                <div id="cartaSliderProducto" class="card cartaSliderProducto col-xs-12 col-sm-12  col-md-12  col-lg-3" style="display:none;">
                     <a id="productoEnlace" >
                         <img id="imagenProductoSlider" class="card-img-top" alt="Card image cap">
                         <div class="card-body">
                             
                             <p id="descripcionProducto"></p>
-                        
+                        <a id="linkProducto" class="btn btn-outline-info btn-sm" href="">Ver producto</a>
                         </div>
                     </a>
                 </div>
@@ -123,17 +125,20 @@
                 const productosOlona = document.querySelector('#productosOlona')
                 const productosKoloi = document.querySelector('#productosKoloi')
                 const cartaSliderProducto = document.querySelector('#cartaSliderProducto')
-                console.log(productosKoloi)
+                
                 var contadorBesto=0
                 var contadorKoloi=0
                 var contadorOlona=0
                 var contadorMalang=0
                 const stop= 4
-                for (let i = 0; i < data.le; i++) {
+                for (let i = 0; i < data.lenght; i++) {
                     str = str + i;
                 }
                 data.forEach(producto => {
 
+console.log(producto)
+console.log(contadorBesto)
+console.log(stop)
 
 
                     if(producto.idSerieProducto=="1" && contadorBesto!=stop){
@@ -142,7 +147,9 @@
                         clone.setAttribute('id', `producto${producto.idProducto}`)
                         clone.style.display = 'flex'
                         const $productoEnlace = clone.querySelector('#productoEnlace')
+                        const $linkProducto = clone.querySelector('#linkProducto')
                         $productoEnlace.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
+                        $linkProducto.setAttribute('href', `index.php/?page=producto&productid=${producto.idProducto}`)
                         const $productImg = clone.querySelector('img')
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
@@ -202,7 +209,7 @@
             },
             error: function(error) {
                 
-        
+                console.log(error)      
                 
             }
         })  })

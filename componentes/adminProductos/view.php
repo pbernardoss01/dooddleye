@@ -35,7 +35,7 @@
     <div id="producto" class="col-12" style="display:none ">
         <div class="row" >
             <div class="col-2 text-center d-flex">
-                    <a id="enlaceProducto"> <img class="img-responsive" src="" alt="prewiew" width="120" height="80"></a>
+                    <a id="enlaceProducto"> <img class="img-responsive col-12" src="" alt="prewiew" ></a>
             </div>
             <div id="idProducto" class="col-1">
                 
@@ -43,15 +43,15 @@
                 <div id="descripcionProducto" class="col-7">
                 
                 </div>
-            <div class="col-1 text-md-right">
+            <div class="col-1">
                 <div class="col-12" style="padding-top: 5px">
                     <h6 id="precioProducto"></h6>
                 </div>
             </div>    
-            <div class="col-1 text-md-right">
-                <div class="col-2 col-sm-2 col-md-2 text-right">
-                <a id="editProducto" type="button" href="page=editProducto&productid=" class="btn btn-outline-primary btn-xs">
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+            <div class="col-1 d-flex justify-content-center">
+                <div class="col-2 col-sm-2 col-md-2 ">
+                    <a id="editProducto" type="button" href="page=editProducto&productid=" class="btn btn-outline-primary btn-xs">
+                            <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                     </a>
                     <button type="button" onclick="borrarProducto(event)"  class="btn btn-outline-danger btn-xs">
                         <i class="fa fa-trash" aria-hidden="true"></i>
@@ -121,7 +121,7 @@ window.addEventListener('load', event_load => {
             },
             error: function(error) {
                 
-        
+        console.log(error)
                 
             },
             complete: function() {
@@ -136,13 +136,13 @@ window.addEventListener('load', event_load => {
                     success: function(hecho) {
                         hecho.forEach(producto => {
                             document.querySelector(`#producto${producto.idProducto} img`).setAttribute('src', `${producto.imagen}`)
-                            console.log(producto.imagen)
+                          
                          
                         })
                   
                     },
                     error: function(error) {
-
+                        console.log(error)      
 
 
                     }
@@ -155,23 +155,21 @@ window.addEventListener('load', event_load => {
 })
 
     function borrarProducto(event) {
-      console.log(event)
+
         let productId = -1
     if (event.target.dataset.id) {
         productId = event.target.dataset.id
-        console.log(productId)
+        
     } else {
         const parent = event.target.parentElement
         if (parent.dataset.id)  {
             productId = parent.dataset.id
-        }else{
-            console.log("fail")
         }
     
     }
 
     productId = parseInt(productId)
-console.log(productId)
+
     $.ajax({
         url: '/',
         type: 'POST',
@@ -182,9 +180,9 @@ console.log(productId)
             producto: productId
         },
         success: function(data) {
-            console.log(data)
+          
             var id="#producto"+productId
-            console.log(id)
+        
             $(id).remove();
             alert("El producto "+ productId + " se está borrando correctamente.");
         },

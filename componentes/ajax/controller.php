@@ -172,14 +172,21 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;       
     break;
-    case 'editarProducto': 
-      $data = AjaxModel::editProducto($_POST['id'], $_POST['titulo'], $_POST['contenido'], $_POST['imagen']);
+  
+    case 'mostrarEntrada': 
+      $data = AjaxModel::getEntrada($_POST['idEntrada']);
       
       echo json_encode($data);
       exit;       
     break;
-    case 'mostrarEntrada': 
-      $data = AjaxModel::getEntrada($_POST['idEntrada']);
+    case 'crearEntrada': 
+      $data = AjaxModel::createEntrada($_POST['titulo'],$_POST['contenido'],$_POST['imagen']);
+      
+      echo json_encode($data);
+      exit;       
+    break;
+    case 'editarEntrada': 
+      $data = AjaxModel::getEntrada($_POST['idEntrada'],$_POST['titulo'],$_POST['contenido'],$_POST['imagen']);
       
       echo json_encode($data);
       exit;       
