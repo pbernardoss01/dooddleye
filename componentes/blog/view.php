@@ -3,7 +3,7 @@
 
 <div class="container">
 <div class="col-12 row " id="entradasBlog">
-  
+  <!--Plantilla clonar y volcar los datos de las entradas-->
     <div class="card col-lg-3 col-md-4 mb-4 " style="display:none" id="entrada" >
       <a id="enlaceEntrada"><img id="imagenEntrada" class="card-img-top"  src="" alt="Card image cap">
       <div class="card-body">
@@ -13,8 +13,6 @@
       </div></a>
     </div>  
     
- 
-
 
 
 </div>
@@ -22,8 +20,13 @@
 
 
 <script type="text/javascript">
+//Ocultar plantilla
     $('#entrada').hide()
+
+//Evento de carga de documento    
     window.addEventListener('load', event_load => {
+//Peticion ajax para recoger los datos de todas las entradas    
+
         $.ajax({
         url: '/',
         type: 'POST',
@@ -33,13 +36,18 @@
             action: 'mostrarEntradas'
         },
             success: function(data) {
-                console.log(data)
+                //Recoger la respuesta de la peticion "Mostrar entradas" 
+
+                //Recoger por dom el elemento de plantilla para las entradas
                 const $entrada = document.querySelector('#entrada')
+                //Recoger por dom el elemento donde guardar todas las entradas generadas
                 const $entradasBlog = document.querySelector('#entradasBlog')
 
+                //Recorrer todas entradas 
                 data.forEach(entrada => {
+                //Clonar plantilla
                     const clone = $entrada.cloneNode(true)
-                    console.log(entrada.titulo)
+                    
                    
                     const $enlaceEntrada = clone.querySelector('#enlaceEntrada')
                     const $tituloEntrada = clone.querySelector('#titleEntrada')
@@ -93,3 +101,5 @@
     })
 
 </script>
+
+<?php var_dump(isset($_SESSION['validUser'])&&$_SESSION['validUser']==true)?>

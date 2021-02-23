@@ -13,13 +13,18 @@
 <div id="comentariosEntrada">
     <div  class="container" >
     <h3 class="col-12" id="tituloComentario">Comentario</h3>
-        <div id="nuevoComentarioEntrada">
-         
-            <textarea class="col-12 form-control" id="textoComentario" name="comment" cols="45" rows="4" placeholder="Añade un comentario..." aria-required="true"></textarea>
-            <input  onclick="publicar(event)" class="btn btn-dark" type="button"  value="Publicar">
-        </div>
+        
+        <?php 
+        if(isset($_SESSION['validUser'])&&$_SESSION['validUser']==true){?>
+            <div id="nuevoComentarioEntrada">
+            
+                <textarea class="col-12 form-control" id="textoComentario" name="comment" cols="45" rows="4" placeholder="Añade un comentario..." aria-required="true"></textarea>
+                <input  onclick="publicar(event)" class="btn btn-dark" type="button"  value="Publicar">
+            </div>
+        <?php }?>
 
         <div id="listaComentariosEntrada">
+        <h3 id="sinComentarios">No hay comentarios</h3>
             <div id="comentarioEntrada" >
                 <h5><strong id="autorComentario"></strong> dice...</h5>
                 <p class="col-12" id="contenidoComentario"></p>
@@ -50,11 +55,11 @@ $('#comentarioEntrada').hide()
         data: {
             page: 'ajax',
             action: 'mostrarEntrada',
-            id: $id
+            idEntrada: $id
         },
             success: function(data) {
                 console.log(data)
-                console.log($id)
+                
 
                  $tituloEntrada = $('#tituloEntrada')
                  $contenidoEntrada = $('#contenidoEntrada')
@@ -70,28 +75,30 @@ $('#comentarioEntrada').hide()
 
             },
             error: function(error) {
-               
+               console.log(error)
             }
         })
   
-    
+   
         $.ajax({
         url: '/',
         type: 'POST',
         dataType: "json",
         data: {
             page: 'ajax',
-            action: 'mostrarComentariosEntradas',
-            id: $id
+            action: 'mostrarComentariosEntrada',
+            idEntrada: $id
         },
-            success: function(data) {
-                console.log(data)
+            success: function(datos) {
+                if(datos.length!=0){
+                    $('#sinComentarios').hide();
+                }
                 const $comentarioEntrada = document.querySelector('#comentarioEntrada')
                 const $listaComentariosEntrada = document.querySelector('#listaComentariosEntrada')
 
-                data.forEach(comentario => {
+                datos.forEach(comentario => {
                     const clone = $comentarioEntrada.cloneNode(true)
-                    console.log(comentarioEntrada.titulo)
+                    console.log(comentario.titulo)
                    
                     const $autorComentario = clone.querySelector('#autorComentario')
                     const $contenidoComentario = clone.querySelector('#contenidoComentario')
@@ -105,6 +112,7 @@ $('#comentarioEntrada').hide()
                 })
             },
             error: function(error) {
+                console.log(error)
                
             }
         })

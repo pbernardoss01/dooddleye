@@ -73,19 +73,21 @@
             clave: $inputClave.value,
           },
           success: function(data) {
-           console.log(data)
-           data=Boolean(data)
-           
-            if (data) {
-              window.location.href="/";
-              console.log("ha entrado")
+            //La respuesta true o false, viene en string con comillas, con lo cual limpiaremos el string para poder usarlo.
+          data=data.split('"').join("");
+         
+            //En caso de ser la respuesta true, se completa el logueo y se redirege a la pagina principal
+
+          if (data === "true") {
+             window.location.href="/";
             } else {
+            //En caso de ser la respuesta false, se muestra el error en pantalla para que se vuelva a intentar el logueo
+
               $input =  document.querySelector('#log')
               $input.classList.add('is-invalid')
               
             }
             
-           
           },
           error: function(error) {
             console.log(error)

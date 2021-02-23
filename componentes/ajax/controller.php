@@ -184,8 +184,8 @@ switch ($_POST['action']) {
       echo json_encode($data);
       exit;       
     break;
-    case 'mostrarComentariosEntradas': 
-      $data = AjaxModel::getComentarioEntrada($_POST['id']);
+    case 'mostrarComentariosEntrada': 
+      $data = AjaxModel::getComentarioEntrada($_POST['idEntrada']);
       
       echo json_encode($data);
       exit;       
