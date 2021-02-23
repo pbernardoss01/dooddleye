@@ -68,10 +68,10 @@ class AjaxModel {
   }
 
 
-  public static function cambiarDatosUsuario($idUsuario, $nombre, $apellido1, $apellido2, $direccion, $telefono, $mail) {
+  public static function cambiarDatosUsuario($idUsuario, $nombre, $apellidos, $direccion, $telefono, $mail) {
     $db = new database();
     
-    $query = "UPDATE usuario SET nombre = '$nombre', apellido1 = '$apellido1', apellido2 = '$apellido2', direccion = '$direccion', telefono = '$telefono', mail = '$mail' WHERE usuario.idUsuario = '$idUsuario';";
+    $query = "UPDATE usuario SET nombre = '$nombre', apellidos = '$apellidos', direccion = '$direccion', telefono = '$telefono', mail = '$mail' WHERE usuario.idUsuario = '$idUsuario';";
     
     $db->query($query);
     

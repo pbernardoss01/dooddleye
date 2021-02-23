@@ -20,8 +20,7 @@
 
     function cambiarDatos() {
         const $nombre = document.querySelector("#nombre").value
-        const $apellido1 = document.querySelector("#apellido1").value
-        const $apellido2 = document.querySelector("#apellido2").value
+        const $apellidos = document.querySelector("#apellidos").value
         const $direccion = document.querySelector("#direccion").value
         const $telefono = document.querySelector("#telefono").value
         const $email = document.querySelector("#email").value
@@ -34,8 +33,7 @@
             page: 'ajax',
             action: 'cambiarDatos',
             nombre: $nombre,
-            apellido1: $apellido1,
-            apellido2: $apellido2,
+            apellidos: $apellidos,
             direccion: $direccion,
             telefono: $telefono,
             mail: $email

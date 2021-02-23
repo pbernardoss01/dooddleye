@@ -87,7 +87,7 @@ switch ($_POST['action']) {
     break;
 
     case 'cambiarDatos': 
-      AjaxModel::cambiarDatosUsuario($_SESSION['userData']['idUsuario'], $_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['direccion'], $_POST['telefono'], $_POST['mail']);
+      AjaxModel::cambiarDatosUsuario($_SESSION['userData']['idUsuario'], $_POST['nombre'], $_POST['apellidos'], $_POST['direccion'], $_POST['telefono'], $_POST['mail']);
       $userData = AjaxModel::mostrarDatosUsuario($_SESSION['userData']['idUsuario']);
      
       $_SESSION['userData'] = $userData;
