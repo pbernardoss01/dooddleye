@@ -158,7 +158,7 @@ function borrarProducto(event) {
             producto: productId
         },
         success: function(data) {
-console.log(data)
+
             var id="#producto"+productId
             console.log(id)
             document.querySelector(id).style.display = 'none'
@@ -167,7 +167,7 @@ console.log(data)
 
         },
         error: function(error) {
-            console.log(arguments, "lol");
+            console.log(arguments);
         }
 
     

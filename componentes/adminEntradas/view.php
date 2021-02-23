@@ -160,7 +160,7 @@ window.addEventListener('load', event_load => {
             action: 'borrarEntrada',
             id: entradaId
         },
-        success: function(data) {
+        complete: function(data) {
        
             var id="#entrada"+entradaId;
       
@@ -172,7 +172,7 @@ window.addEventListener('load', event_load => {
 
         },
         error: function(error) {
-            console.log(arguments, "lol");
+            //console.log(arguments);
         }
 
     

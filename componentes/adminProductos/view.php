@@ -187,7 +187,7 @@ window.addEventListener('load', event_load => {
             alert("El producto "+ productId + " se está borrando correctamente.");
         },
         error: function(error) {
-            console.log(arguments, "lol");
+            console.log(arguments);
         }
 
     
