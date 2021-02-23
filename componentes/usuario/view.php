@@ -4,7 +4,7 @@
 
     <?php 
                   if($_SESSION['userRol'] == "2") {  
-                    echo '<a class="link-carta-usuario" href="index.php?page=pedidos" >
+                    echo '<a class="link-carta-usuario" href="?page=pedidos" >
                             <div class="card carta-usuario" style="width: 20rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Mis Pedidos</h5>
@@ -12,7 +12,7 @@
                                 </div>
                             </div>
                         </a>';
-                    echo '<a class="link-carta-usuario" href="index.php?page=datos" >
+                    echo '<a class="link-carta-usuario" href="?page=datos" >
                             <div class="card carta-usuario" style="width: 20rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Mis Datos</h5>
@@ -22,7 +22,7 @@
                         </a>';
                   } else if($_SESSION['userRol'] == "0") {  
                     
-                    echo ' <a class="link-carta-usuario" href="index.php?page=adminProductos" >
+                    echo ' <a class="link-carta-usuario" href="php?page=adminProductos" >
                     <div class="card carta-usuario" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Productos</h5>
@@ -32,7 +32,7 @@
                     </div>
                 </a>';
 
-                echo ' <a class="link-carta-usuario" href="index.php?page=adminEntradas" >
+                echo ' <a class="link-carta-usuario" href="?page=adminEntradas" >
                     <div class="card carta-usuario" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Entradas</h5>

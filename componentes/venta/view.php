@@ -10,8 +10,8 @@
 <div class="jumbotron">
         <div class="row justify-content-center"> <p>No estás logueado. Para continuar con la compra: </p></div>
 
-        <div class="row justify-content-center"> <a  href="index.php?page=login"  type="button" class="">Logueate aquí, si ya tienes cuenta</a></div>
-        <div class="row justify-content-center">     <a  href="index.php?page=registro"  type="button" class="">Crea una nueva cuenta</a></div>
+        <div class="row justify-content-center"> <a  href="?page=login"  type="button" class="">Logueate aquí, si ya tienes cuenta</a></div>
+        <div class="row justify-content-center">     <a  href="?page=registro"  type="button" class="">Crea una nueva cuenta</a></div>
 
 </div>
 
@@ -66,7 +66,7 @@
                         
                       
                         <div id="botonesVenta" class="row col-12 d-flex justify-content-end">
-                        <a href="index.php?page=carrito"  type="button" class="btn  btn-outline-secondary boton">Cancelar</a>
+                        <a href="?page=carrito"  type="button" class="btn  btn-outline-secondary boton">Cancelar</a>
                         <button id=""  onclick="realizarPedido(event)" type="button" class="btn btn-warning boton">Paga ahora</button>
                        
                         </div>

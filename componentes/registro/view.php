@@ -11,7 +11,7 @@
     </div>
 
     <div class="form-group links text-center">
-      <a href="index.php?page=login">Ya tienes una cuenta de Dooddleye. Accede a ella.</a>
+      <a href="?page=login">Ya tienes una cuenta de Dooddleye. Accede a ella.</a>
     </div>
   
     <div id="formularioRegistro" class="form">

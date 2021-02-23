@@ -9,10 +9,10 @@
     <div class="col-md-4 col-12 d-none d-md-flex  justify-content-center columnaFooter">  
         <ul class="list-unstyled">
         <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
-            <li><a href="index.php"> Home</a></li>
-            <li><a href="index.php?page=tienda">Tienda</a></li>
-            <li><a href="index.php?page=blog">Blog</a></li>
-            <li><a href="index.php?page=contacto">Contacto</a></li>
+            <li><a href="?index.php"> Home</a></li>
+            <li><a href="?page=tienda">Tienda</a></li>
+            <li><a href="?page=blog">Blog</a></li>
+            <li><a href="?page=contacto">Contacto</a></li>
         </ul>
     </div>
     <!--Columna de acceso a las rrss-->

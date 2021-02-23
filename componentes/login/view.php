@@ -21,7 +21,7 @@
           <button id="btnLogin" class="btn btn-dark mb-2">Login</button>
         </div>
         <div class="form-group links">
-          <a href="index.php?page=registro">¿No tienes una cuenta de Dooddleye? Crearte una ahora.</a>
+          <a href="?page=registro">¿No tienes una cuenta de Dooddleye? Crearte una ahora.</a>
         </div>
       </div>
     </div>

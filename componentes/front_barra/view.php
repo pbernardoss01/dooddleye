@@ -26,7 +26,7 @@
             }else{
             //Muestra un acceso al login  
               echo '<li class="col-md-1  d-md-flex justify-content-center">
-                      <a class="col-2" title="Logueate" href="index.php?page=login" al>
+                      <a class="col-2" title="Logueate" href="?page=login" al>
                         <i class="fas fa-user"></i>
                       </a>
                     </li>';

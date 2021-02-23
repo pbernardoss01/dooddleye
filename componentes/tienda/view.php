@@ -1,6 +1,6 @@
 
 <!-- FAB de carrito -->
-<a href="index.php?page=carrito" id="globoCarrito">
+<a href="?page=carrito" id="globoCarrito">
     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 </a>
    <!--Barra de filtros--> 
