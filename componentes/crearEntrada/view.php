@@ -29,7 +29,7 @@
         </div>
         <div id="botonesEntrada" class="d-flex justify-content-center col-12">
                 <button id="" onclick="publicarEntrada(event)" type="button" class="btn btn-sm btn-outline-success">Publicar entrada</button>
-                <a id="" href="?page=adminEntrada"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
+                <a id="" href="?page=adminEntradas"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
         </div>
     </div>
     
@@ -58,7 +58,6 @@ $(document).on("click", "#add-photo", function(){
 
 $(document).on("change", "#add-new-photo", function () {
 
-    console.log(this.files);
     var files = this.files;
     var element;
     var supportedImages = ["image/jpeg", "image/png", "image/gif"];
@@ -94,7 +93,7 @@ $(document).on("click", ".image-container", function(e){
 function createPreview(file) {
     var imgCodified = URL.createObjectURL(file);
     $contenedor=$("#add-photo-container");
-    console.log($contenedor);
+   
     var img = $('<div class="col-12"><div class="image-container"><img id="imagenEntrada" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
     $contenedor.hide();
@@ -127,9 +126,8 @@ function publicarEntrada(event){
            
         },
             success: function(data) {
-                console.log(tituloEntrada)
-                console.log(descripcionEntrada)
-               // window.location.href=`?page=adminEntradas`;
+
+                window.location.href=`?page=adminEntradas`;
             },
             error: function(error){
                 console.log(error)

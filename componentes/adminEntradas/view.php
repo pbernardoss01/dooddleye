@@ -54,15 +54,12 @@ window.addEventListener('load', event_load => {
             success: function(data) {
 
 
-                console.log(data)
                 const $listaEntradas = document.querySelector('#listaEntradas')
                 const $tarjetaEntrada = document.querySelector('#entrada')
                 var contador=0
 
                 data.forEach(entrada => {
-                  console.log(entrada)
-                  console.log(entrada.idEntrada)
-
+                
                     //clona la tarjeta modelo
                     contador++
                     const clone = $tarjetaEntrada.cloneNode(true)
@@ -117,10 +114,9 @@ window.addEventListener('load', event_load => {
                     },
                     success: function(hecho) {
                         hecho.forEach(entrada => {
-                            console.log(entrada)
-                            document.querySelector(`#entrada${entrada.idEntrada} img`).setAttribute('src', `${entrada.imagen}`)
-                            console.log(entrada.imagen)
                          
+                            document.querySelector(`#entrada${entrada.idEntrada} img`).setAttribute('src', `${entrada.imagen}`)
+                     
                         })
                   
                     },
@@ -138,11 +134,11 @@ window.addEventListener('load', event_load => {
 
 
     function borrarEntrada(event) {
-      console.log(event)
+
         let entradaId = -1
     if (event.target.dataset.id) {
         entradaId = event.target.dataset.id
-        console.log(entradaId)
+ 
     } else {
         const parent = event.target.parentElement
         if (parent.dataset.id)  {
@@ -154,7 +150,7 @@ window.addEventListener('load', event_load => {
     }
 
     entradaId = parseInt(entradaId)
-    console.log(entradaId)
+ 
     $.ajax({
         url: '/',
         type: 'POST',
@@ -162,16 +158,17 @@ window.addEventListener('load', event_load => {
         data: {
             page: 'ajax',
             action: 'borrarEntrada',
-            entrada: entradaId
+            id: entradaId
         },
         success: function(data) {
-            console.log(data)
+       
             var id="#entrada"+entradaId;
-            console.log(id)
+      
             $(id).remove();
 
 
             alert("La entrada "+ entradaId + " se borró correctamente.");
+            
 
         },
         error: function(error) {

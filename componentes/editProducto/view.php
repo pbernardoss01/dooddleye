@@ -41,7 +41,7 @@
     
     <div class="d-flex justify-content-center">
         <button id="" onclick="editarProducto(event)" type="button" class="btn btn-sm btn-outline-success">Editar producto</button>
-        <a id="" href="?page=productosAdmin"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
+        <a id="" href="?page=adminProductos"  type="button" class="btn btn-sm btn-outline-secondary">Volver</a>
     </div>
 
     

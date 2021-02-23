@@ -279,12 +279,11 @@ public static function createEntrada( $titulo, $contenido, $imagen) {
 
   $db->query($query);
 
-
 }
 public static function editEntrada($id, $titulo, $contenido, $imagen) {
   $db = new database();
 
-  $query = "UPDATE entrada SET  titulo= '$nombre', contenido=$categoria, imagen='$imagen' WHERE idEntrada=$id;";
+  $query = "UPDATE entrada SET  titulo='$titulo', contenido='$contenido', imagen='$imagen' WHERE idEntrada=$id;";
 
   $db->query($query);
 

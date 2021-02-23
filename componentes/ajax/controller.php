@@ -174,19 +174,19 @@ switch ($_POST['action']) {
     break;
   
     case 'mostrarEntrada': 
-      $data = AjaxModel::getEntrada($_POST['idEntrada']);
+      $data = AjaxModel::getEntrada($_POST['id']);
       
       echo json_encode($data);
       exit;       
     break;
     case 'crearEntrada': 
-      $data = AjaxModel::createEntrada($_POST['titulo'],$_POST['contenido'],$_POST['imagen']);
+      $data = AjaxModel::createEntrada($_POST['titulo'], $_POST['contenido'], $_POST['imagen']);
       
       echo json_encode($data);
       exit;       
     break;
     case 'editarEntrada': 
-      $data = AjaxModel::getEntrada($_POST['idEntrada'],$_POST['titulo'],$_POST['contenido'],$_POST['imagen']);
+      $data = AjaxModel::editEntrada($_POST['id'], $_POST['titulo'], $_POST['contenido'], $_POST['imagen']);
       
       echo json_encode($data);
       exit;       
@@ -206,7 +206,7 @@ switch ($_POST['action']) {
       exit;       
     break;
     case 'borrarEntrada': 
-     $data = AjaxModel::borrarEntrada($_POST['entrada']);
+     $data = AjaxModel::borrarEntrada($_POST['id']);
 
       exit;       
     break;

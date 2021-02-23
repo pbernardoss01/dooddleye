@@ -41,7 +41,7 @@
 
 <script>
 const $id = parseInt(window.location.search.split("entradaid=")[1])
-//console.log($id)
+
 $('#add-photo-container').hide()    
 window.addEventListener('load', event_load => {
         $.ajax({
@@ -51,7 +51,7 @@ window.addEventListener('load', event_load => {
         data: {
             page: 'ajax',
             action: 'mostrarEntrada',
-            idEntrada: $id
+            id: $id
         },
             success: function(data) {
                 
@@ -83,7 +83,7 @@ $(document).on("click", "#add-photo", function(){
 
 $(document).on("change", "#add-new-photo", function () {
 
-    console.log(this.files);
+
     var files = this.files;
     var element;
     var supportedImages = ["image/jpeg", "image/png", "image/gif"];
@@ -119,7 +119,7 @@ $(document).on("click", ".image-container", function(e){
 function createPreview(file) {
     var imgCodified = URL.createObjectURL(file);
     $contenedor=$("#add-photo-container");
-    console.log($contenedor);
+
     var img = $('<div class="col-12"><div class="image-container"><img id="imagenEntrada" src="' + imgCodified + '" alt="Foto del usuario"></div></div>');
     $(img).insertBefore($contenedor);
     $contenedor.hide();
@@ -153,8 +153,7 @@ function editarEntrada(event){
            
         },
             success: function(data) {
-                console.log(data)
-                window.location.href=`?page=entradasAdmin`;
+                window.location.href=`?page=adminEntradas`;
             },
             error: function(error){
                 console.log(error)
