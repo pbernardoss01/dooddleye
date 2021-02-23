@@ -4,7 +4,7 @@
       </div>
 
 <label>Nombre: </label><input id="nombre" class="form-control" type="mail"  value="<?php echo $_SESSION['userData']['nombre']?>">
-<label>Apellidos: </label><input id="apellido1" class="form-control" type="mail" value="<?php echo $_SESSION['userData']['apellidos']?>">
+<label>Apellidos: </label><input id="apellidos" class="form-control" type="mail" value="<?php echo $_SESSION['userData']['apellidos']?>">
 <label>Dirección</label><input id="direccion" class="form-control" type="mail" value="<?php echo $_SESSION['userData']['direccion']?>">
 <label>Teléfono</label><input id="telefono" class="form-control" type="mail"  value="<?php echo $_SESSION['userData']['telefono']?>">
 <label>Correo electrónico</label><input id="email" class="form-control" type="mail"  value="<?php echo $_SESSION['userData']['mail']?>">
