@@ -1,6 +1,6 @@
 <div id="listaProductos" class="container">
 <div id="tituloPedido" class="text-center col-12">
-<h2>Productos</h2>
+<h2><a href="?page=usuario"> Productos</a></h2>
     
         </div> 
 

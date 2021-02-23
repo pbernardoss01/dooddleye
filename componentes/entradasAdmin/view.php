@@ -1,34 +1,21 @@
-<div id="tituloPedido" class="text-center col-12">
-        <h2>entradas</h2>
+<div id="tituloAdminEntradas" class="text-center col-12">
+        <h2><a href="?page=usuario"> Entradas</a></h2>
     </div> 
 
 
 <div id="listaEntradas" class="container-fluid">
-    
-    <div id="cabecera" class="col-12" >
-        <div class="row" >
-            <div class="col-2">
-            <strong>Imagen</strong>
-                  
-            </div>
-            <div id="idEntrada">
-                <strong>Id</strong> 
-            </div>
-            <div id="tituloEntrada" class="col-9">
-                <strong>Titulo y contenido</strong>  
-            </div>
-                
-            <div class="text-md-center">
+    <div class="row justify-content-center" >
                 <a type="button"  href="?page=crearEntrada"  class="btn btn-outline-secondary btn-xs">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </a> 
             </div>
-        </div> 
-    </div>
+    
+        
     <div id="entrada" class="col-12" style="display:none ">
+            
         <div class="row" >
-            <div class="col-2 text-center d-flex">
-                <a id="enlaceEntrada"> <img class="img-responsive" src="" alt="prewiew" width="120" height="80"></a>
+            <div class="col-12 col-md-2 text-center d-flex">
+                <a id="enlaceEntrada"> <img class="img-responsive col-12"  src="" alt="prewiew"></a>
             </div>
             <div id="idEntrada" ></div>
                 

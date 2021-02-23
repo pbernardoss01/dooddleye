@@ -34,11 +34,16 @@ body {
   width: 104%
 
 }
+a{
+  text-decoration-line: none ;
+  color: #000 ;
+}
+a:hover{
+  text-decoration-line: none ;
+  color: #000 ;
+}
 
-/*******************************Cabecera***********************************/
-/**Barra redes sociales**/
-
-
+/*******************************front_barra***********************************/
 
 #barraTop{
    justify-content: center;
@@ -46,39 +51,25 @@ body {
   background-color: #333;
   font-size: 1.5rem;
 }
-#barraTop li{
+#barraTop li{    
+  align-self: center;
   text-align: center;
   text-decoration: none;
   color: #CCC;
-  margin-left: 2em;
+  
 }
 #barraTop a{
   font-size: 0.8em;
   text-align: center;
   color: #CCC;
+  margin: 0;
 }
 #barraTop a:hover {
   color:#fff;
 }
-.dropdown-menu {
-  font-size: 1em;
-  background-color: #333;
-  color: #ccc
-}
 
-.dropdown-item:hover{
-  color:#333;
-  background-color: #333;
-}
+/*******************************front_header***********************************/
 
-
-.dropdown:hover>.dropdown-menu {
-  display: block;
-}
-
-.dropdown>.dropdown-toggle:active {
-    pointer-events: none;
-}
 
 #logoTituloCabecera img{
   margin-top: 1.5em;
@@ -94,6 +85,8 @@ body {
   justify-content: center;
   text-transform: uppercase;
 }
+
+/*******************************slider***********************************/
 
 
 #sliderCarruselGrande{
@@ -118,12 +111,17 @@ body {
   padding: 0;
 }
 
+/*******************************tienda***********************************/
 
-
-
-#catalogoProductos .card{
+#sliderContenedorProductos .card{
   border:none;
 }
+#catalogoProductos  .tarjetaProducto{
+  padding: 0;
+  border:none;
+padding:1em;
+}
+
 
 @media (max-width: 720px) {
   #imagenProduto img{
@@ -131,8 +129,9 @@ body {
   }
   #catalogoProductos{
     margin: 0;
+    padding: 0;
   }
-  
+ 
   #producto{
     padding: 0.5em;
   }
@@ -157,6 +156,7 @@ body {
     margin: 0;
   }
 
+
 }
 
 
@@ -165,6 +165,27 @@ body {
  
   transition: 0.3s;
 }
+
+
+#globoCarrito{
+  color: white;
+  background-color: #555;
+  padding: 24px;
+  font-size: 16;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 99999999;
+  bottom: 5em;
+  margin-bottom: 3em;
+  right: 2.5em;
+  
+}
+
+
+/*******************************Contacto***********************************/
+
+
+
 
 #contacto{
   margin: 3em;
@@ -188,9 +209,18 @@ body {
   margin: 2em;
 
 }
+
+
+/*******************************Venta***********************************/
+
+
 #datosUsuarioVenta div{
   margin-top:1em;
 }
+
+
+/*******************************Footer***********************************/
+
 #footer{
   padding: 5em 5em 0em 5em;
   background-color: #333;
@@ -258,101 +288,7 @@ body {
   text-align: center;
 }
 
-/*******************************Spinner***********************************/
-
-.overlay {
-  position: absolute;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  background-color: #ad4897b4;
-  z-index: 999999;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.double-bounce1, .double-bounce2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #333;
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
-}
-
-.double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
-}
-
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes sk-bounce {
-  0%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
-}
-
-
-
-.imagenSerie {
-  width: 100%;
-
- 
-  overflow: hidden;
-  
-  text-align: center;
-  cursor: default;
-}
-
-.imagenSerie .overlay {
-  position: absolute;
-  overflow: hidden;
-  width: 80%;
-  height: 80%;
-  left: 10%;
-  top: 10%;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(0,1);
-  -ms-transform: scale(0,1);
-  transform: scale(0,1);
-}
-
-.imagenSerie:hover .overlay {
-  opacity: 1;
-  filter: alpha(opacity=100);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
-
-.imagenSerie img {
-  align-items:center;
-  position: relative;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-}
+/*******************************Hover Series***********************************/
 
 
 
@@ -360,7 +296,7 @@ body {
  * Página Home
  * Patricia Bernardos
  * Proyecto 
- */
+ 
 
 .imagenSerie:hover img {
   filter: brightness(0.6);
@@ -402,7 +338,7 @@ body {
 }
 
 
-
+*/
 
 
 
@@ -712,6 +648,12 @@ margin: 1em;
 
 #listaProductos .tarjetaProducto{
   margin:1em 0em;
+  border:none;
+}
+
+#listaEntradas img{
+  height: auto;
+  width: inherit;
 }
 
 
@@ -769,18 +711,6 @@ padding: 1em 0em;
   font-size: 0.5em;
 }
 
-#globoCarrito{
-  color: white;
-  background-color: #627DD0;
-  padding: 24px;
-  font-size: 16;
-  border-radius: 50%;
-  position: fixed;
-  z-index: 99999999;
-  bottom: 2em;
-  right: 1.5em;
-  
-}
 
 
 
@@ -809,7 +739,10 @@ padding: 1em 0em;
 #tituloPedido{
   margin: 2rem;
 }
-
+#tituloAdminEntradas{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 #botonVolver{
 height: 4em;
     vertical-align: middle;
@@ -931,12 +864,13 @@ height: 4em;
 
 #listaEntradas div{
   margin-top:1em;
+  border:none;
 }
+
 
 #entradasBlog .card{
   margin: 2.2em;
   padding: 0;
-
 }
 #entradasBlog .card:hover{
   transform: scale(1.05);
@@ -1035,4 +969,9 @@ margin-bottom: 5em;
 #enlaceEntrada:hover{
   text-decoration-line: none;
   color:#000;
+}
+
+
+#sliderContenedorProductos .card{
+  border:none;
 }

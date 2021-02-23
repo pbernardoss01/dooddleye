@@ -492,8 +492,9 @@
           
       },
       success: function(data) {
-          
-        if(!data){
+          console.log(data)
+          data=data.split('"').join("");
+        if(data=="true"){
           alert("Ya existe una cuenta con ese correo")
         }else{
 

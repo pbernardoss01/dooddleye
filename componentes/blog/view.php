@@ -47,8 +47,7 @@
                 data.forEach(entrada => {
                 //Clonar plantilla
                     const clone = $entrada.cloneNode(true)
-                    
-                   
+                    //Recoger enlace de la 
                     const $enlaceEntrada = clone.querySelector('#enlaceEntrada')
                     const $tituloEntrada = clone.querySelector('#titleEntrada')
                     
@@ -56,7 +55,7 @@
                     const $fechaEntrada = clone.querySelector('#fechaEntrada')
                     clone.setAttribute('id', `entrada${entrada.idEntrada}`)
                  
-                    $enlaceEntrada.setAttribute('href', `index.php/?page=entrada&entradaid=${entrada.idEntrada}`)
+                    $enlaceEntrada.setAttribute('href', `?page=entrada&entradaid=${entrada.idEntrada}`)
 
                     clone.style.display = 'flex'
                     $tituloEntrada.append(entrada.titulo)
