@@ -1,7 +1,7 @@
 
 <div id="editEntrada" class="container">
     <div  id="tituloEditarEntrada" class="text-center col-12">
-        <h2><a href="?page=adminEntradas">Editar entrada</a></h2>
+        <h2><a href="?page=adminEntradas">Nueva entrada</a></h2>
     </div> 
     <div>
         <div  class="col-12">
