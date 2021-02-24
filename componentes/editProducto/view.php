@@ -172,7 +172,7 @@ function editarProducto(event){
         },
             success: function(data) {
           
-                window.location.href=`?page=productosAdmin`;
+                window.location.href=`?page=adminProductos`;
             },
             error: function(error){
                 console.log(error)

@@ -133,7 +133,7 @@ function guardarProducto(event){
                 precio: precioNuevoProducto
             },
                 success: function(data) {
-                    window.location.href=`index.php/?page=productosAdmin`;
+                    window.location.href=`index.php/?page=adminProductos`;
                 },
                 error: function(error){
                     console.log(error)
