@@ -51,7 +51,6 @@
             id: $id
         },
             success: function(data) {
-                console.log(data)
                 $imagenProducto = $("#imagenProducto")
                 $descripcionProducto = $('#descripcionProducto')
                 $precioProducto = $('#precioProducto')
@@ -85,11 +84,10 @@ function addCarrito(event){
                 id:event.target.dataset.id
             },
             success: function(data) {
-               console.log("exito")
-                
+               
             },
             error: function(error) {
-               console.log(error)              
+                           
             }
         })  
     }

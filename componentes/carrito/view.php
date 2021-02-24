@@ -75,11 +75,10 @@
             action: 'mostrarCesta'
             },
             success: function(data) {
-                console.log(data)
+              
                 var cesta=Object.values(data);
 
                 
-                console.log(cesta)
                 const $listaCesta = document.querySelector('#listaCesta');
                 const $producto = document.querySelector('#producto');
                 var contador=0;
@@ -118,19 +117,17 @@
 
                 })
                 var total=0;
-                console.log(total);
                 $(".precioProducto").each(function(indice,elemento){
                     
                     total= total + parseFloat(elemento.dataset.precio);
                 })
                 
-                console.log(total);
                 $("#totalCarrito").append(total, "€");
          
             },
             error: function(error) {
                 
-                console.log(error,"lol");
+                console.log(error);
             }
         })
         
@@ -147,7 +144,7 @@ function borrarProducto(event) {
     }
 
     productId = parseInt(productId)
-    console.log(productId)
+   
     $.ajax({
         url: '/',
         type: 'POST',
@@ -160,7 +157,7 @@ function borrarProducto(event) {
         success: function(data) {
 
             var id="#producto"+productId
-            console.log(id)
+  
             document.querySelector(id).style.display = 'none'
            
            // location.reload();

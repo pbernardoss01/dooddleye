@@ -136,9 +136,6 @@
                 }
                 data.forEach(producto => {
 
-console.log(producto)
-console.log(contadorBesto)
-console.log(stop)
 
 
                     if(producto.idSerieProducto=="1" && contadorBesto!=stop){
@@ -168,7 +165,7 @@ console.log(stop)
                         $productImg.setAttribute('src', `/img/productos/${producto.idSerieProducto}/${producto.nombreProducto}.jpg`)
                         const $descripcionProducto = clone.querySelector('#descripcionProducto')
                         $descripcionProducto.append(producto.descripcion)
-                        console.log(clone)
+                      
                         productosKoloi.appendChild(clone)
                         contadorKoloi++
                         

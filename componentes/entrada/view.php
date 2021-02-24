@@ -61,7 +61,7 @@ $('#comentarioEntrada').hide()
             idEntrada: $id
         },
             success: function(data) {
-                console.log(data)
+                
                 
 
                  $tituloEntrada = $('#tituloEntrada')
@@ -101,7 +101,7 @@ $('#comentarioEntrada').hide()
 
                 datos.forEach(comentario => {
                     const clone = $comentarioEntrada.cloneNode(true)
-                    console.log(comentario.titulo)
+                  
                    
                     const $autorComentario = clone.querySelector('#autorComentario')
                     const $contenidoComentario = clone.querySelector('#contenidoComentario')
@@ -124,7 +124,7 @@ $('#comentarioEntrada').hide()
 
 function publicar(event){
     $contenidoComentario =document.getElementById("textoComentario").value
-    console.log($contenidoComentario)
+    
     $.ajax({
         url: '/',
         type: 'POST',

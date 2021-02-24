@@ -66,7 +66,7 @@
             },
             error: function(error) {
                 
-                console.log(error,"lol");
+                console.log(error);
             },
             complete: function() {
                 $.ajax({
@@ -79,9 +79,9 @@
                     },
                     success: function(hecho) {
                         hecho.forEach(entrada => {
-                            console.log(entrada)
+                         
                             document.querySelector(`#entrada${entrada.idEntrada} img`).setAttribute('src', `${entrada.imagen}`)
-                            console.log(entrada.imagen)
+                         
                          
                         })
                   

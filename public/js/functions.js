@@ -70,7 +70,7 @@ function productosHome(productos){
     var hecho =false;
     
     productos.forEach(productos => producto){
-        console.log(producto);
+     
     }
 
     return hecho;

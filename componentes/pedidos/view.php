@@ -59,7 +59,6 @@
 
 
                 if(data.length!==0){
-                    console.log(data)
                     const formateado = data.reduce((listado, row) => {
                         const productData = {
                             cantidad: row.cantidad,

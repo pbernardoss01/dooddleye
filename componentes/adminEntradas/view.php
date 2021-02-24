@@ -143,8 +143,6 @@ window.addEventListener('load', event_load => {
         const parent = event.target.parentElement
         if (parent.dataset.id)  {
             entradaId = parent.dataset.id
-        }else{
-            console.log("fail")
         }
     
     }
@@ -172,7 +170,7 @@ window.addEventListener('load', event_load => {
 
         },
         error: function(error) {
-            //console.log(arguments);
+            
         }
 
     

@@ -104,11 +104,7 @@
             action: 'mostrarCesta'
         },
         success: function(data) {
-            console.log(data)/*
-                if (!Array.isArray(data) && Object.keys(data).length) {
-                    data = Object.values(data)
-                }*/
-                console.log(data)
+           
                 precioTotal = data.reduce(function(total, producto) {
                     return total + parseFloat(producto.precio)
                 }, 0)
@@ -169,7 +165,6 @@
                 $input.classList.add('is-invalid')
                 $input.classList.remove('is-valid')
                 valid = false
-                console.log("opps")
             }
         }
         if ('nombreTarjeta' in data ) {
@@ -213,12 +208,12 @@
             preciototal: precioTotal
         },
             success: function(data) {
-                console.log(data)
+               
 
                window.location.href="?page=confirmacionPedido";
         },
-            error: function(error, otro) {
-                console.log(error, otro)
+            error: function(error) {
+                console.log(error)
             }
        })
     }
