@@ -15,7 +15,7 @@
 
 <div id="comentariosEntrada">
     <div  class="container" >
-    <h3 class="col-12" id="tituloComentario">Comentario</h3>
+    <h3 class="col-12" id="tituloComentario">Comentarios</h3>
         
         <?php 
         if(isset($_SESSION['validUser'])&&$_SESSION['validUser']==true){?>
@@ -58,7 +58,7 @@ $('#comentarioEntrada').hide()
         data: {
             page: 'ajax',
             action: 'mostrarEntrada',
-            idEntrada: $id
+            id: $id
         },
             success: function(data) {
                 
@@ -90,7 +90,7 @@ $('#comentarioEntrada').hide()
         data: {
             page: 'ajax',
             action: 'mostrarComentariosEntrada',
-            idEntrada: $id
+            id: $id
         },
             success: function(datos) {
                 if(datos.length!=0){
@@ -132,7 +132,7 @@ function publicar(event){
         data: {
             page: 'ajax',
             action: 'crearComentario',
-            idEntrada: $id,
+            id: $id,
             contenidoComentario: $contenidoComentario
         },
         success: function(data) {

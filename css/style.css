@@ -682,6 +682,9 @@ margin: 1em;
 }
 
 
+#listaEntradas{
+  padding: 0;
+}
 #listaEntradas img{
   height: auto;
   width: inherit;
@@ -914,7 +917,7 @@ height: 4em;
 
 #entradaBlog #tituloEntrada{
   position:absolute;
-
+z-index: 4;
 }
 
 
@@ -929,6 +932,13 @@ width: 100%;
 object-fit: cover;
 
 }
+#entradaBlog #imagenEntrada{
+  height: 20em;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: opacity(0.5);
+  }
 #cuerpoEntrada{
   margin-top: 2em;
   margin-bottom: 2em;

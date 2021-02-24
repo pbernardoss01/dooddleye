@@ -192,14 +192,14 @@ switch ($_POST['action']) {
       exit;       
     break;
     case 'mostrarComentariosEntrada': 
-      $data = AjaxModel::getComentarioEntrada($_POST['idEntrada']);
+      $data = AjaxModel::getComentarioEntrada($_POST['id']);
       
       echo json_encode($data);
       exit;       
     break;
     case 'crearComentario': 
       $user =$_SESSION['userData']['idUsuario'];
-      $entrada =$_POST['idEntrada'];
+      $entrada =$_POST['id'];
       $contenido =$_POST['contenidoComentario'];
       $data = AjaxModel::createComentarioEntrada($user, $entrada, $contenido);
       echo json_encode($data);

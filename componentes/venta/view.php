@@ -41,7 +41,7 @@
                             <div class="col-8" id="datosTarjetaCredito">
                                 
                                 <div class="row col-md-12">
-                                    <input type="text" class="form-control" id="creditCard" placeholder="Numero de tarjeta de crédito/débito" />                                    
+                                    <input type="text" class="form-control" id="creditCard" placeholder="Numero de tarjeta de crédito/débito (12 números, sin espacios)" />                                    
                                 </div>
                                 
                                 <div class="row">

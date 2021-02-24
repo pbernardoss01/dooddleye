@@ -376,7 +376,7 @@
           } else {
               $input.classList.add('is-invalid')
               valid = false
-    console.log("nombre")
+  
 
           }
       }
@@ -387,7 +387,7 @@
               $input.classList.remove('is-invalid')
           } else {
               $input.classList.add('is-invalid')
-              console.log("apellidos")
+             
           
               valid = false
           }
@@ -403,8 +403,7 @@
               $input.classList.add('is-invalid')
             
               valid = false
-  console.log("telefono")
-
+  
           }
       }
       if ('direccion' in data ) {
@@ -416,7 +415,7 @@
               $input.classList.add('is-invalid')
          
               valid = false
-  console.log("direccion")
+ 
 
           }
       }
@@ -428,7 +427,7 @@
           } else {
               $input.classList.add('is-invalid')
               valid = false
-  console.log("mail")
+
 
           }
       }
@@ -439,7 +438,7 @@
           } else {
               $input.classList.add('is-invalid')
               valid = false
-  console.log("clave")
+
         
           }
       }
@@ -450,7 +449,7 @@
           } else {
               $input.classList.add('is-invalid')
               valid = false
-  console.log("clave2")
+
         
           }
       }
@@ -462,7 +461,6 @@
 //Evento del boton "registro"
   function realizarRegistro(event){
 
-    console.log("ok")
     //Recogida de los datos de 
     const $direccion = document.querySelector('#linea1').value + " " + document.querySelector('#linea2').value  + "\n" +  document.querySelector('#CP').value + " " + document.querySelector('#ciudad').value + "\n" + document.querySelector('#provincia').value + " " + document.querySelector('#pais').value;
     
@@ -476,9 +474,7 @@
       clave: document.querySelector('#clave').value,
       clave2: document.querySelector('#clave2').value
     }
-   console.log(datosNuevo)
     const isValid = validate(datosNuevo)
-  console.log(isValid)
     
   if (isValid) {
       $.ajax({
@@ -492,7 +488,6 @@
           
       },
       success: function(data) {
-          console.log(data)
           data=data.split('"').join("");
         if(data=="true"){
           alert("Ya existe una cuenta con ese correo")

@@ -22,7 +22,7 @@
                         </a>';
                   } else if($_SESSION['userRol'] == "0") {  
                     
-                    echo ' <a class="link-carta-usuario" href="php?page=adminProductos" >
+                    echo ' <a class="link-carta-usuario" href="?page=adminProductos" >
                     <div class="card carta-usuario" style="width: 20rem;">
                         <div class="card-body">
                             <h5 class="card-title">Productos</h5>

@@ -73,7 +73,7 @@
 //Funcion añadir a carrito. Añade el elemento seleccionado a la sesion
 function addCarrito(event){
 
-        console.log(event.target.dataset.id)
+     
         $.ajax({
             url: '/',
             type: 'POST',

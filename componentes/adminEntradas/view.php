@@ -20,12 +20,12 @@
             <div id="idEntrada" ></div>
                 
                
-            <div class="col-9">
+            <div class="col-8">
                 <h6 id="tituloEntrada"></h6>    
                 <div id="contenidoEntrada"> </div>
             </div>    
-            <div class="text-md-center">
-                
+            <div class="d-flex justify-content-center">
+                <div class="col-12">
                     <a id="editEntrada" type="button" href="page=editEntrada&entradaid=" class="btn btn-outline-primary btn-xs">
                         <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                     </a>
@@ -33,6 +33,7 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 
+                </div>
             </div>
         </div> 
     </div>
